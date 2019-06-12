@@ -379,7 +379,7 @@
                 
                     <div class="col-12">
                         <hr>
-                        <h4 class="mt-4 mb-4">Child's parameters</h4>
+                        <h4 class="mt-4 mb-4">Column's parameters</h4>
                     </div>
                 
                     {{-- Flex  --}}
