@@ -2,7 +2,6 @@
 
     Route::group(['namespace' => 'DavideCasiraghi\LaravelColumns\Http\Controllers', 'middleware' => 'web'], function () {
 
-
         /* Column Groups */
         Route::resource('laravel-column-groups', 'CardController');
 

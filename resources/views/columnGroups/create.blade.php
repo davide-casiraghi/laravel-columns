@@ -70,7 +70,7 @@
                     <div class="col-12">
                         @include('laravel-form-partials::textarea-plain', [
                             'title' => 'Description',
-                            'name' => 'group_description',
+                            'name' => 'description',
                             'value' => old('description'),
                             'required' => false,
                         ])
@@ -282,7 +282,7 @@
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Background Image', 
                           'name' => 'background_image',
-                          'folder' => 'column_groups',
+                          'folder' => 'column_groups_background_images',
                           'value' => '',
                           'required' => false,
                     ])
@@ -386,11 +386,11 @@
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
                             'title' => 'Flex',
-                            'name' => 'childs_flex',
+                            'name' => 'columns_flex',
                             'placeholder' => '', 
-                            'value' => old('childs_flex'),
+                            'value' => old('columns_flex'),
                             'required' => true,
-                            'tooltip' => 'The flex property applied to all childs. Can be overrided by setting the flex property of the single cild. Eg. flex: 1 0 320px (grow shrink basis) or 0 1 auto',
+                            'tooltip' => 'The flex property applied to all columns. Can be overrided by setting the flex property of the single cild. Eg. flex: 1 0 320px (grow shrink basis) or 0 1 auto',
                         ])
                     </div>
                     
@@ -398,9 +398,9 @@
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
                             'title' => 'Padding',
-                            'name' => 'childs_padding',
+                            'name' => 'columns_padding',
                             'placeholder' => '', 
-                            'value' => old('childs_padding'),
+                            'value' => old('columns_padding'),
                             'required' => true,
                             'tooltip' => 'eg. 10px 30px 10px 30px',
                         ])
@@ -410,7 +410,7 @@
                     <div class="col-12">
                         @include('laravel-form-partials::select', [
                               'title' => "Box sizing",
-                              'name' => 'childs_box_sizing',
+                              'name' => 'columns_box_sizing',
                               'placeholder' => "choose one...", 
                               'records' => [
                                  'content-box' => 'content-box',
@@ -418,7 +418,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('childs_box_sizing'),
+                              'seleted' => old('columns_box_sizing'),
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])
@@ -427,9 +427,9 @@
                     {{-- Round images --}}
                     <div class="col-12">
                         @include('laravel-form-partials::checkbox', [
-                              'name' => 'childs_round_images',
+                              'name' => 'columns_round_images',
                               'description' => 'Round images',
-                              'value' => old('childs_round_images'),
+                              'value' => old('columns_round_images'),
                               'required' => false,
                         ])
                     </div>
@@ -438,9 +438,9 @@
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
                             'title' => 'Images width',
-                            'name' => 'childs_images_width',
+                            'name' => 'columns_images_width',
                             'placeholder' => '', 
-                            'value' => old('childs_images_width'),
+                            'value' => old('columns_images_width'),
                             'required' => true,
                             'tooltip' => 'eg. 30px',
                         ])
@@ -449,9 +449,9 @@
                     {{-- Hide images on mobile --}}
                     <div class="col-12">
                         @include('laravel-form-partials::checkbox', [
-                              'name' => 'childs_images_hide_mobile',
+                              'name' => 'columns_images_hide_mobile',
                               'description' => 'Hide images on mobile',
-                              'value' => old('childs_images_hide_mobile'),
+                              'value' => old('columns_images_hide_mobile'),
                               'required' => false,
                         ])
                     </div>

@@ -1,4 +1,4 @@
-@extends('laravel-columns::cards.layout')
+@extends('laravel-columns::columns.layout')
 
 @section('content')
 

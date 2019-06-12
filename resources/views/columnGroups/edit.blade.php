@@ -42,7 +42,7 @@
                     {{-- Body --}}
                     <div class="col-12">
                         @include('laravel-form-partials::textarea-plain', [
-                            'title' =>  'Body',
+                            'title' => 'Body',
                             'name' => 'body',
                             'value' => $card->body
                         ])
