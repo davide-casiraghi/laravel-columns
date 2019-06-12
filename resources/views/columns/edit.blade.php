@@ -5,7 +5,7 @@
     <div class="container mb-4">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h4>Edit card</h4>
+                    <h4>Edit column</h4>
                 </div>
             </div>
 
