@@ -1,0 +1,54 @@
+{
+    "name": "davide-casiraghi/laravel-columns",
+    "description": "A Laravel library to generate responsive columns with multi language contents.",
+    "keywords": [
+        "davide-casiraghi",
+        "laravel-columns"
+    ],
+    "homepage": "https://github.com/davide-casiraghi/laravel-columns",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Davide Casiraghi",
+            "email": "davide.casiraghi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelColumns\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelColumns\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DavideCasiraghi\\LaravelColumns\\LaravelColumnsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelColumns": "DavideCasiraghi\\LaravelColumns\\LaravelColumnsFacade"
+            }
+        }
+    }
+}

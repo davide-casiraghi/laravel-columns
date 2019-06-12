@@ -1,0 +1,60 @@
+
+.flexColumns{
+
+	.wrapper {
+		display: flex;  
+		width: 100%;
+
+		/*background-position: center center;*/
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		/*background-image: url("/myJob/movementmeetslife/images/banners/water_contact.jpg");*/
+		
+		&> * {
+		  padding: 10px;
+		}
+	}
+
+	aside{
+		/*text-align: center;*/
+		img{
+			/*max-width: none;*/
+			max-width: 400px;
+		 	
+			&.hide-image-mobile{
+				@media screen and (max-width: 640px){
+					display: none;
+				}
+				
+			}
+		}
+		h2{
+			margin: 2rem 0;
+		}
+		p{
+			margin-top: 2rem;
+		}
+	}
+	
+	.separator{
+		height: 0px;
+
+		&::after{
+			display: block;
+		    content: '';
+		    width: 6rem;
+		    height: 2px;
+		    border-radius: 2px;
+		    background-color: inherit;
+		    margin: 0 auto;
+		}
+
+	}
+
+
+	
+
+}
+
+
