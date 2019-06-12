@@ -1,11 +1,11 @@
-@extends('laravel-columns::columns.layout')
+@extends('laravel-columns::columnGroups.layout')
 
 @section('content')
 
     <div class="container mb-4">
             <div class="row mb-4">
                 <div class="col-12">
-                    <h4>Edit column</h4>
+                    <h4>Edit column group</h4>
                 </div>
             </div>
 
@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-columns.update', $card->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('laravel-column-groups.update', $card->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 
@@ -197,7 +197,7 @@
                     
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [
-                            'route' => 'laravel-columns.index'  
+                            'route' => 'laravel-column-groups.index'  
                         ])
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-@extends('laravel-columns::cards.layout')
+@extends('laravel-columns::columnGroups.layout')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-columns.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('laravel-column-groups.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div class="row">
@@ -482,7 +482,7 @@
                                         
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [
-                           'route' => 'laravel-columns.index'  
+                           'route' => 'laravel-column-groups.index'  
                        ])
                     </div>
                                 
