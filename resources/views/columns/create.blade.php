@@ -16,45 +16,77 @@
             <form action="{{ route('laravel-columns.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
-                {{-- Title  --}}
-                <div class="col-12">
-                    @include('laravel-form-partials::input', [
-                        'title' => 'Title',
-                        'name' => 'title',
-                        'placeholder' => '', 
-                        'value' => old('title'),
-                        'required' => true,
-                    ])
-                </div>
+                <div class="row">
+                    {{-- Title  --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Title',
+                            'name' => 'title',
+                            'placeholder' => '', 
+                            'value' => old('title'),
+                            'required' => true,
+                        ])
+                    </div>
 
-                {{-- Body --}}
-                <div class="col-12">
-                    @include('laravel-form-partials::textarea-plain', [
-                        'title' => 'Body',
-                        'name' => 'body',
-                        'value' => old('body'),
-                        'required' => false,
-                    ])
-                </div>
-                
-                {{-- Columns group --}}
-                <div class="col-12">
-                    @include('laravel-form-partials::select', [
-                          'title' => "Columns group",
-                          'name' => 'columns_group',
-                          'placeholder' => "choose one...", 
-                          'records' => $columnGroupsArray,
-                          'liveSearch' => 'false',
-                          'mobileNativeMenu' => true,
-                          'seleted' => old('columns_group'),
-                          'tooltip' => 'Pick the group to show',
-                          'required' => false,
-                    ])
-                </div>
-            
-                {{-- ====================================================== --}}
+                    {{-- Body --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::textarea-plain', [
+                            'title' => 'Body',
+                            'name' => 'body',
+                            'value' => old('body'),
+                            'required' => false,
+                        ])
+                    </div>
                     
-                                        
+                    {{-- Columns group --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::select', [
+                              'title' => "Columns group",
+                              'name' => 'columns_group',
+                              'placeholder' => "choose one...", 
+                              'records' => $columnGroupsArray,
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('columns_group'),
+                              'tooltip' => 'Pick the group to show',
+                              'required' => false,
+                        ])
+                    </div>
+                
+                    {{-- Image --}}
+                    @include('laravel-form-partials::upload-image', [
+                          'title' => 'Column image',
+                          'name' => 'image_file_name',
+                          'folder' => 'cards',
+                          'value' => old('image_file_name'),
+                    ]) 
+                    
+                    {{-- Icons fontawesome --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' =>  'Icons fontawesome',
+                            'name' => 'icon_fontawesome',
+                            'tooltip' => 'Font awesome icon color.',
+                            'placeholder' => '#HEX', 
+                            'value' => old('icon_fontawesome'),
+                            'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- Icons color --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' =>  'Icons color',
+                            'name' => 'icons_color',
+                            'tooltip' => 'Font awesome icon color.',
+                            'placeholder' => '#HEX', 
+                            'value' => old('icons_color'),
+                            'required' => false,
+                        ])
+                    </div>
+                    
+                    {{-- ====================================================== --}}
+                                                            
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [
                            'route' => 'laravel-columns.index'  

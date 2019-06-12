@@ -14,5 +14,8 @@ class Column extends Model
     public $translatedAttributes = ['title','body','button_text','image_alt'];
     protected $fillable = [
         'columns_group',
+        'image_file_name',
+        'icon_fontawesome',
+        'icon_color',
     ];
 }

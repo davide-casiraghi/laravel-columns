@@ -467,18 +467,6 @@
                             'tooltip' => 'eg. 2rem',
                         ])
                     </div>
-                
-                    {{-- Icons color --}}
-                    <div class="col-12">
-                        @include('laravel-form-partials::input', [
-                            'title' =>  'Icons color',
-                            'name' => 'icons_color',
-                            'tooltip' => 'Font awesome icon color.',
-                            'placeholder' => '#HEX', 
-                            'value' => old('icons_color'),
-                            'required' => false,
-                        ])
-                    </div>
                                         
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [

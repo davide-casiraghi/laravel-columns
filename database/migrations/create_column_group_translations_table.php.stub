@@ -12,9 +12,8 @@ class CreateColumnGroupTranslationsTable extends Migration
             $table->increments('id');
             $table->integer('column_group_id')->unsigned();
             
-            $table->string('heading')->nullable();
             $table->string('title')->nullable();
-            $table->text('body')->nullable();
+            $table->text('description')->nullable();
             $table->string('button_text')->nullable();
             $table->string('image_alt')->nullable();
             

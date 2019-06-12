@@ -38,6 +38,5 @@ class ColumnGroup extends Model
         'columns_images_width',
         'columns_images_hide_mobile',
         'icons_size',
-        'icons_color',
     ];
 }
