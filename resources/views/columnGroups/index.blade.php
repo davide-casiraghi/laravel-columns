@@ -7,7 +7,7 @@
             <h4>Column group list</h4>
         </div>
         <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success create-new" href="{{ route('laravel-column-groups.create') }}">Add new card</a>
+            <a class="btn btn-success create-new" href="{{ route('laravel-column-groups.create') }}">Add new columns group</a>
         </div>
     </div>
     
