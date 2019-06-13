@@ -42,7 +42,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [
-            LaravelCardsServiceProvider::class,
+            LaravelColumnsServiceProvider::class,
             \Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
             \Dimsav\Translatable\TranslatableServiceProvider::class,
             \DavideCasiraghi\LaravelFormPartials\LaravelFormPartialsServiceProvider::class,

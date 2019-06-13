@@ -52,7 +52,7 @@
                 "DavideCasiraghi\\LaravelColumns\\LaravelColumnsServiceProvider"
             ],
             "aliases": {
-                "LaravelColumns": "DavideCasiraghi\\LaravelColumns\\LaravelColumnsFacade"
+                "LaravelColumns": "DavideCasiraghi\\LaravelColumns\\LaravelColumns"
             }
         }
     }

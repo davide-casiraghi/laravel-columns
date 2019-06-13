@@ -3,6 +3,7 @@
 namespace DavideCasiraghi\LaravelColumns;
 
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 
 class LaravelColumnsServiceProvider extends ServiceProvider
 {
