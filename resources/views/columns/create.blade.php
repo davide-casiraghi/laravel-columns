@@ -85,6 +85,18 @@
                         ])
                     </div>
                     
+                    {{-- Button Url --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' =>  'Button Url',
+                            'name' => 'button_url',
+                            'tooltip' => '',
+                            'placeholder' => 'https://...', 
+                            'value' => old('button_url'),
+                            'required' => false,
+                        ])
+                    </div>
+                    
                     {{-- ====================================================== --}}
                                                             
                     <div class="col-12">

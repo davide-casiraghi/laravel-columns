@@ -17,5 +17,6 @@ class Column extends Model
         'image_file_name',
         'icon_fontawesome',
         'icon_color',
+        'button_url',
     ];
 }
