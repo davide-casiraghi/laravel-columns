@@ -90,45 +90,42 @@ class ColumnControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function the_route_store_can_be_accessed()
+    public function the_route_store_can_be_accessed()
     {
         $this->authenticateAsAdmin();
 
         $data = [
-            'image_file_name' => 'test.jpg',
-            'button_url' => 'test button url',
-            'img_col_size'  => '3',
-            'bkg_color'  => '#FF00FF',
-            'text_color'  => '#2365AA',
-            'container_wrap'  => '1',
+            'columns_group' => 1,
+            'image_file_name' => 'image_test_1.jpg',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
         ];
 
         $this
             ->followingRedirects()
             ->post('/columns', $data);
 
-        $this->assertDatabaseHas('columns', ['image_file_name' => 'test.jpg']);
-    }*/
+        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
+    }
 
     /** @test */
-    /*public function the_route_show_can_be_accessed()
+    public function the_route_show_can_be_accessed()
     {
         $id = Column::insertGetId([
+            'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
-            'img_alignment' => 'right',
-            'button_url' => 'test button url',
-            'img_col_size'  => '3',
-            'bkg_color'  => '#FF00FF',
-            'text_color'  => '#2365AA',
-            'container_wrap'  => '1',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
         ]);
 
         ColumnTranslation::insert([
             'column_id' => $id,
-            'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
             'button_text' => 'test button text',
+            'image_alt' => 'test alt text',
             'locale' => 'en',
         ]);
 
@@ -136,29 +133,27 @@ class ColumnControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columns.show')
             ->assertViewHas('columnParameters')
             ->assertStatus(200);
-    }*/
+    }
 
     /** @test */
-    /*public function the_route_edit_can_be_accessed()
+    public function the_route_edit_can_be_accessed()
     {
         $this->authenticateAsAdmin();
 
         $id = Column::insertGetId([
+            'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
-            'img_alignment' => 'right',
-            'button_url' => 'test button url',
-            'img_col_size'  => '3',
-            'bkg_color'  => '#FF00FF',
-            'text_color'  => '#2365AA',
-            'container_wrap'  => '1',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
         ]);
 
         ColumnTranslation::insert([
             'column_id' => $id,
-            'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
             'button_text' => 'test button text',
+            'image_alt' => 'test alt text',
             'locale' => 'en',
         ]);
 
@@ -166,5 +161,5 @@ class ColumnControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columns.edit')
             ->assertViewHas('column')
             ->assertStatus(200);
-    }*/
+    }
 }
