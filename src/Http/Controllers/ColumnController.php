@@ -119,7 +119,7 @@ class ColumnController extends Controller
         $column = Column::find($columnId);
 
         return view('laravel-columns::columns.edit', compact('column'))
-                    ->with('buttonColorArray', $this->getButtonColorArray());
+                    ->with('columnGroupsArray', $this->getColumnGroupsArray());
     }
 
     /***************************************************************************/
