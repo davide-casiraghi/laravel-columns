@@ -171,21 +171,16 @@ class ColumnController extends Controller
      */
     public function saveOnDb($request, $column)
     {
-        $column->translateOrNew('en')->heading = $request->get('heading');
         $column->translateOrNew('en')->title = $request->get('title');
         $column->translateOrNew('en')->body = $request->get('body');
         $column->translateOrNew('en')->button_text = $request->get('button_text');
         $column->translateOrNew('en')->image_alt = $request->get('image_alt');
 
-        $column->img_alignment = $request->get('img_alignment');
-        $column->img_col_size = $request->get('img_col_size');
-        $column->img_col_size = $request->get('img_col_size');
-        $column->bkg_color = $request->get('bkg_color');
+        $column->columns_group = $request->get('columns_group');
+        $column->image_file_name = $request->get('image_file_name');
+        $column->fontawesome_icon_class = $request->get('fontawesome_icon_class');
+        $column->icon_color = $request->get('icon_color');
         $column->button_url = $request->get('button_url');
-        $column->button_color = $request->get('button_color');
-        $column->button_corners = $request->get('button_corners');
-        $column->button_icon = $request->get('button_icon');
-        $column->container_wrap = ($request->container_wrap == 'on') ? 1 : 0;
 
         // Column image upload
         $imageSubdir = 'columns';
