@@ -26,9 +26,9 @@ class ColumnControllerTest extends TestCase
     {
         $this->authenticateAsAdmin();
 
-        $this->get('columns/create')->dump();
-            //->assertViewIs('laravel-columns::columns.create')
-            //->assertStatus(200);
+        $this->get('columns/create')
+            ->assertViewIs('laravel-columns::columns.create')
+            ->assertStatus(200);
     }
 
     /** @test */
