@@ -12,7 +12,7 @@ class CreateColumnsTable extends Migration
             $table->increments('id');
             $table->integer('columns_group')->nullable();
             $table->string('image_file_name')->nullable();
-            $table->string('icon_fontawesome')->nullable();
+            $table->string('fontawesome_icon_class')->nullable();
             $table->string('icon_color')->nullable();
             $table->string('button_url')->nullable();
             

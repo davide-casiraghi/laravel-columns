@@ -15,7 +15,7 @@ class Column extends Model
     protected $fillable = [
         'columns_group',
         'image_file_name',
-        'icon_fontawesome',
+        'fontawesome_icon_class',
         'icon_color',
         'button_url',
     ];

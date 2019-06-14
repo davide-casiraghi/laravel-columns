@@ -65,10 +65,10 @@
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
                             'title' =>  'Icons fontawesome',
-                            'name' => 'icon_fontawesome',
+                            'name' => 'fontawesome_icon_class',
                             'tooltip' => 'Font awesome icon color.',
                             'placeholder' => '#HEX', 
-                            'value' => $column->icon_fontawesome,
+                            'value' => $column->fontawesome_icon_class,
                             'required' => false,
                         ])
                     </div>

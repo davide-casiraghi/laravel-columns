@@ -21,7 +21,7 @@ $factory->define(DavideCasiraghi\LaravelColumns\Models\Column::class, function (
         'image_alt:en' => $faker->sentence($nbWords = 1, $variableNbWords = true).".jpg",
         'columns_group' => 1,
         'image_file_name' => 'testImage.jpg',
-        'icon_fontawesome' => '',
+        'fontawesome_icon_class' => '',
         'icon_color' => '#AA33BB',
         'button_url' => 'https://www.google.it',
     ];
