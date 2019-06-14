@@ -7,7 +7,7 @@
             <h4>Columns list</h4>
         </div>
         <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success create-new" href="{{ route('laravel-columns.create') }}">Add new card</a>
+            <a class="btn btn-success create-new" href="{{ route('columns.create') }}">Add new column</a>
         </div>
     </div>
     
@@ -22,19 +22,19 @@
     <div class="quotesList my-4">
         
         {{--
-        @foreach ($cards as $card)
+        @foreach ($columns as $column)
             <div class="row bg-white shadow-1 rounded mb-3 pb-2 pt-3 mx-1">
                 
                 <div class="col-12 py-1">
-                    <h5>{{ $card->author }}</h5>
+                    <h5>{{ $column->author }}</h5>
                     <div class="">
-                        {{ $card->text }}
+                        {{ $column->text }}
                     </div>
                 </div>
                 
                 <div class="col-12 pb-2">
-                    <form action="{{ route('laravel-columns.destroy',$card->id) }}" method="POST">
-                        <a class="btn btn-primary float-right" href="{{ route('laravel-columns.edit',$card->id) }}">Edit</a>
+                    <form action="{{ route('columns.destroy',$column->id) }}" method="POST">
+                        <a class="btn btn-primary float-right" href="{{ route('columns.edit',$column->id) }}">Edit</a>
                         
                         @csrf
                         @method('DELETE')
@@ -48,7 +48,7 @@
         --}}
         
         
-        @foreach ($cards as $card)
+        @foreach ($columns as $column)
                 <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
                     <div class="col-12 pb-2 pt-3 px-3">
@@ -56,27 +56,27 @@
                             
                             {{-- Title --}}
                             <div class="col-12 py-1 title">
-                                <h5 class="darkest-gray">{{ $card->title }}</h5>
+                                <h5 class="darkest-gray">{{ $column->title }}</h5>
                             </div>
                             <div class="col-12">
-                                @if($card->translate('en')->body){{ $card->translate('en')->body }}@endif
+                                @if($column->translate('en')->body){{ $column->translate('en')->body }}@endif
                             </div>
                             
                             {{-- Translations --}}
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                                    @if($card->hasTranslation($key))
-                                        <a href="{{ route('laravel-columns-translation.edit', ['jumbotronImageTranslationId' => $card->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                    @if($column->hasTranslation($key))
+                                        <a href="{{ route('laravel-columns-translation.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('laravel-columns-translation.create', ['jumbotronImageTranslationId' => $card->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('laravel-columns-translation.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
                             <div class="col-12 pb-2 action">
-                                <form action="{{ route('laravel-columns.destroy',$card->id) }}" method="POST">
+                                <form action="{{ route('columns.destroy',$column->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('laravel-columns.edit',$card->id) }}">@lang('laravel-columns::general.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('laravel-columns.show',$card->id) }}">@lang('laravel-columns::general.view')</a>
+                                    <a class="btn btn-primary float-right" href="{{ route('columns.edit',$column->id) }}">@lang('laravel-columns::general.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('columns.show',$column->id) }}">@lang('laravel-columns::general.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')

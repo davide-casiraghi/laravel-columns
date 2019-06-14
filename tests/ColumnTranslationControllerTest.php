@@ -24,7 +24,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
@@ -33,7 +33,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         $this->get('laravel-columns-translation/'.$id.'/es/create')
-            ->assertViewIs('laravel-cards::cardsTranslations.create')
+            ->assertViewIs('laravel-columns::columnsTranslations.create')
             ->assertStatus(200);
     }*/
 
@@ -51,7 +51,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
@@ -60,7 +60,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading spanish',
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -69,8 +69,8 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         $this->get('laravel-columns-translation/'.$id.'/es/edit')
-            ->assertViewIs('laravel-cards::cardsTranslations.edit')
-            ->assertViewHas('cardId')
+            ->assertViewIs('laravel-columns::columnsTranslations.edit')
+            ->assertViewHas('columnId')
             ->assertViewHas('languageCode')
             ->assertStatus(200);
     }*/
@@ -89,7 +89,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         $data = [
-            'card_id' => $id,
+            'column_id' => $id,
             'language_code' => 'es',
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -100,7 +100,7 @@ class ColumnTranslationControllerTest extends TestCase
             ->followingRedirects()
             ->post('/laravel-columns-translation', $data);
 
-        $this->assertDatabaseHas('cards', ['image_file_name' => 'image_test_1.jpg']);
+        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
     }*/
 
     /** @test */
@@ -117,7 +117,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
@@ -126,7 +126,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading spanish',
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -152,7 +152,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading',
             'title' => 'test title',
             'body' => 'test body',
@@ -161,7 +161,7 @@ class ColumnTranslationControllerTest extends TestCase
         ]);
 
         $translationId = ColumnTranslation::insert([
-            'card_id' => $id,
+            'column_id' => $id,
             'heading' => 'test heading spanish',
             'title' => 'test title spanish',
             'body' => 'test body spanish',
@@ -171,8 +171,8 @@ class ColumnTranslationControllerTest extends TestCase
 
         $request = new \Illuminate\Http\Request();
         $request->replace([
-            'card_translation_id' => $translationId,
-            'card_id' => $id,
+            'column_translation_id' => $translationId,
+            'column_id' => $id,
             'body' => 'test spanish text updated',
             'language_code' => 'es',
          ]);

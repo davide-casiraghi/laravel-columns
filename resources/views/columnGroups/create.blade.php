@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-column-groups.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('column-groups.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div class="row">

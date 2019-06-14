@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-columns.update', $card->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('columns.update', $column->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 
@@ -57,7 +57,7 @@
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Column image',
                           'name' => 'image_file_name',
-                          'folder' => 'cards',
+                          'folder' => 'columns',
                           'value' => $column->image_file_name
                     ]) 
                     

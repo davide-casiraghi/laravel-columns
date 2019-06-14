@@ -2,25 +2,25 @@
 
 @section('content')
     {{--
-    @if($card)
-        {{$card->heading}}<br />
-        {{$card->title}}<br />
-        {{$card->body}}<br />
-        {{$card->button_text}}<br />
-        @if(!empty($card->image_file_name))
-            <img class="ml-3 float-right img-fluid mb-2" src="/storage/images/cards/thumb_{{ $card->image_file_name }}" ><br />
+    @if($column)
+        {{$column->heading}}<br />
+        {{$column->title}}<br />
+        {{$column->body}}<br />
+        {{$column->button_text}}<br />
+        @if(!empty($column->image_file_name))
+            <img class="ml-3 float-right img-fluid mb-2" src="/storage/images/columns/thumb_{{ $column->image_file_name }}" ><br />
         @endif
-        {{$card->button_url}}<br />
+        {{$column->button_url}}<br />
     @else
         <div class="alert alert-warning" role="alert">
-            No card corresponding to the specified ID has been found.
+            No column corresponding to the specified ID has been found.
         </div>
     @endif
     --}}
     
-    @include('laravel-columns::show-card', [
-         'card' => $card,
-         'cardParameters' => $cardParameters,
+    @include('laravel-columns::show-column', [
+         'column' => $column,
+         'columnParameters' => $columnParameters,
    ])
     
 @endsection

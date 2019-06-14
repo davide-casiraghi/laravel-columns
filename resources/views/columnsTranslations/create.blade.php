@@ -1,4 +1,4 @@
-@extends('laravel-columns::cards.layout')
+@extends('laravel-columns::columns.layout')
 
 @section('content')
     
@@ -69,7 +69,7 @@
         </div>
 
         @include('laravel-form-partials::buttons-back-submit', [
-            'route' => 'laravel-cards.index'  
+            'route' => 'laravel-columns.index'  
         ])
 
     </form>

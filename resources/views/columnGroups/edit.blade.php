@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-column-groups.update', $card->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('column-groups.update', $column->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 

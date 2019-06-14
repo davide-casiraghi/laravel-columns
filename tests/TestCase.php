@@ -52,7 +52,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'LaravelCards' => LaravelCards::class, // facade called PhpResponsiveQuote and the name of the facade class
+            'LaravelColumns' => LaravelColumns::class, // facade called PhpResponsiveQuote and the name of the facade class
             'LaravelLocalization' => \Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
             'LaravelFormPartials' => \DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials::class,
         ];

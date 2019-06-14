@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('laravel-columns.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('columns.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div class="row">
@@ -57,7 +57,7 @@
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Column image',
                           'name' => 'image_file_name',
-                          'folder' => 'cards',
+                          'folder' => 'columns',
                           'value' => old('image_file_name'),
                     ]) 
                     

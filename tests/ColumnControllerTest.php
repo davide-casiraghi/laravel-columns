@@ -16,9 +16,9 @@ class ColumnControllerTest extends TestCase
     public function the_route_index_can_be_accessed()
     {
         $this->authenticateAsAdmin();
-        $this->get('laravel-columns')->dump();
-            //->assertViewIs('laravel-columns::columns.index')
-            //->assertStatus(200);
+        $this->get('columns')
+            ->assertViewIs('laravel-columns::columns.index')
+            ->assertStatus(200);
     }
 
     /** @test */
@@ -26,7 +26,7 @@ class ColumnControllerTest extends TestCase
     {
         $this->authenticateAsAdmin();
 
-        $this->get('laravel-columns/create')
+        $this->get('columns/create')
             ->assertViewIs('laravel-columns::columns.create')
             ->assertStatus(200);
     }*/
@@ -55,7 +55,7 @@ class ColumnControllerTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->delete('laravel-columns/1')
+        $this->delete('columns/1')
             ->assertStatus(302);
     }*/
 
@@ -89,7 +89,7 @@ class ColumnControllerTest extends TestCase
               'body' => 'test body updated',
           ]);
 
-        $this->put('laravel-columns/1', [$request, 1])
+        $this->put('columns/1', [$request, 1])
             ->assertStatus(302);
     }*/
 
@@ -109,7 +109,7 @@ class ColumnControllerTest extends TestCase
 
         $this
             ->followingRedirects()
-            ->post('/laravel-columns', $data);
+            ->post('/columns', $data);
 
         $this->assertDatabaseHas('columns', ['image_file_name' => 'test.jpg']);
     }*/
@@ -136,7 +136,7 @@ class ColumnControllerTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->get('laravel-columns/1')
+        $this->get('columns/1')
             ->assertViewIs('laravel-columns::columns.show')
             ->assertViewHas('columnParameters')
             ->assertStatus(200);
@@ -166,7 +166,7 @@ class ColumnControllerTest extends TestCase
             'locale' => 'en',
         ]);
 
-        $this->get('laravel-columns/1/edit')
+        $this->get('columns/1/edit')
             ->assertViewIs('laravel-columns::columns.edit')
             ->assertViewHas('column')
             ->assertStatus(200);
