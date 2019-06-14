@@ -1,9 +1,8 @@
 @extends('laravel-columns::columns.layout')
 
 @section('content')
-    {{--
+
     @if($column)
-        {{$column->heading}}<br />
         {{$column->title}}<br />
         {{$column->body}}<br />
         {{$column->button_text}}<br />
@@ -16,11 +15,11 @@
             No column corresponding to the specified ID has been found.
         </div>
     @endif
-    --}}
     
+    {{--
     @include('laravel-columns::show-column', [
          'column' => $column,
          'columnParameters' => $columnParameters,
    ])
-    
+    --}}
 @endsection
