@@ -22,14 +22,14 @@ class ColumnControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function the_route_create_can_be_accessed()
+    public function the_route_create_can_be_accessed()
     {
         $this->authenticateAsAdmin();
 
-        $this->get('columns/create')
-            ->assertViewIs('laravel-columns::columns.create')
-            ->assertStatus(200);
-    }*/
+        $this->get('columns/create')->dump();
+            //->assertViewIs('laravel-columns::columns.create')
+            //->assertStatus(200);
+    }
 
     /** @test */
     /*public function the_route_destroy_can_be_accessed()

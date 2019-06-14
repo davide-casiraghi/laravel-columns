@@ -69,7 +69,7 @@
         </div>
 
         @include('laravel-form-partials::buttons-back-submit', [
-            'route' => 'laravel-columns.index'  
+            'route' => 'columns.index'  
         ])
 
     </form>

@@ -30,6 +30,16 @@ class LaravelColumnsServiceProvider extends ServiceProvider
                 __DIR__.'/../database/migrations/create_column_translations_table.php.stub' => database_path('migrations/'.Carbon::now()->format('Y_m_d_Hmsu').'_create_column_translations_table.php'),
             ], 'migrations');
         }
+        if (! class_exists('CreateColumnGroupsTable')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_column_groups_table.php.stub' => database_path('migrations/'.Carbon::now()->format('Y_m_d_Hmsu').'_create_column_groups_table.php'),
+            ], 'migrations');
+        }
+        if (! class_exists('CreateColumnGroupTranslationsTable')) {
+            $this->publishes([
+                __DIR__.'/../database/migrations/create_column_group_translations_table.php.stub' => database_path('migrations/'.Carbon::now()->format('Y_m_d_Hmsu').'_create_column_group_translations_table.php'),
+            ], 'migrations');
+        }
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

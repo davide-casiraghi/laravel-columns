@@ -5,6 +5,7 @@ namespace DavideCasiraghi\LaravelColumns\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use DavideCasiraghi\LaravelColumns\Models\Column;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use Intervention\Image\ImageManagerStatic as Image;
 use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -63,7 +64,7 @@ class ColumnController extends Controller
     public function create()
     {
         return view('laravel-columns::columns.create')
-                    ->with('buttonColorArray', $this->getButtonColorArray());
+                    ->with('columnGroupsArray', $this->getColumnGroupsArray());
     }
 
     /***************************************************************************/
@@ -198,34 +199,13 @@ class ColumnController extends Controller
     /***************************************************************************/
 
     /**
-     * Return and array with the button possible color options.
+     * Return and array with the column groups
      *
      * @return array
      */
-    public static function getButtonColorArray()
+    public static function getColumnGroupsArray()
     {
-        $ret = [
-             'press-red' => 'Red',
-             'press-pink' => 'Pink',
-             'press-purple' => 'Purple',
-             'press-deeppurple' => 'Deep purple',
-             'press-indigo' => 'Indigo',
-             'press-blue' => 'Blue',
-             'press-lightblue' => 'Light blue',
-             'press-cyan' => 'Cyan',
-             'press-teal' => 'Teal',
-             'press-green' => 'Green',
-             'press-lightgreen' => 'Light green',
-             'press-lime' => 'Lime',
-             'press-yellow' => 'Yellow',
-             'press-amber' => 'Amber',
-             'press-orange' => 'Orange',
-             'press-deeporange' => 'Deeporange',
-             'press-brown' => 'Brown',
-             'press-grey' => 'Grey',
-             'press-bluegrey' => 'Blue grey',
-             'press-black' => 'Black',
-         ];
+        $ret = ColumnGroup::orderBy('title')->pluck('title', 'id');
 
         return $ret;
     }

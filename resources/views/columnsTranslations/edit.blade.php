@@ -72,7 +72,7 @@
         <div class="row mt-2">  
             <div class="col-12 action">
                 @include('laravel-form-partials::buttons-back-submit', [
-                    'route' => 'laravel-columns.index'  
+                    'route' => 'columns.index'  
                 ])
     </form>
 
