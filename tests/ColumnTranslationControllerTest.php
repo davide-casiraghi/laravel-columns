@@ -11,7 +11,7 @@ class ColumnTranslationControllerTest extends TestCase
     use WithFaker;
 
     /** @test */
-    public function the_route_create_translation_can_be_accessed()
+    public function it_displays_the_column_translation_create_page()
     {
         $id = Column::insertGetId([
             'columns_group' => 1,
