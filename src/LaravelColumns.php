@@ -29,11 +29,11 @@ public static function getColumn($columnId)
  *  @param string $text
  *  @return array $matches
  **/
-public static function getColumnSnippetOccurrences($text)
+public static function getColumnGroupSnippetOccurrences($text)
 {
     $re = '/{\#
-            \h+column
-            \h+(column_id)=\[([^]]*)]
+            \h+column_group
+            \h+(column_group_id)=\[([^]]*)]
             \h*\#}/x';
 
     if (preg_match_all($re, $text, $matches, PREG_SET_ORDER, 0)) {
@@ -73,9 +73,9 @@ public static function getSnippetParameters($matches)
  *  @param string $text
  *  @return string $ret
  **/
-public function replace_column_snippets_with_template($text)
+public function replace_column_group_snippets_with_template($text)
 {
-    $matches = self::getColumnSnippetOccurrences($text);
+    $matches = self::getColumnGroupSnippetOccurrences($text);
 
     if ($matches) {
         foreach ($matches as $key => $single_gallery_matches) {
@@ -85,7 +85,7 @@ public function replace_column_snippets_with_template($text)
             //dd($column);
             $columnParameters = ($column) ? $this->getParametersArray($column) : null;
 
-            $columnView = self::showColumn($column, $columnParameters);
+            $columnView = self::showColumnGroup($column, $columnParameters);
             $columnHtml = $columnView->render();
 
             // Substitute the column html to the token that has been found
@@ -101,15 +101,15 @@ public function replace_column_snippets_with_template($text)
 /***************************************************************************/
 
 /**
- * Show a Column.
+ * Show a Column group.
  *
- * @param  \DavideCasiraghi\LaravelColumns\Models\Column $column
+ * @param  \DavideCasiraghi\LaravelColumns\Models\ColumnGroup $columnGroup
  * @return \Illuminate\Http\Response
  */
-public function showColumn($column, $columnParameters)
+public function showColumnGroup($columnGroup, $columnGroupParameters)
 {
-    return view('laravel-columns::show-column', compact('column'))
-        ->with('columnParameters', $columnParameters);
+    return view('laravel-columns::show-column-group', compact('columnGroup'))
+        ->with('columnGroupParameters', $columnGroupParameters);
 }
 
 /***************************************************************************/
