@@ -129,20 +129,20 @@ class ColumnTranslationControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_deletes_column_translation()
+    public function it_deletes_column_translation()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
         $data = [
-            'column_id' => $column->id,
+            'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
-            'title' => 'Spanish column title',
+            'title' => 'Spanish column group title',
         ];
         
-        $this->post('/columnTranslations/store', $data);
+        $this->post('/columnGroupTranslations/store', $data);
 
-        $response = $this->delete('/columnTranslations/destroy/2');
-        $response->assertRedirect('/columns');
-    }*/
+        $response = $this->delete('/columnGroupTranslations/destroy/2');
+        $response->assertRedirect('/columnGroups');
+    }
 }
