@@ -1,4 +1,4 @@
-@extends('laravel-columns::columns.layout')
+@extends('laravel-columns::columnGroups.layout')
 
 @section('content')
     
@@ -15,16 +15,16 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('laravel-columnGroupTranslations.update', $columnTranslation->id) }}" method="POST">
+    <form action="{{ route('columnGroupTranslations.update', $columnGroupTranslation->id) }}" method="POST">
         @csrf
         @method('PUT')
             @include('laravel-form-partials::input-hidden', [
-                  'name' => 'column_translation_id',
-                  'value' => $columnTranslation->id,
+                  'name' => 'column_group_translation_id',
+                  'value' => $columnGroupTranslation->id,
             ])
             @include('laravel-form-partials::input-hidden', [
-                  'name' => 'column_id',
-                  'value' => $columnId,
+                  'name' => 'column_group_id',
+                  'value' => $columnGroupId,
             ])
             @include('laravel-form-partials::input-hidden', [
                   'name' => 'language_code',
@@ -76,7 +76,7 @@
                 ])
     </form>
 
-                <form action="{{ route('laravel-columnGroupTranslations.destroy',$columnTranslation->id) }}" method="POST">
+                <form action="{{ route('columnGroupTranslations.destroy',$columnGroupTranslation->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-link pl-0">Delete translation</button>

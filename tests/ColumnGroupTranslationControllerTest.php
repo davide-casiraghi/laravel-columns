@@ -33,14 +33,14 @@ class ColumnTranslationControllerTest extends TestCase
         $data = [
             'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
-            'title' => 'Spanish column title',
+            'title' => 'Spanish column group title',
         ];
 
         $response = $this
             ->followingRedirects()
             ->post('/columnGroupTranslations/store', $data);
         
-        $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
+        $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column group title']);
         $response->assertViewIs('laravel-columns::columnGroups.index');
     }
     
@@ -56,23 +56,23 @@ class ColumnTranslationControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function it_displays_the_event_column_translation_edit_page()
+    public function it_displays_the_event_column_translation_edit_page()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
         $data = [
-            'column_id' => $column->id,
+            'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
-            'title' => 'Spanish column title',
+            'title' => 'Spanish column group title',
         ];
 
-        $this->post('/columnTranslations/store', $data);
+        $this->post('/columnGroupTranslations/store', $data);
 
-        $response = $this->get('/columnTranslations/'.$column->id.'/'.'es'.'/edit');
-        $response->assertViewIs('laravel-columns::columnsTranslations.edit')
+        $response = $this->get('/columnGroupTranslations/'.$columnGroup->id.'/'.'es'.'/edit');
+        $response->assertViewIs('laravel-columns::columnGroupTranslations.edit')
                  ->assertStatus(200);
-    }*/
+    }
 
     /** @test */
     /*public function it_updates_valid_column_translation()
