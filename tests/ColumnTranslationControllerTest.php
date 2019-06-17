@@ -74,27 +74,8 @@ class ColumnTranslationControllerTest extends TestCase
                  ->assertStatus(200);
     }
 
-    
     /** @test */
-    public function the_route_destroy_can_be_accessed()
-    {
-        $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create();
-
-        $data = [
-            'column_id' => $column->id,
-            'language_code' => 'es',
-            'title' => 'Spanish column title',
-        ];
-        
-        $this->post('/columns-translation/store', $data);
-
-        $response = $this->delete('/columns-translation/destroy/2');
-        $response->assertRedirect('/columns');
-    }
-
-    /** @test */
-    public function the_route_update_can_be_accessed()
+    public function it_updates_valid_column_translation()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create([
@@ -121,4 +102,51 @@ class ColumnTranslationControllerTest extends TestCase
                  ->assertStatus(200);
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
     }
+    
+    /** @test */
+    public function it_does_not_update_invalid_column_translation()
+    {
+        $this->authenticateAsAdmin();
+        $column = factory(Column::class)->create([
+                            'title' => 'Column 1',
+                        ]);
+
+        $data = [
+            'column_id' => $column->id,
+            'language_code' => 'es',
+            'title' => 'Spanish column title',
+        ];
+
+        $this->post('/columns-translation/store', $data);
+
+        // Update the translation
+        $attributes = ([
+            'column_translation_id' => 2,
+            'language_code' => 'es',
+            'name' => '',
+          ]);
+        $response = $this->followingRedirects()
+                         ->put('/columns-translation/update', $attributes);
+        $response->assertSessionHasErrors();
+    }
+    
+    /** @test */
+    public function the_route_destroy_can_be_accessed()
+    {
+        $this->authenticateAsAdmin();
+        $column = factory(Column::class)->create();
+
+        $data = [
+            'column_id' => $column->id,
+            'language_code' => 'es',
+            'title' => 'Spanish column title',
+        ];
+        
+        $this->post('/columns-translation/store', $data);
+
+        $response = $this->delete('/columns-translation/destroy/2');
+        $response->assertRedirect('/columns');
+    }
+
+    
 }
