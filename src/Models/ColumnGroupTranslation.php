@@ -10,9 +10,9 @@ class ColumnGroupTranslation extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'column_id',
+        'column_group_id',
         'title',
-        'body',
+        'description',
         'button_text',
         'image_alt',
         'locale',

@@ -16,6 +16,11 @@
         /* Column translations */
         Route::get('columns-translation/{columnId}/{languageCode}/create', 'ColumnTranslationController@create')->name('columns-translation.create');
         Route::get('columns-translation/{columnId}/{languageCode}/edit', 'ColumnTranslationController@edit')->name('columns-translation.edit');
-        Route::resource('columns-translation', 'ColumnTranslationController')->except(['create', 'edit']);
+        Route::post('/columns-translation/store', 'ColumnTranslationController@store')->name('columns-translation.store');
+        Route::put('/columns-translation/update', 'ColumnTranslationController@update')->name('columns-translation.update');
+        Route::delete('/columns-translation/destroy/{columnTranslationId}', 'ColumnTranslationController@destroy')->name('columns-translation.destroy');
+
+
+        //Route::resource('columns-translation', 'ColumnTranslationController')->except(['create', 'edit']);
     
     });

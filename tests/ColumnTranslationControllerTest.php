@@ -100,110 +100,47 @@ class ColumnTranslationControllerTest extends TestCase
     /** @test */
     public function the_route_destroy_can_be_accessed()
     {
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
+        $this->authenticateAsAdmin();
+        $column = factory(Column::class)->create();
 
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
+        $data = [
+            'column_id' => $column->id,
+            'language_code' => 'es',
+            'title' => 'Spanish column title',
+        ];
+        
+        $this->post('/columns-translation/store', $data);
 
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title es',
-            'body' => 'test body es',
-            'button_text' => 'test button text es',
-            'image_alt' => 'test alt text es',
-            'locale' => 'es',
-        ]);
-
-        $this->delete('columns-translation/'.$id)
-            ->assertStatus(302);
+        $response = $this->delete('/columns-translation/destroy/2');
+        $response->assertRedirect('/columns');
     }
 
     /** @test */
     public function the_route_update_can_be_accessed()
     {
         $this->authenticateAsAdmin();
-        $eventCategory = factory(EventCategory::class)->create([
-                            'name' => 'Regular Jams',
-                            'slug' => 'regular-jams',
+        $column = factory(Column::class)->create([
+                            'title' => 'Column 1',
                         ]);
-
+        
         $data = [
-            'event_category_id' => $eventCategory->id,
+            'column_id' => $column->id,
             'language_code' => 'es',
-            'name' => 'Spanish category name',
+            'title' => 'Spanish column title',
         ];
-
-        $this->post('/eventCategoryTranslations/store', $data);
+        
+        $this->post('/columns-translation/store', $data);
 
         // Update the translation
         $attributes = ([
-            'event_category_translation_id' => 2,
+            'column_translation_id' => 2,
             'language_code' => 'es',
-            'name' => 'Spanish category name updated',
+            'title' => 'Spanish column title updated',
           ]);
         $response = $this->followingRedirects()
-                         ->put('/eventCategoryTranslations/update', $attributes);
-        $response->assertViewIs('laravel-events-calendar::eventCategories.index')
+                         ->put('/columns-translation/update', $attributes);
+        $response->assertViewIs('laravel-columns::columns.index')
                  ->assertStatus(200);
-        $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'name' => 'Spanish category name updated']);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $translationId = ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title es',
-            'body' => 'test body es',
-            'button_text' => 'test button text es',
-            'image_alt' => 'test alt text es',
-            'locale' => 'es',
-        ]);
-
-        $request = new \Illuminate\Http\Request();
-        $request->replace([
-            'column_translation_id' => $translationId,
-            'column_id' => $id,
-            'body' => 'test spanish text updated',
-            'language_code' => 'es',
-         ]);
-
-        $this->put('columns-translation/'.$translationId, [$request, $translationId])
-                 ->assertStatus(302);
-
-        //$this->assertDatabaseHas('column_translations', ['text' => 'test spanish text updated']);
+        $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
     }
 }

@@ -59,14 +59,13 @@ class ColumnTranslationController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate form datas
-        /*$validator = Validator::make($request->all(), [
-                'text' => 'required',
+        $validator = Validator::make($request->all(), [
+                'title' => 'required',
             ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
-        }*/
+        }
 
         $columnTranslation = new ColumnTranslation();
 
@@ -85,13 +84,21 @@ class ColumnTranslationController extends Controller
      * @param  int  $columnTranslationId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $columnTranslationId)
+    public function update(Request $request)
     {
-        /*request()->validate([
-            'text' => 'required',
-        ]);*/
-
-        $columnTranslation = ColumnTranslation::find($columnTranslationId);
+        // Validate form datas
+        $validator = Validator::make($request->all(), [
+                'title' => 'required',
+            ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
+        $columnTranslation = ColumnTranslation::find($request->get('column_translation_id'));
+        
+        //dd($columnTranslation);
+        //$eventCategoryTranslation = EventCategoryTranslation::where('id', $request->get('event_category_translation_id'));
+        
         //dd($columnTranslation);
         $this->saveOnDb($request, $columnTranslation, 'update');
 
@@ -109,6 +116,7 @@ class ColumnTranslationController extends Controller
      */
     public function saveOnDb($request, $columnTranslation, $saveOrUpdate)
     {
+        //dd($columnTranslation);
         $columnTranslation->title = $request->get('title');
         $columnTranslation->body = $request->get('body');
         $columnTranslation->button_text = $request->get('button_text');
