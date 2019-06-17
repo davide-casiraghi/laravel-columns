@@ -1,4 +1,4 @@
-@extends('laravel-columns::columns.layout')
+@extends('laravel-columns::columnGroups.layout')
 
 @section('content')
     
@@ -48,7 +48,7 @@
         --}}
         
         
-        @foreach ($columns as $column)
+        @foreach ($columnGroups as $columnGroup)
                 <div class="row bg-white shadow-1 rounded mb-3 mx-1">
                     
                     <div class="col-12 pb-2 pt-3 px-3">
@@ -56,16 +56,16 @@
                             
                             {{-- Title --}}
                             <div class="col-12 py-1 title">
-                                <h5 class="darkest-gray">{{ $column->title }}</h5>
+                                <h5 class="darkest-gray">{{ $columnGroup->title }}</h5>
                             </div>
                             <div class="col-12">
-                                @if($column->translate('en')->body){{ $column->translate('en')->body }}@endif
+                                @if($columnGroup->translate('en')->body){{ $columnGroup->translate('en')->body }}@endif
                             </div>
                             
                             {{-- Translations --}}
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
-                                    @if($column->hasTranslation($key))
+                                    @if($columnGroup->hasTranslation($key))
                                         <a href="{{ route('laravel-columnGroupTranslations.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
                                         <a href="{{ route('laravel-columnGroupTranslations.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>

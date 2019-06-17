@@ -25,13 +25,13 @@ class ColumnGroupControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_displays_the_columns_index_page()
+    public function it_displays_the_column_groups_index_page()
     {
         $this->authenticateAsAdmin();
-        $this->get('columns')
-            ->assertViewIs('laravel-columns::columns.index')
+        $this->get('columnGroups')
+            ->assertViewIs('laravel-columns::columnGroups.index')
             ->assertStatus(200);
-    }*/
+    }
 
     /** @test */
     /*public function it_displays_the_column_create_page()
