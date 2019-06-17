@@ -66,17 +66,17 @@
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                                     @if($columnGroup->hasTranslation($key))
-                                        <a href="{{ route('laravel-columnGroupTranslations.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('columnGroupTranslations.edit', ['columnGroupTranslationId' => $columnGroup->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('laravel-columnGroupTranslations.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('columnGroupTranslations.create', ['columnGroupTranslationId' => $columnGroup->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
                             <div class="col-12 pb-2 action">
-                                <form action="{{ route('columnGroups.destroy',$column->id) }}" method="POST">
+                                <form action="{{ route('columnGroups.destroy',$columnGroup->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('columnGroups.edit',$column->id) }}">@lang('laravel-columns::general.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('columnGroups.show',$column->id) }}">@lang('laravel-columns::general.view')</a>
+                                    <a class="btn btn-primary float-right" href="{{ route('columnGroups.edit',$columnGroup->id) }}">@lang('laravel-columns::general.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('columnGroups.show',$columnGroup->id) }}">@lang('laravel-columns::general.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')

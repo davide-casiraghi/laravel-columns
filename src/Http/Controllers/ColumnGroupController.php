@@ -86,15 +86,15 @@ class ColumnGroupController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         
-        $column = new Column();
+        $columnGroup = new ColumnGroup();
 
         // Set the default language to edit the quote in English
         App::setLocale('en');
 
-        $this->saveOnDb($request, $column);
+        $this->saveOnDb($request, $columnGroup);
 
-        return redirect()->route('columns.index')
-                            ->with('success', 'Column image added succesfully');
+        return redirect()->route('columnGroups.index')
+                            ->with('success', 'Column group added succesfully');
     }
 
     /***************************************************************************/
@@ -105,13 +105,13 @@ class ColumnGroupController extends Controller
      * @param  int $columnId
      * @return \Illuminate\Http\Response
      */
-    public function show($columnId = null)
+    public function show($columnGroupId = null)
     {
-        //$column = Column::find($columnId);
-        $column = Laravelcolumns::getColumn($columnId);
-        $columnParameters = ($column) ? (Laravelcolumns::getParametersArray($column)) : null;
+        //$column = Column::find($columnGroupId);
+        $columnGroup = Laravelcolumns::getColumn($columnGroupId);
+        $columnParameters = ($columnGroup) ? (Laravelcolumns::getParametersArray($columnGroup)) : null;
 
-        return view('laravel-columns::columns.show', compact('column'))
+        return view('laravel-columns::columnGroups.show', compact('column'))
                 ->with('columnParameters', $columnParameters);
     }
 
@@ -123,11 +123,11 @@ class ColumnGroupController extends Controller
      * @param  int $columnId
      * @return \Illuminate\Http\Response
      */
-    public function edit($columnId = null)
+    public function edit($columnGroupId = null)
     {
-        $column = Column::find($columnId);
+        $columnGroup = ColumnGroup::find($columnGroupId);
 
-        return view('laravel-columns::columns.edit', compact('column'))
+        return view('laravel-columns::columnGroups.edit', compact('columnGroup'))
                     ->with('columnGroupsArray', $this->getColumnGroupsArray());
     }
 
@@ -172,7 +172,7 @@ class ColumnGroupController extends Controller
     public function destroy($columnId)
     {
         $column = Column::find($columnId);
-        $column->delete();
+        $columnGroup->delete();
 
         return redirect()->route('columns.index')
                             ->with('success', 'Column image deleted succesfully');
@@ -186,26 +186,45 @@ class ColumnGroupController extends Controller
      * @param  \DavideCasiraghi\Laravelcolumns\Models\Column  $column
      * @return void
      */
-    public function saveOnDb($request, $column)
+    public function saveOnDb($request, $columnGroup)
     {
-        $column->translateOrNew('en')->title = $request->get('title');
-        $column->translateOrNew('en')->body = $request->get('body');
-        $column->translateOrNew('en')->button_text = $request->get('button_text');
-        $column->translateOrNew('en')->image_alt = $request->get('image_alt');
+        $columnGroup->translateOrNew('en')->title = $request->get('title');
+        $columnGroup->translateOrNew('en')->description = $request->get('description');
+        $columnGroup->translateOrNew('en')->button_text = $request->get('button_text');
+        $columnGroup->translateOrNew('en')->image_alt = $request->get('image_alt');
 
-        $column->columns_group = $request->get('columns_group');
-        $column->image_file_name = $request->get('image_file_name');
-        $column->fontawesome_icon_class = $request->get('fontawesome_icon_class');
-        $column->icon_color = $request->get('icon_color');
-        $column->button_url = $request->get('button_url');
+        $columnGroup->number_of_columns_shown = $request->get('number_of_columns_shown');
+        $columnGroup->bkg_color = $request->get('bkg_color');
+        $columnGroup->group_title_color = $request->get('group_title_color');
+        $columnGroup->group_title_font_size = $request->get('group_title_font_size');
+        $columnGroup->column_title_color = $request->get('column_title_color');
+        $columnGroup->column_title_font_size = $request->get('column_title_font_size');
+        $columnGroup->description_font_size = $request->get('description_font_size');
+        $columnGroup->link_style = $request->get('link_style');
+        $columnGroup->button_url = $request->get('button_url');
+        $columnGroup->button_color = $request->get('button_color');
+        $columnGroup->button_corners = $request->get('button_corners');
+        $columnGroup->background_type = $request->get('background_type');
+        $columnGroup->background_image = $request->get('background_image');
+        $columnGroup->background_image_position = $request->get('background_image_position');
+        $columnGroup->justify_content = $request->get('justify_content');
+        $columnGroup->flex_wrap = $request->get('flex_wrap');
+        $columnGroup->flex_flow = $request->get('flex_flow');
+        $columnGroup->columns_flex = $request->get('columns_flex');
+        $columnGroup->columns_padding = $request->get('columns_padding');
+        $columnGroup->columns_box_sizing = $request->get('columns_box_sizing');
+        $columnGroup->columns_round_images = $request->get('columns_round_images');
+        $columnGroup->columns_images_width = $request->get('columns_images_width');
+        $columnGroup->columns_images_hide_mobile = $request->get('columns_images_hide_mobile');
+        $columnGroup->icons_size = $request->get('icons_size');
 
-        // Column image upload
-        $imageSubdir = 'columns';
+        // Column group image upload
+        $imageSubdir = 'column_groups';
         $imageWidth = '1067';
         $thumbWidth = '690';
-        $column->image_file_name = LaravelFormPartials::uploadImageOnServer($request->file('image_file_name'), $request->image_file_name, $imageSubdir, $imageWidth, $thumbWidth);
+        $columnGroup->background_image = LaravelFormPartials::uploadImageOnServer($request->file('background_image'), $request->image_file_name, $imageSubdir, $imageWidth, $thumbWidth);
 
-        $column->save();
+        $columnGroup->save();
     }
     
     /***************************************************************************/

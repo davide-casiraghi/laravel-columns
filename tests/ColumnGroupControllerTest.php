@@ -34,7 +34,7 @@ class ColumnGroupControllerTest extends TestCase
     }
 
     /** @test */
-    public function it_displays_the_column_create_page()
+    public function it_displays_the_column_group_create_page()
     {
         $this->authenticateAsAdmin();
 
@@ -44,27 +44,49 @@ class ColumnGroupControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_stores_a_valid_column()
+    public function it_stores_a_valid_column_group()
     {
         $this->authenticateAsAdmin();
 
         $data = [
             'title' => 'test title',
             'description' => 'test description',
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
+            'button_text' => 'test button text',
+            'image_alt' => 'test image alt',
+            'number_of_columns_shown' => 3,
+            'bkg_color' => '#2365AA',
+            'group_title_color' => '#2365AA',
+            'group_title_font_size' => '2rem',
+            'column_title_color' => '#2365AA',
+            'column_title_font_size' => '2rem',
+            'description_font_size' => '2rem',
+            'link_style' => 2,
             'button_url' => 'http://www.google.it',
+            'button_color' => '#2365AA',
+            'button_corners' => '2rem',
+            'background_type' => '2rem',
+            'opacity' => '2rem',
+            'background_image' => 'test_bkg_image.jpg',
+            'background_image_position' => 2,
+            'justify_content' => '2rem',
+            'flex_wrap' => '2rem',
+            'flex_flow' => '2rem',
+            'columns_flex' => '2rem',
+            'columns_padding' => '10px',
+            'columns_box_sizing' => '2rem',
+            'columns_round_images' => 1,
+            'columns_images_width' => '200px',
+            'columns_images_hide_mobile' => 0,
+            'icons_size' => '100px',
         ];
 
         $response = $this
             ->followingRedirects()
-            ->post('/columns', $data);
+            ->post('/columnGroups', $data)
 
-        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
-        $response->assertViewIs('laravel-columns::columns.index');
-    }*/
+        $this->assertDatabaseHas('column_groups', ['background_image' => 'test_bkg_image.jpg']);
+        $response->assertViewIs('laravel-columns::columnGroups.index');
+    }
     
     /** @test */
     /*public function it_does_not_store_invalid_column()

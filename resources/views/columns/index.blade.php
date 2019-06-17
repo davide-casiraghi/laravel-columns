@@ -66,9 +66,9 @@
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                                     @if($column->hasTranslation($key))
-                                        <a href="{{ route('columnTranslations.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('columnTranslations.edit', ['columnTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('columnTranslations.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('columnTranslations.create', ['columnTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
