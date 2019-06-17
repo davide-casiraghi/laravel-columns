@@ -125,29 +125,14 @@ class ColumnControllerTest extends TestCase
     }
 
     /** @test */
-    public function the_route_destroy_can_be_accessed()
+    public function it_deletes_column()
     {
         $this->authenticateAsAdmin();
 
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
+        $column = factory(Column::class)->create();
 
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $this->delete('columns/1')
-            ->assertStatus(302);
+        $response = $this->delete('/columns/'.$column->id);
+        $response->assertRedirect('/columns');
     }
 
     
