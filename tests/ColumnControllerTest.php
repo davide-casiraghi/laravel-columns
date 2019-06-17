@@ -134,8 +134,4 @@ class ColumnControllerTest extends TestCase
         $response = $this->delete('/columns/'.$column->id);
         $response->assertRedirect('/columns');
     }
-
-    
-
-    
 }
