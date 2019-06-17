@@ -98,6 +98,33 @@ class ColumnControllerTest extends TestCase
     }
 
     /** @test */
+    public function it_updates_valid_column()
+    {
+        $this->authenticateAsAdmin();
+        $column = factory(Column::class)->create();
+
+        $attributes = ([
+            'title' => 'test title updated',
+            'body' => 'test body updated',
+          ]);
+
+        $response = $this->followingRedirects()
+                         ->put('/columns/'.$column->id, $attributes);
+        $response->assertViewIs('laravel-columns::columns.index')
+                 ->assertStatus(200);
+    }
+    
+    /** @test */
+    public function it_does_not_update_invalid_column()
+    {
+        $this->authenticateAsAdmin();
+
+        $column = factory(Column::class)->create();
+        $response = $this->put('/columns/'.$column->id, []);
+        $response->assertSessionHasErrors();
+    }
+
+    /** @test */
     public function the_route_destroy_can_be_accessed()
     {
         $this->authenticateAsAdmin();
@@ -123,37 +150,7 @@ class ColumnControllerTest extends TestCase
             ->assertStatus(302);
     }
 
-    /** @test */
-    public function the_route_update_can_be_accessed()
-    {
-        $this->authenticateAsAdmin();
-
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $request = new \Illuminate\Http\Request();
-        $request->replace([
-              'title' => 'test title updated',
-              'body' => 'test body updated',
-          ]);
-
-        $this->put('columns/1', [$request, 1])
-            ->assertStatus(302);
-    }
+    
 
     
 }
