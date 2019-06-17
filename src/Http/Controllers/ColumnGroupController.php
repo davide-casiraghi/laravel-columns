@@ -137,10 +137,10 @@ class ColumnGroupController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $columnId
+     * @param  int  $columnGroupId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $columnId)
+    public function update(Request $request, $columnGroupId)
     {    
         // Validate form datas
         $validator = Validator::make($request->all(), [
@@ -150,14 +150,14 @@ class ColumnGroupController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         
-        $column = Column::find($columnId);
+        $columnGroup = ColumnGroup::find($columnGroupId);
 
         // Set the default language to update the quote in English
         App::setLocale('en');
 
-        $this->saveOnDb($request, $column);
+        $this->saveOnDb($request, $columnGroup);
 
-        return redirect()->route('columns.index')
+        return redirect()->route('columnGroups.index')
                             ->with('success', 'Column image updated succesfully');
     }
 
@@ -174,7 +174,7 @@ class ColumnGroupController extends Controller
         $column = Column::find($columnId);
         $columnGroup->delete();
 
-        return redirect()->route('columns.index')
+        return redirect()->route('columnGroups.index')
                             ->with('success', 'Column image deleted succesfully');
     }
 
@@ -183,7 +183,7 @@ class ColumnGroupController extends Controller
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\Laravelcolumns\Models\Column  $column
+     * @param  \DavideCasiraghi\Laravelcolumns\Models\ColumnGroup  $column
      * @return void
      */
     public function saveOnDb($request, $columnGroup)
@@ -222,7 +222,7 @@ class ColumnGroupController extends Controller
         $imageSubdir = 'column_groups';
         $imageWidth = '1067';
         $thumbWidth = '690';
-        $columnGroup->background_image = LaravelFormPartials::uploadImageOnServer($request->file('background_image'), $request->image_file_name, $imageSubdir, $imageWidth, $thumbWidth);
+        $columnGroup->background_image = LaravelFormPartials::uploadImageOnServer($request->file('background_image'), $request->background_image, $imageSubdir, $imageWidth, $thumbWidth);
 
         $columnGroup->save();
     }

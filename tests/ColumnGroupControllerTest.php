@@ -82,20 +82,20 @@ class ColumnGroupControllerTest extends TestCase
 
         $response = $this
             ->followingRedirects()
-            ->post('/columnGroups', $data)
+            ->post('/columnGroups', $data);
 
         $this->assertDatabaseHas('column_groups', ['background_image' => 'test_bkg_image.jpg']);
         $response->assertViewIs('laravel-columns::columnGroups.index');
     }
     
     /** @test */
-    /*public function it_does_not_store_invalid_column()
+    public function it_does_not_store_invalid_column()
     {
         $this->authenticateAsAdmin();
-        $response = $this->post('/columns', []);
+        $response = $this->post('/columnGroups', []);
         $response->assertSessionHasErrors();
-        $this->assertNull(Column::first());
-    }*/
+        $this->assertNull(ColumnGroup::first());
+    }
     
     /** @test */
     /*public function it_displays_the_column_show_page()
