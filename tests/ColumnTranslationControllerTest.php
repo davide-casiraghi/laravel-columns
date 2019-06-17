@@ -13,24 +13,12 @@ class ColumnTranslationControllerTest extends TestCase
     /** @test */
     public function it_displays_the_column_translation_create_page()
     {
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
+        $this->authenticateAsAdmin();
 
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
+        $columnId = 1;
+        $languageCode = 'es';
 
-        $this->get('columns-translation/'.$id.'/es/create')
+        $this->get('/columns-translation/'.$columnId.'/'.$languageCode.'/create')
             ->assertViewIs('laravel-columns::columnsTranslations.create')
             ->assertStatus(200);
     }
