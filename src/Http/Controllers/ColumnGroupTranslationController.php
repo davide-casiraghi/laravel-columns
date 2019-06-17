@@ -99,7 +99,7 @@ class ColumnGroupTranslationController extends Controller
         //dd($columnGroupTranslation);
         $this->saveOnDb($request, $columnGroupTranslation, 'update');
 
-        return redirect()->route('columns.index')
+        return redirect()->route('columnGroups.index')
                             ->with('success', 'Column group translation added succesfully');
     }
 
