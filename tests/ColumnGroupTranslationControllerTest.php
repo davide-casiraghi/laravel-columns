@@ -3,28 +3,28 @@
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
-use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnTranslation;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
 
-class ColumnGroupTranslationControllerTest extends TestCase
+class ColumnTranslationControllerTest extends TestCase
 {
     use WithFaker;
 
     /** @test */
-    public function it_displays_the_column_translation_create_page()
+    public function it_displays_the_column_group_translation_create_page()
     {
         $this->authenticateAsAdmin();
 
-        $columnId = 1;
+        $columnGroupId = 1;
         $languageCode = 'es';
 
-        $this->get('/columnTranslations/'.$columnId.'/'.$languageCode.'/create')
-            ->assertViewIs('laravel-columns::columnsTranslations.create')
+        $this->get('/columnGroupTranslations/'.$columnGroupId.'/'.$languageCode.'/create')
+            ->assertViewIs('laravel-columns::columnGroupTranslations.create')
             ->assertStatus(200);
     }
     
     /** @test */
-    public function it_stores_a_valid_column_translation()
+    /*public function it_stores_a_valid_column_translation()
     {
         $this->authenticateAsAdmin();
         
@@ -42,10 +42,10 @@ class ColumnGroupTranslationControllerTest extends TestCase
         
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
         $response->assertViewIs('laravel-columns::columns.index');
-    }
+    }*/
     
     /** @test */
-    public function it_does_not_store_invalid_column_translation()
+    /*public function it_does_not_store_invalid_column_translation()
     {
         $this->authenticateAsAdmin();
         $response = $this
@@ -53,10 +53,10 @@ class ColumnGroupTranslationControllerTest extends TestCase
             ->post('/columnTranslations/store', []);
 
         $response->assertSessionHasErrors();
-    }
+    }*/
 
     /** @test */
-    public function it_displays_the_event_column_translation_edit_page()
+    /*public function it_displays_the_event_column_translation_edit_page()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create();
@@ -72,10 +72,10 @@ class ColumnGroupTranslationControllerTest extends TestCase
         $response = $this->get('/columnTranslations/'.$column->id.'/'.'es'.'/edit');
         $response->assertViewIs('laravel-columns::columnsTranslations.edit')
                  ->assertStatus(200);
-    }
+    }*/
 
     /** @test */
-    public function it_updates_valid_column_translation()
+    /*public function it_updates_valid_column_translation()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create([
@@ -101,10 +101,10 @@ class ColumnGroupTranslationControllerTest extends TestCase
         $response->assertViewIs('laravel-columns::columns.index')
                  ->assertStatus(200);
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
-    }
+    }*/
     
     /** @test */
-    public function it_does_not_update_invalid_column_translation()
+    /*public function it_does_not_update_invalid_column_translation()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create();
@@ -126,10 +126,10 @@ class ColumnGroupTranslationControllerTest extends TestCase
         $response = $this->followingRedirects()
                          ->put('/columnTranslations/update', $attributes);
         $response->assertSessionHasErrors();
-    }
+    }*/
     
     /** @test */
-    public function it_deletes_column_translation()
+    /*public function it_deletes_column_translation()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create();
@@ -144,5 +144,5 @@ class ColumnGroupTranslationControllerTest extends TestCase
 
         $response = $this->delete('/columnTranslations/destroy/2');
         $response->assertRedirect('/columns');
-    }
+    }*/
 }

@@ -15,7 +15,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('laravel-columnGroupTranslations.store') }}" method="POST">
+    <form action="{{ route('columnGroupTranslations.store') }}" method="POST">
         @csrf
 
             @include('laravel-form-partials::input-hidden', [
@@ -69,7 +69,7 @@
         </div>
 
         @include('laravel-form-partials::buttons-back-submit', [
-            'route' => 'columns.index'  
+            'route' => 'columnGroups.index'  
         ])
 
     </form>
