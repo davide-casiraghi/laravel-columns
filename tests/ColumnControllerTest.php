@@ -49,6 +49,7 @@ class ColumnControllerTest extends TestCase
         $this->authenticateAsAdmin();
 
         $data = [
+            'title' => 'test title',
             'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
             'fontawesome_icon_class' => 'fa-hand-heart',
@@ -62,6 +63,15 @@ class ColumnControllerTest extends TestCase
 
         $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
         $response->assertViewIs('laravel-columns::columns.index');
+    }
+    
+    /** @test */
+    public function it_does_not_store_invalid_column()
+    {
+        $this->authenticateAsAdmin();
+        $response = $this->post('/columns', []);
+        $response->assertSessionHasErrors();
+        $this->assertNull(Column::first());
     }
 
     /** @test */

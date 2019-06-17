@@ -2,6 +2,7 @@
 
 namespace DavideCasiraghi\LaravelColumns\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use DavideCasiraghi\LaravelColumns\Models\Column;
@@ -77,6 +78,14 @@ class ColumnController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate form datas
+        $validator = Validator::make($request->all(), [
+                'title' => 'required',
+            ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
         $column = new Column();
 
         // Set the default language to edit the quote in English
@@ -132,7 +141,7 @@ class ColumnController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $columnId)
-    {
+    {    
         $column = Column::find($columnId);
 
         // Set the default language to update the quote in English
