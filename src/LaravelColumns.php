@@ -121,7 +121,7 @@ public function showColumnGroup($columnGroup, $columnGroupParameters)
  */
 public static function getParametersArray($column)
 {
-    $wrapper_style .= "justify-content:".$column->justify_content."; ";
+    $wrapper_style = "justify-content:".$column->justify_content."; ";
 	$wrapper_style .= "flex-flow:".$column->flex_flow."; ";
 	$wrapper_style .= "flex-wrap:".$column->flex_wrap."; ";
 	$wrapper_style .= "text-align:".$column->text_alignment."; ";
