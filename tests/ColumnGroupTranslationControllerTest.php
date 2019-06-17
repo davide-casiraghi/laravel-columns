@@ -45,15 +45,15 @@ class ColumnTranslationControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_does_not_store_invalid_column_group_translation()
+    public function it_does_not_store_invalid_column_group_translation()
     {
         $this->authenticateAsAdmin();
         $response = $this
             ->followingRedirects()
-            ->post('/columnTranslations/store', []);
+            ->post('/columnGroupTranslations/store', []);
 
         $response->assertSessionHasErrors();
-    }*/
+    }
 
     /** @test */
     /*public function it_displays_the_event_column_translation_edit_page()
