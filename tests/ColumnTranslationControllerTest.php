@@ -129,7 +129,7 @@ class ColumnTranslationControllerTest extends TestCase
     }
     
     /** @test */
-    public function the_route_destroy_can_be_accessed()
+    public function it_deletes_column_translation()
     {
         $this->authenticateAsAdmin();
         $column = factory(Column::class)->create();
@@ -145,6 +145,4 @@ class ColumnTranslationControllerTest extends TestCase
         $response = $this->delete('/columns-translation/destroy/2');
         $response->assertRedirect('/columns');
     }
-
-    
 }
