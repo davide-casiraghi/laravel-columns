@@ -22,6 +22,28 @@ class ColumnTranslationControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columnsTranslations.create')
             ->assertStatus(200);
     }
+    
+    /** @test */
+    public function it_stores_a_valid_column_translation()
+    {
+        $this->authenticateAsAdmin();
+        
+        $column = factory(Column::class)->create();
+
+        $data = [
+            'column_id' => $column->id,
+            'language_code' => 'es',
+            'title' => 'Spanish column title',
+        ];
+
+        $response = $this
+            ->followingRedirects()
+            ->post('/columns-translation/store', $data);
+        
+        $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
+        $response->assertViewIs('laravel-columns::columns.index');
+    }
+
 
     /** @test */
     public function it_displays_the_event_column_translation_edit_page()
@@ -40,67 +62,9 @@ class ColumnTranslationControllerTest extends TestCase
         $response = $this->get('/columns-translation/'.$column->id.'/'.'es'.'/edit');
         $response->assertViewIs('laravel-columns::columnsTranslations.edit')
                  ->assertStatus(200);
-                 
-                 
-        /*$id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title es',
-            'body' => 'test body es',
-            'button_text' => 'test button text es',
-            'image_alt' => 'test alt text es',
-            'locale' => 'es',
-        ]);
-
-        $this->get('columns-translation/'.$id.'/es/edit')
-            ->assertViewIs('laravel-columns::columnsTranslations.edit')
-            ->assertViewHas('columnId')
-            ->assertViewHas('languageCode')
-            ->assertStatus(200);*/
     }
 
-    /** @test */
-    public function the_route_store_translation_can_be_accessed()
-    {
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        $data = [
-            'column_id' => $id,
-            'language_code' => 'es',
-            'title' => 'test title spanish',
-            'body' => 'test body spanish',
-            'button_text' => 'test button text spanish',
-        ];
-
-        $this
-            ->followingRedirects()
-            ->post('/columns-translation', $data);
-
-        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
-    }
-
+    
     /** @test */
     public function the_route_destroy_can_be_accessed()
     {
