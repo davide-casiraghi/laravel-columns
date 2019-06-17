@@ -74,6 +74,39 @@ class ColumnControllerTest extends TestCase
         $response->assertSessionHasErrors();
         $this->assertNull(Column::first());
     }
+    
+    /** @test */
+    public function it_displays_the_column_show_page()
+    {
+        $this->authenticate();
+
+        $column = factory(Column::class)->create();
+        $response = $this->get('/columns/'.$column->id);
+        $response->assertViewIs('laravel-columns::columns.show')
+                 ->assertStatus(200);
+        
+        /*$id = Column::insertGetId([
+            'columns_group' => 1,
+            'image_file_name' => 'image_test_1.jpg',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
+        ]);
+
+        ColumnTranslation::insert([
+            'column_id' => $id,
+            'title' => 'test title',
+            'body' => 'test body',
+            'button_text' => 'test button text',
+            'image_alt' => 'test alt text',
+            'locale' => 'en',
+        ]);
+
+        $this->get('columns/1')
+            ->assertViewIs('laravel-columns::columns.show')
+            ->assertViewHas('columnParameters')
+            ->assertStatus(200);*/
+    }
 
     /** @test */
     public function the_route_destroy_can_be_accessed()
@@ -131,32 +164,6 @@ class ColumnControllerTest extends TestCase
 
         $this->put('columns/1', [$request, 1])
             ->assertStatus(302);
-    }
-
-    /** @test */
-    public function the_route_show_can_be_accessed()
-    {
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $this->get('columns/1')
-            ->assertViewIs('laravel-columns::columns.show')
-            ->assertViewHas('columnParameters')
-            ->assertStatus(200);
     }
 
     /** @test */
