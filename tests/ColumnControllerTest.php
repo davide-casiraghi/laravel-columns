@@ -12,8 +12,21 @@ class ColumnControllerTest extends TestCase
 
     /***************************************************************/
 
+
     /** @test */
-    public function the_route_index_can_be_accessed()
+    public function it_runs_the_test_column_factory()
+    {
+        $eventCategory = factory(Column::class)->create([
+                            'title' => 'test title',
+                        ]);
+        $this->assertDatabaseHas('column_translations', [
+                                'locale' => 'en',
+                                'title' => 'test title',
+                ]);
+    }
+    
+    /** @test */
+    public function it_displays_the_columns_index_page()
     {
         $this->authenticateAsAdmin();
         $this->get('columns')
@@ -22,7 +35,7 @@ class ColumnControllerTest extends TestCase
     }
 
     /** @test */
-    public function the_route_create_can_be_accessed()
+    public function it_displays_the_column_create_page()
     {
         $this->authenticateAsAdmin();
 
