@@ -12,7 +12,6 @@ class ColumnControllerTest extends TestCase
 
     /***************************************************************/
 
-
     /** @test */
     public function it_runs_the_test_column_factory()
     {
@@ -42,6 +41,27 @@ class ColumnControllerTest extends TestCase
         $this->get('columns/create')
             ->assertViewIs('laravel-columns::columns.create')
             ->assertStatus(200);
+    }
+    
+    /** @test */
+    public function the_route_store_can_be_accessed()
+    {
+        $this->authenticateAsAdmin();
+
+        $data = [
+            'columns_group' => 1,
+            'image_file_name' => 'image_test_1.jpg',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
+        ];
+
+        $response = $this
+            ->followingRedirects()
+            ->post('/columns', $data);
+
+        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
+        $response->assertViewIs('laravel-columns::columns.index');
     }
 
     /** @test */
@@ -100,26 +120,6 @@ class ColumnControllerTest extends TestCase
 
         $this->put('columns/1', [$request, 1])
             ->assertStatus(302);
-    }
-
-    /** @test */
-    public function the_route_store_can_be_accessed()
-    {
-        $this->authenticateAsAdmin();
-
-        $data = [
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ];
-
-        $this
-            ->followingRedirects()
-            ->post('/columns', $data);
-
-        $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
     }
 
     /** @test */
