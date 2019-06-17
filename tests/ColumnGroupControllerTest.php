@@ -109,7 +109,7 @@ class ColumnGroupControllerTest extends TestCase
     }*/
     
     /** @test */
-    public function it_displays_the_column_edit_page()
+    public function it_displays_the_column_group_edit_page()
     {
         $this->authenticateAsAdmin();
 
@@ -120,40 +120,40 @@ class ColumnGroupControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function it_updates_valid_column()
+    public function it_updates_valid_column_group()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
         $attributes = ([
             'title' => 'test title updated',
-            'body' => 'test body updated',
+            'description' => 'test description updated',
           ]);
 
         $response = $this->followingRedirects()
-                         ->put('/columns/'.$column->id, $attributes);
-        $response->assertViewIs('laravel-columns::columns.index')
+                         ->put('/columnGroups/'.$columnGroup->id, $attributes);
+        $response->assertViewIs('laravel-columns::columnGroups.index')
                  ->assertStatus(200);
-    }*/
+    }
     
     /** @test */
-    /*public function it_does_not_update_invalid_column()
+    public function it_does_not_update_invalid_column_group()
     {
         $this->authenticateAsAdmin();
 
-        $column = factory(Column::class)->create();
-        $response = $this->put('/columns/'.$column->id, []);
+        $columnGroup = factory(ColumnGroup::class)->create();
+        $response = $this->put('/columnGroups/'.$columnGroup->id, []);
         $response->assertSessionHasErrors();
-    }*/
+    }
 
     /** @test */
-    /*public function it_deletes_column()
+    public function it_deletes_column_group()
     {
         $this->authenticateAsAdmin();
 
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
-        $response = $this->delete('/columns/'.$column->id);
-        $response->assertRedirect('/columns');
-    }*/
+        $response = $this->delete('/columnGroups/'.$columnGroup->id);
+        $response->assertRedirect('/columnGroups');
+    }
 }

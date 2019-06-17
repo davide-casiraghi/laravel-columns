@@ -166,12 +166,12 @@ class ColumnGroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $columnId
+     * @param  int  $columnGroupId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($columnId)
+    public function destroy($columnGroupId)
     {
-        $column = Column::find($columnId);
+        $columnGroup = ColumnGroup::find($columnGroupId);
         $columnGroup->delete();
 
         return redirect()->route('columnGroups.index')
