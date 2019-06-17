@@ -72,16 +72,14 @@ class ColumnTranslationControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function the_route_store_translation_can_be_accessed()
+    public function the_route_store_translation_can_be_accessed()
     {
         $id = Column::insertGetId([
+            'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
-            'img_alignment' => 'right',
-            'button_url' => 'test button url',
-            'img_col_size'  => '3',
-            'bkg_color'  => '#FF00FF',
-            'text_color'  => '#2365AA',
-            'container_wrap'  => '1',
+            'fontawesome_icon_class' => 'fa-hand-heart',
+            'icon_color' => '#2365AA',
+            'button_url' => 'http://www.google.it',
         ]);
 
         $data = [
@@ -94,10 +92,10 @@ class ColumnTranslationControllerTest extends TestCase
 
         $this
             ->followingRedirects()
-            ->post('/laravel-columns-translation', $data);
+            ->post('/columns-translation', $data);
 
         $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
-    }*/
+    }
 
     /** @test */
     /*public function the_route_destroy_can_be_accessed()
