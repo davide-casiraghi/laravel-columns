@@ -35,16 +35,16 @@ class ColumnGroupTranslationController extends Controller
      * @param string $languageCode
      * @return \Illuminate\Http\Response
      */
-    public function edit($columnId, $languageCode)
+    public function edit($columnGroupId, $languageCode)
     {
-        $columnTranslation = ColumnTranslation::where('column_id', $columnId)
+        $columnGroupTranslation = ColumnGroupTranslation::where('column_group_id', $columnGroupId)
                         ->where('locale', $languageCode)
                         ->first();
 
         $selectedLocaleName = $this->getSelectedLocaleName($languageCode);
 
-        return view('laravel-columns::columnsTranslations.edit', compact('columnTranslation'))
-                    ->with('columnId', $columnId)
+        return view('laravel-columns::columnGroupTranslations.edit', compact('columnGroupTranslation'))
+                    ->with('columnGroupId', $columnGroupId)
                     ->with('languageCode', $languageCode)
                     ->with('selectedLocaleName', $selectedLocaleName);
     }
@@ -67,12 +67,12 @@ class ColumnGroupTranslationController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        $columnTranslation = new ColumnTranslation();
+        $columnGroupTranslation = new ColumnGroupTranslation();
 
-        $this->saveOnDb($request, $columnTranslation, 'save');
+        $this->saveOnDb($request, $columnGroupTranslation, 'save');
 
-        return redirect()->route('columns.index')
-                            ->with('success', 'Column translation added succesfully');
+        return redirect()->route('columnGroups.index')
+                            ->with('success', 'Column group translation added succesfully');
     }
 
     /***************************************************************************/
@@ -94,16 +94,13 @@ class ColumnGroupTranslationController extends Controller
             return back()->withErrors($validator)->withInput();
         }
         
-        $columnTranslation = ColumnTranslation::find($request->get('column_translation_id'));
+        $columnGroupTranslation = ColumnGroupTranslation::find($request->get('column_group_translation_id'));
         
-        //dd($columnTranslation);
-        //$eventCategoryTranslation = EventCategoryTranslation::where('id', $request->get('event_category_translation_id'));
-        
-        //dd($columnTranslation);
-        $this->saveOnDb($request, $columnTranslation, 'update');
+        //dd($columnGroupTranslation);
+        $this->saveOnDb($request, $columnGroupTranslation, 'update');
 
         return redirect()->route('columns.index')
-                            ->with('success', 'Column translation added succesfully');
+                            ->with('success', 'Column group translation added succesfully');
     }
 
     /***************************************************************************/
@@ -111,24 +108,24 @@ class ColumnGroupTranslationController extends Controller
     /**
      * Save the record on DB.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \DavideCasiraghi\LaravelColumns\Models\ColumnTranslation  $columnTranslation
+     * @param  \DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation  $columnGroupTranslation
      * @return void
      */
-    public function saveOnDb($request, $columnTranslation, $saveOrUpdate)
+    public function saveOnDb($request, $columnGroupTranslation, $saveOrUpdate)
     {
         //dd($columnTranslation);
-        $columnTranslation->title = $request->get('title');
-        $columnTranslation->body = $request->get('body');
-        $columnTranslation->button_text = $request->get('button_text');
+        $columnGroupTranslation->title = $request->get('title');
+        $columnGroupTranslation->description = $request->get('description');
+        $columnGroupTranslation->button_text = $request->get('button_text');
 
         switch ($saveOrUpdate) {
             case 'save':
-                $columnTranslation->column_id = $request->get('column_id');
-                $columnTranslation->locale = $request->get('language_code');
-                $columnTranslation->save();
+                $columnGroupTranslation->column_group_id = $request->get('column_group_id');
+                $columnGroupTranslation->locale = $request->get('language_code');
+                $columnGroupTranslation->save();
                 break;
             case 'update':
-                $columnTranslation->update();
+                $columnGroupTranslation->update();
                 break;
         }
     }
@@ -138,14 +135,15 @@ class ColumnGroupTranslationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $columnTranslationId
+     * @param  int  $columnGroupTranslationId
      */
-    public function destroy($columnTranslationId)
+    public function destroy($columnGroupTranslationId)
     {
-        $columnTranslation = ColumnTranslation::find($columnTranslationId);
-        $columnTranslation->delete();
+        
+        $columnGroupTranslation = ColumnGroupTranslation::find($columnGroupTranslationId);
+        $columnGroupTranslation->delete();
 
-        return redirect()->route('columns.index')
-                            ->with('success', 'Column translation deleted succesfully');
+        return redirect()->route('columnGroups.index')
+                            ->with('success', 'Column group translation deleted succesfully');
     }
 }

@@ -24,28 +24,28 @@ class ColumnTranslationControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_stores_a_valid_column_translation()
+    public function it_stores_a_valid_column_group_translation()
     {
         $this->authenticateAsAdmin();
         
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
         $data = [
-            'column_id' => $column->id,
+            'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
             'title' => 'Spanish column title',
         ];
 
         $response = $this
             ->followingRedirects()
-            ->post('/columnTranslations/store', $data);
+            ->post('/columnGroupTranslations/store', $data);
         
-        $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
-        $response->assertViewIs('laravel-columns::columns.index');
-    }*/
+        $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
+        $response->assertViewIs('laravel-columns::columnGroups.index');
+    }
     
     /** @test */
-    /*public function it_does_not_store_invalid_column_translation()
+    /*public function it_does_not_store_invalid_column_group_translation()
     {
         $this->authenticateAsAdmin();
         $response = $this
