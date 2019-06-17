@@ -50,6 +50,7 @@ class ColumnControllerTest extends TestCase
 
         $data = [
             'title' => 'test title',
+            'description' => 'test description',
             'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
             'fontawesome_icon_class' => 'fa-hand-heart',
