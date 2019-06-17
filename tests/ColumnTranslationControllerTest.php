@@ -24,9 +24,25 @@ class ColumnTranslationControllerTest extends TestCase
     }
 
     /** @test */
-    public function the_route_edit_translation_can_be_accessed()
+    public function it_displays_the_event_column_translation_edit_page()
     {
-        $id = Column::insertGetId([
+        $this->authenticateAsAdmin();
+        $column = factory(Column::class)->create();
+
+        $data = [
+            'column_id' => $column->id,
+            'language_code' => 'es',
+            'title' => 'Spanish column title',
+        ];
+
+        $this->post('/columns-translation/store', $data);
+
+        $response = $this->get('/columns-translation/'.$column->id.'/'.'es'.'/edit');
+        $response->assertViewIs('laravel-columns::columnsTranslations.edit')
+                 ->assertStatus(200);
+                 
+                 
+        /*$id = Column::insertGetId([
             'columns_group' => 1,
             'image_file_name' => 'image_test_1.jpg',
             'fontawesome_icon_class' => 'fa-hand-heart',
@@ -56,7 +72,7 @@ class ColumnTranslationControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columnsTranslations.edit')
             ->assertViewHas('columnId')
             ->assertViewHas('languageCode')
-            ->assertStatus(200);
+            ->assertStatus(200);*/
     }
 
     /** @test */
