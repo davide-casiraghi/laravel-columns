@@ -75,33 +75,33 @@ class ColumnTranslationControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function it_updates_valid_column_translation()
+    public function it_updates_valid_column_translation()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create([
+        $columnGroup = factory(ColumnGroup::class)->create([
                             'title' => 'Column 1',
                         ]);
         
         $data = [
-            'column_id' => $column->id,
+            'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
-            'title' => 'Spanish column title',
+            'title' => 'Spanish column group title',
         ];
         
-        $this->post('/columnTranslations/store', $data);
+        $this->post('/columnGroupTranslations/store', $data);
 
         // Update the translation
         $attributes = ([
-            'column_translation_id' => 2,
+            'column_group_translation_id' => 2,
             'language_code' => 'es',
-            'title' => 'Spanish column title updated',
+            'title' => 'Spanish column group title updated',
           ]);
         $response = $this->followingRedirects()
-                         ->put('/columnTranslations/update', $attributes);
-        $response->assertViewIs('laravel-columns::columns.index')
+                         ->put('/columnGroupTranslations/update', $attributes);
+        $response->assertViewIs('laravel-columns::columnGroups.index')
                  ->assertStatus(200);
-        $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
-    }*/
+        $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column group title updated']);
+    }
     
     /** @test */
     /*public function it_does_not_update_invalid_column_translation()
