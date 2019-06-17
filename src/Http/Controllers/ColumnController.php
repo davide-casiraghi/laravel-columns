@@ -217,7 +217,7 @@ class ColumnController extends Controller
      */
     public static function getColumnGroupsArray()
     {
-        $ret = ColumnGroup::orderBy('title')->pluck('title', 'id');
+        $ret = ColumnGroup::listsTranslations('title')->orderBy('title')->pluck('title', 'id');
 
         return $ret;
     }

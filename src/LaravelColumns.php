@@ -121,9 +121,24 @@ public function showColumnGroup($columnGroup, $columnGroupParameters)
  */
 public static function getParametersArray($column)
 {
+    $wrapper_style .= "justify-content:".$column->justify_content."; ";
+	$wrapper_style .= "flex-flow:".$column->flex_flow."; ";
+	$wrapper_style .= "flex-wrap:".$column->flex_wrap."; ";
+	$wrapper_style .= "text-align:".$column->text_alignment."; ";
+            
+    if ($column->background_type == 3){
+        $wrapper_style  .= "background-image:".$column->background_image."; ";
+        $wrapper_style  .= "background-position:".$column->background_image_position."; ";
+    }
+    
     $ret = [
         'icon_color' => 'color: '.$column->icon_color.';',
+        'wrapper_style' => $wrapper_style,
     ];
+    
+    
+    
+    
     /*$ret = [
          'img_col_size_class' => 'col-md-'.$column->img_col_size,
          'text_col_size_class' => 'col-md-'.(12 - $column->img_col_size),

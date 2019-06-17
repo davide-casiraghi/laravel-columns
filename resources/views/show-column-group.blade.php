@@ -1,7 +1,23 @@
 
 
 @if ($columnGroup)
-    <div class="row laravel-column-group" style="{{$columnGroupParameters['bkg_color']}} {{$columnGroupParameters['text_color']}}">
+    <div class="row flexColumns">
+        
+        <h3 style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
+        
+        <div class='wrapper' style='{{$columnGroupParameters['wrapper_style']}}'>
+        
+            {{-- Columns --}}
+    		@for ($i=0; $i < $columnGroup->column_number; $i++)
+                <aside class='aside-{{$i}}' style=''>
+                    @if ($column->icon)
+                        
+                    @endif
+            @endfor	    	
+                        
+                        
+        {{--
+        
         @if ($columnGroupParameters['container_wrap'])
             <div class="container">
                 <div class="row">
@@ -27,6 +43,7 @@
                 </div>
             </div>
         @endif
+        --}}
     </div>
     
 @else
