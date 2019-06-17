@@ -104,29 +104,29 @@ class ColumnTranslationControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_does_not_update_invalid_column_translation()
+    public function it_does_not_update_invalid_column_translation()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create();
+        $columnGroup = factory(ColumnGroup::class)->create();
 
         $data = [
-            'column_id' => $column->id,
+            'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
-            'title' => 'Spanish column title',
+            'title' => 'Spanish column group title',
         ];
-
-        $this->post('/columnTranslations/store', $data);
+        
+        $this->post('/columnGroupTranslations/store', $data);
 
         // Update the translation
         $attributes = ([
-            'column_translation_id' => 2,
+            'column_group_translation_id' => 2,
             'language_code' => 'es',
-            'name' => '',
+            'title' => '',
           ]);
         $response = $this->followingRedirects()
-                         ->put('/columnTranslations/update', $attributes);
+                         ->put('/columnGroupTranslations/update', $attributes);
         $response->assertSessionHasErrors();
-    }*/
+    }
     
     /** @test */
     /*public function it_deletes_column_translation()
