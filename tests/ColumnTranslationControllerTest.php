@@ -18,7 +18,7 @@ class ColumnTranslationControllerTest extends TestCase
         $columnId = 1;
         $languageCode = 'es';
 
-        $this->get('/columns-translation/'.$columnId.'/'.$languageCode.'/create')
+        $this->get('/columnTranslations/'.$columnId.'/'.$languageCode.'/create')
             ->assertViewIs('laravel-columns::columnsTranslations.create')
             ->assertStatus(200);
     }
@@ -38,7 +38,7 @@ class ColumnTranslationControllerTest extends TestCase
 
         $response = $this
             ->followingRedirects()
-            ->post('/columns-translation/store', $data);
+            ->post('/columnTranslations/store', $data);
         
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
         $response->assertViewIs('laravel-columns::columns.index');
@@ -50,7 +50,7 @@ class ColumnTranslationControllerTest extends TestCase
         $this->authenticateAsAdmin();
         $response = $this
             ->followingRedirects()
-            ->post('/columns-translation/store', []);
+            ->post('/columnTranslations/store', []);
 
         $response->assertSessionHasErrors();
     }
@@ -67,9 +67,9 @@ class ColumnTranslationControllerTest extends TestCase
             'title' => 'Spanish column title',
         ];
 
-        $this->post('/columns-translation/store', $data);
+        $this->post('/columnTranslations/store', $data);
 
-        $response = $this->get('/columns-translation/'.$column->id.'/'.'es'.'/edit');
+        $response = $this->get('/columnTranslations/'.$column->id.'/'.'es'.'/edit');
         $response->assertViewIs('laravel-columns::columnsTranslations.edit')
                  ->assertStatus(200);
     }
@@ -88,7 +88,7 @@ class ColumnTranslationControllerTest extends TestCase
             'title' => 'Spanish column title',
         ];
         
-        $this->post('/columns-translation/store', $data);
+        $this->post('/columnTranslations/store', $data);
 
         // Update the translation
         $attributes = ([
@@ -97,7 +97,7 @@ class ColumnTranslationControllerTest extends TestCase
             'title' => 'Spanish column title updated',
           ]);
         $response = $this->followingRedirects()
-                         ->put('/columns-translation/update', $attributes);
+                         ->put('/columnTranslations/update', $attributes);
         $response->assertViewIs('laravel-columns::columns.index')
                  ->assertStatus(200);
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
@@ -115,7 +115,7 @@ class ColumnTranslationControllerTest extends TestCase
             'title' => 'Spanish column title',
         ];
 
-        $this->post('/columns-translation/store', $data);
+        $this->post('/columnTranslations/store', $data);
 
         // Update the translation
         $attributes = ([
@@ -124,7 +124,7 @@ class ColumnTranslationControllerTest extends TestCase
             'name' => '',
           ]);
         $response = $this->followingRedirects()
-                         ->put('/columns-translation/update', $attributes);
+                         ->put('/columnTranslations/update', $attributes);
         $response->assertSessionHasErrors();
     }
     
@@ -140,9 +140,9 @@ class ColumnTranslationControllerTest extends TestCase
             'title' => 'Spanish column title',
         ];
         
-        $this->post('/columns-translation/store', $data);
+        $this->post('/columnTranslations/store', $data);
 
-        $response = $this->delete('/columns-translation/destroy/2');
+        $response = $this->delete('/columnTranslations/destroy/2');
         $response->assertRedirect('/columns');
     }
 }

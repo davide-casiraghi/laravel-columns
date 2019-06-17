@@ -14,13 +14,13 @@
         Route::resource('columns', 'ColumnController');
 
         /* Column translations */
-        Route::get('columns-translation/{columnId}/{languageCode}/create', 'ColumnTranslationController@create')->name('columns-translation.create');
-        Route::get('columns-translation/{columnId}/{languageCode}/edit', 'ColumnTranslationController@edit')->name('columns-translation.edit');
-        Route::post('/columns-translation/store', 'ColumnTranslationController@store')->name('columns-translation.store');
-        Route::put('/columns-translation/update', 'ColumnTranslationController@update')->name('columns-translation.update');
-        Route::delete('/columns-translation/destroy/{columnTranslationId}', 'ColumnTranslationController@destroy')->name('columns-translation.destroy');
+        Route::get('columnTranslations/{columnId}/{languageCode}/create', 'ColumnTranslationController@create')->name('columnTranslations.create');
+        Route::get('columnTranslations/{columnId}/{languageCode}/edit', 'ColumnTranslationController@edit')->name('columnTranslations.edit');
+        Route::post('/columnTranslations/store', 'ColumnTranslationController@store')->name('columnTranslations.store');
+        Route::put('/columnTranslations/update', 'ColumnTranslationController@update')->name('columnTranslations.update');
+        Route::delete('/columnTranslations/destroy/{columnTranslationId}', 'ColumnTranslationController@destroy')->name('columnTranslations.destroy');
 
 
-        //Route::resource('columns-translation', 'ColumnTranslationController')->except(['create', 'edit']);
+        //Route::resource('columnTranslations', 'ColumnTranslationController')->except(['create', 'edit']);
     
     });
