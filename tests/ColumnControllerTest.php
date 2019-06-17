@@ -44,7 +44,7 @@ class ColumnControllerTest extends TestCase
     }
     
     /** @test */
-    public function the_route_store_can_be_accessed()
+    public function it_stores_a_valid_column()
     {
         $this->authenticateAsAdmin();
 
