@@ -34,7 +34,7 @@ class ColumnGroupController extends Controller
 
         if ($searchKeywords) {
             $columnGroups = ColumnGroup::
-                        select('column_group_translations.column_group_id AS id', 'title', 'description', 'button_text', 'image_file_name', 'button_url', 'locale')
+                        select('column_group_translations.column_group_id AS id', 'title', 'description', 'button_text', 'background_image', 'button_url', 'locale')
                         ->join('column_group_translations', 'column_groups.id', '=', 'column_group_translations.column_group_id')
                         ->orderBy('title')
                         ->where('title', 'like', '%'.$searchKeywords.'%')
@@ -42,7 +42,7 @@ class ColumnGroupController extends Controller
                         ->paginate(20);
         } else {
             $columnGroups = ColumnGroup::
-                        select('column_group_translations.column_group_id AS id', 'title', 'description', 'button_text', 'image_file_name', 'button_url', 'locale')
+                        select('column_group_translations.column_group_id AS id', 'title', 'description', 'button_text', 'background_image', 'button_url', 'locale')
                         ->join('column_group_translations', 'column_groups.id', '=', 'column_group_translations.column_group_id')
                         ->where('locale', 'en')
                         ->orderBy('title')
