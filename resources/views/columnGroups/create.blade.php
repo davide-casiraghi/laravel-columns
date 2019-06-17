@@ -470,7 +470,7 @@
                                         
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [
-                           'route' => 'laravel-columnGroups.index'  
+                           'route' => 'columnGroups.index'  
                        ])
                     </div>
                                 

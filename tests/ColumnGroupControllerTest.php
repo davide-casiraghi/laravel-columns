@@ -34,14 +34,14 @@ class ColumnGroupControllerTest extends TestCase
     }
 
     /** @test */
-    /*public function it_displays_the_column_create_page()
+    public function it_displays_the_column_create_page()
     {
         $this->authenticateAsAdmin();
 
-        $this->get('columns/create')
-            ->assertViewIs('laravel-columns::columns.create')
+        $this->get('columnGroups/create')
+            ->assertViewIs('laravel-columns::columnGroups.create')
             ->assertStatus(200);
-    }*/
+    }
     
     /** @test */
     /*public function it_stores_a_valid_column()
