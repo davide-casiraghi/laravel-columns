@@ -107,9 +107,7 @@ class ColumnTranslationControllerTest extends TestCase
     public function it_does_not_update_invalid_column_translation()
     {
         $this->authenticateAsAdmin();
-        $column = factory(Column::class)->create([
-                            'title' => 'Column 1',
-                        ]);
+        $column = factory(Column::class)->create();
 
         $data = [
             'column_id' => $column->id,
