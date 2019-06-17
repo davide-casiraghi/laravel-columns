@@ -115,21 +115,24 @@ public function showColumn($column, $columnParameters)
 /***************************************************************************/
 
 /**
- * Return an array with the parameters for the show-column.
- * @param  \DavideCasiraghi\LaravelJumbotronImages\Models\Column  $column
+ * Return an array with the parameters for the column.
+ * @param  \DavideCasiraghi\LaravelColumns\Models\Column  $column
  * @return array
  */
 public static function getParametersArray($column)
 {
     $ret = [
+        'icon_color' => 'color: '.$column->icon_color.';',
+    ];
+    /*$ret = [
          'img_col_size_class' => 'col-md-'.$column->img_col_size,
          'text_col_size_class' => 'col-md-'.(12 - $column->img_col_size),
          'bkg_color' => 'background-color: '.$column->bkg_color.';',
          'text_color' => 'color: '.$column->text_color.';',
          'container_wrap' => ($column->container_wrap == 'true') ? 1 : 0,
-     ];
+     ];*/
 
-    switch ($column->img_alignment) {
+    /*switch ($column->img_alignment) {
          case 'left':
              $ret['img_col_order_class'] = 'order-md-1';
              $ret['text_col_order_class'] = 'order-md-2';
@@ -138,7 +141,7 @@ public static function getParametersArray($column)
              $ret['img_col_order_class'] = 'order-md-2';
              $ret['text_col_order_class'] = 'order-md-1';
              break;
-     }
+     }*/
 
     return $ret;
 }

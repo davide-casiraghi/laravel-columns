@@ -3,8 +3,8 @@
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use DavideCasiraghi\LaravelColumns\Models\ColumnTranslation;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
 
 use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
@@ -34,9 +34,13 @@ class LaravelColumnsTest extends TestCase
     }
 
     /** @test */
-    /*public function it_gets_the_parameter_array()
+    public function it_gets_the_column_parameter_array()
     {
-        $id = Card::insertGetId([
+        $column = factory(Column::class)->create([
+            'icon_color' => '#FF00FF',
+        ]);
+        
+        /*$id = Card::insertGetId([
             'image_file_name' => 'test image name',
             'button_url' => 'test button url',
             'img_col_size'  => '3',
@@ -52,27 +56,28 @@ class LaravelColumnsTest extends TestCase
             'body' => 'test body',
             'button_text' => 'test button text',
             'locale' => 'en',
-        ]);
-
-        $card = Card::where('id', 1)->first();
-        $parameters = LaravelCards::getParametersArray($card);
+        ]);*/
+        
+        $column = Column::where('id', 1)->first();
+        $parameters = LaravelColumns::getParametersArray($column);
+        
         //dd($parameters);
 
-        $this->assertEquals($parameters['bkg_color'], 'background-color: #FF00FF;');
-        $this->assertEquals($parameters['img_col_size_class'], 'col-md-3');
-    }*/
+        $this->assertEquals($parameters['icon_color'], 'color: #FF00FF;');
+        //$this->assertEquals($parameters['img_col_size_class'], 'col-md-3');
+    }
 
     /** @test */
-    /*public function it_gets_the_card_data()
+    public function it_gets_the_column_data()
     {
-        $card = factory(Card::class)->create([
+        $column = factory(Column::class)->create([
             'id' => 6,
             'title' => 'test title',
         ]);
 
-        $cardData = LaravelCards::getCard($card['id']);
-        $this->assertEquals($cardData['title'], 'test title');
-    }*/
+        $columnData = LaravelColumns::getColumn($column['id']);
+        $this->assertEquals($columnData['title'], 'test title');
+    }
 
     /** @test */
     /*public function it_replace_card_snippets_with_template()

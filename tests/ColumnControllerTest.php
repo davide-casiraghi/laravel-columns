@@ -15,7 +15,7 @@ class ColumnControllerTest extends TestCase
     /** @test */
     public function it_runs_the_test_column_factory()
     {
-        $eventCategory = factory(Column::class)->create([
+        $column = factory(Column::class)->create([
                             'title' => 'test title',
                         ]);
         $this->assertDatabaseHas('column_translations', [
