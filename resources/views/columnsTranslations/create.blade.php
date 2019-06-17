@@ -15,7 +15,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('laravel-columns-translation.store') }}" method="POST">
+    <form action="{{ route('columns-translation.store') }}" method="POST">
         @csrf
 
             @include('laravel-form-partials::input-hidden', [
