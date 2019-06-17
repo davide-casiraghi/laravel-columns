@@ -15,7 +15,7 @@
           'style' => 'alert-danger',
     ])
 
-    <form action="{{ route('laravel-column-groups-translation.update', $columnTranslation->id) }}" method="POST">
+    <form action="{{ route('laravel-columnGroupTranslations.update', $columnTranslation->id) }}" method="POST">
         @csrf
         @method('PUT')
             @include('laravel-form-partials::input-hidden', [
@@ -76,7 +76,7 @@
                 ])
     </form>
 
-                <form action="{{ route('laravel-column-groups-translation.destroy',$columnTranslation->id) }}" method="POST">
+                <form action="{{ route('laravel-columnGroupTranslations.destroy',$columnTranslation->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-link pl-0">Delete translation</button>

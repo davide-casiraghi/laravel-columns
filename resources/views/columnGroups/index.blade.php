@@ -7,7 +7,7 @@
             <h4>Column group list</h4>
         </div>
         <div class="col-12 col-sm-6 mt-4 mt-sm-0 text-right">
-            <a class="btn btn-success create-new" href="{{ route('column-groups.create') }}">Add new columns group</a>
+            <a class="btn btn-success create-new" href="{{ route('columnGroups.create') }}">Add new columns group</a>
         </div>
     </div>
     
@@ -66,17 +66,17 @@
                             <div class="col-12 mb-4 mt-4">
                                 @foreach ($countriesAvailableForTranslations as $key => $countryAvTrans)
                                     @if($column->hasTranslation($key))
-                                        <a href="{{ route('laravel-column-groups-translation.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('laravel-columnGroupTranslations.edit', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-success text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @else
-                                        <a href="{{ route('laravel-column-groups-translation.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
+                                        <a href="{{ route('laravel-columnGroupTranslations.create', ['jumbotronImageTranslationId' => $column->id, 'languageCode' => $key]) }}" class="bg-secondary text-white px-2 py-1 mb-1 mb-lg-0 d-inline-block rounded">{{$key}}</a>
                                     @endif
                                 @endforeach
                             </div>
                             <div class="col-12 pb-2 action">
-                                <form action="{{ route('column-groups.destroy',$column->id) }}" method="POST">
+                                <form action="{{ route('columnGroups.destroy',$column->id) }}" method="POST">
 
-                                    <a class="btn btn-primary float-right" href="{{ route('column-groups.edit',$column->id) }}">@lang('laravel-columns::general.edit')</a>
-                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('column-groups.show',$column->id) }}">@lang('laravel-columns::general.view')</a>
+                                    <a class="btn btn-primary float-right" href="{{ route('columnGroups.edit',$column->id) }}">@lang('laravel-columns::general.edit')</a>
+                                    <a class="btn btn-outline-primary mr-2 float-right" href="{{ route('columnGroups.show',$column->id) }}">@lang('laravel-columns::general.view')</a>
                                     
                                     @csrf
                                     @method('DELETE')

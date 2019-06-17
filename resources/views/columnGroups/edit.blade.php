@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('column-groups.update', $column->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('columnGroups.update', $column->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 
@@ -482,7 +482,7 @@
                                         
                     <div class="col-12">
                         @include('laravel-form-partials::buttons-back-submit', [
-                           'route' => 'laravel-column-groups.index'  
+                           'route' => 'laravel-columnGroups.index'  
                        ])
                     </div>
                     

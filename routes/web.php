@@ -3,12 +3,12 @@
     Route::group(['namespace' => 'DavideCasiraghi\LaravelColumns\Http\Controllers', 'middleware' => 'web'], function () {
 
         /* Column Groups */
-        Route::resource('column-groups', 'ColumnGroupController');
+        Route::resource('columnGroups', 'ColumnGroupController');
 
         /* Column Group translations */
-        Route::get('column-groups-translation/{columnGroupId}/{languageCode}/create', 'ColumnGroupTranslationController@create')->name('column-groups-translation.create');
-        Route::get('column-groups-translation/{columnGroupId}/{languageCode}/edit', 'ColumnGroupTranslationController@edit')->name('column-groups-translation.edit');
-        Route::resource('column-groups-translation', 'ColumnGroupTranslationController')->except(['create', 'edit']);
+        Route::get('columnGroupTranslations/{columnGroupId}/{languageCode}/create', 'ColumnGroupTranslationController@create')->name('columnGroupTranslations.create');
+        Route::get('columnGroupTranslations/{columnGroupId}/{languageCode}/edit', 'ColumnGroupTranslationController@edit')->name('columnGroupTranslations.edit');
+        Route::resource('columnGroupTranslations', 'ColumnGroupTranslationController')->except(['create', 'edit']);
 
         /* Columns */
         Route::resource('columns', 'ColumnController');
