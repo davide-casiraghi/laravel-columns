@@ -13,7 +13,7 @@
                   'style' => 'alert-danger',
             ])
 
-            <form action="{{ route('columnGroups.update', $column->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('columnGroups.update', $columnGroup->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 

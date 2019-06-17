@@ -89,7 +89,7 @@ class ColumnGroupControllerTest extends TestCase
     }
     
     /** @test */
-    public function it_does_not_store_invalid_column()
+    public function it_does_not_store_invalid_column_group()
     {
         $this->authenticateAsAdmin();
         $response = $this->post('/columnGroups', []);
@@ -98,26 +98,26 @@ class ColumnGroupControllerTest extends TestCase
     }
     
     /** @test */
-    /*public function it_displays_the_column_show_page()
+    /*public function it_displays_the_column_group_show_page()
     {
         $this->authenticate();
 
-        $column = factory(Column::class)->create();
-        $response = $this->get('/columns/'.$column->id);
-        $response->assertViewIs('laravel-columns::columns.show')
+        $columnGroup = factory(ColumnGroup::class)->create();
+        $response = $this->get('/columnGroups/'.$columnGroup->id);
+        $response->assertViewIs('laravel-columns::columnGroups.show')
                  ->assertStatus(200);
     }*/
     
     /** @test */
-    /*public function it_displays_the_column_edit_page()
+    public function it_displays_the_column_edit_page()
     {
         $this->authenticateAsAdmin();
 
-        $column = factory(Column::class)->create();
-        $response = $this->get("/columns/{$column->id}/edit");
-        $response->assertViewIs('laravel-columns::columns.edit')
+        $columnGroup = factory(ColumnGroup::class)->create();
+        $response = $this->get("/columnGroups/{$columnGroup->id}/edit");
+        $response->assertViewIs('laravel-columns::columnGroups.edit')
                  ->assertStatus(200);
-    }*/
+    }
 
     /** @test */
     /*public function it_updates_valid_column()
