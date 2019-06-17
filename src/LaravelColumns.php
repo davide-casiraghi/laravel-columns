@@ -121,6 +121,7 @@ public function showColumnGroup($columnGroup, $columnGroupParameters)
  */
 public static function getParametersArray($column)
 {
+    /* Wrapper style */
     $wrapper_style = "justify-content:".$column->justify_content."; ";
 	$wrapper_style .= "flex-flow:".$column->flex_flow."; ";
 	$wrapper_style .= "flex-wrap:".$column->flex_wrap."; ";
@@ -131,9 +132,14 @@ public static function getParametersArray($column)
         $wrapper_style  .= "background-position:".$column->background_image_position."; ";
     }
     
+    /* Title style */
+    $title_style = "color:".$column->group_title_color."; ";
+    $title_style .= "font-size:".$column->group_title_font_size."; ";
+    
     $ret = [
         'icon_color' => 'color: '.$column->icon_color.';',
         'wrapper_style' => $wrapper_style,
+        'title_style' => $title_style,
     ];
     
     
