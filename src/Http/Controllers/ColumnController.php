@@ -142,6 +142,14 @@ class ColumnController extends Controller
      */
     public function update(Request $request, $columnId)
     {    
+        // Validate form datas
+        $validator = Validator::make($request->all(), [
+                'title' => 'required',
+            ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
         $column = Column::find($columnId);
 
         // Set the default language to update the quote in English
