@@ -84,28 +84,17 @@ class ColumnControllerTest extends TestCase
         $response = $this->get('/columns/'.$column->id);
         $response->assertViewIs('laravel-columns::columns.show')
                  ->assertStatus(200);
-        
-        /*$id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
+    }
+    
+    /** @test */
+    public function it_displays_the_column_edit_page()
+    {
+        $this->authenticateAsAdmin();
 
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $this->get('columns/1')
-            ->assertViewIs('laravel-columns::columns.show')
-            ->assertViewHas('columnParameters')
-            ->assertStatus(200);*/
+        $column = factory(Column::class)->create();
+        $response = $this->get("/columns/{$column->id}/edit");
+        $response->assertViewIs('laravel-columns::columns.edit')
+                 ->assertStatus(200);
     }
 
     /** @test */
@@ -166,31 +155,5 @@ class ColumnControllerTest extends TestCase
             ->assertStatus(302);
     }
 
-    /** @test */
-    public function the_route_edit_can_be_accessed()
-    {
-        $this->authenticateAsAdmin();
-
-        $id = Column::insertGetId([
-            'columns_group' => 1,
-            'image_file_name' => 'image_test_1.jpg',
-            'fontawesome_icon_class' => 'fa-hand-heart',
-            'icon_color' => '#2365AA',
-            'button_url' => 'http://www.google.it',
-        ]);
-
-        ColumnTranslation::insert([
-            'column_id' => $id,
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'image_alt' => 'test alt text',
-            'locale' => 'en',
-        ]);
-
-        $this->get('columns/1/edit')
-            ->assertViewIs('laravel-columns::columns.edit')
-            ->assertViewHas('column')
-            ->assertStatus(200);
-    }
+    
 }
