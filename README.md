@@ -1,11 +1,11 @@
-# Very short description of the package
+# Laravel columns
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-columns.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-columns)
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-columns/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-columns)
 [![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-columns.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-columns)
 [![Total Downloads](https://img.shields.io/packagist/dt/davide-casiraghi/laravel-columns.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-columns)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+A Laravel library to generate responsive columns with multi language contents.
 
 ## Installation
 
