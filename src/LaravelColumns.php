@@ -90,7 +90,7 @@ public static function getSnippetParameters($matches)
     $ret['token'] = $matches[0];
     //dump($matches);
 
-    $ret['column_id'] = $matches[2];
+    $ret['column_group_id'] = $matches[2];
 
     return $ret;
 }
@@ -106,22 +106,17 @@ public static function getSnippetParameters($matches)
  **/
 public function replace_column_group_snippets_with_template($text)
 {
-    //aaaaaaa
     $matches = self::getColumnGroupSnippetOccurrences($text);
 
     if ($matches) {
         foreach ($matches as $key => $single_gallery_matches) {
             $snippetParameters = self::getSnippetParameters($single_gallery_matches);
-            //dd("aaa");
-            //$column = self::getColumn($snippetParameters['column_id']);
-            //dd($column);
-            //$columnParameters = ($column) ? $this->getParametersArray($column) : null;
+            
+            $columnGroupId = $snippetParameters['column_group_id'];
             
             $columnGroup = Laravelcolumns::getColumnGroup($columnGroupId);
             $columnGroupParameters = ($columnGroup) ? (Laravelcolumns::getParametersArray($columnGroup)) : null;
             $columns = Laravelcolumns::getColumnsByGroup($columnGroupId);
-
-
 
             $columnView = self::showColumnGroup($columnGroup, $columnGroupParameters, $columns);
             $columnHtml = $columnView->render();
