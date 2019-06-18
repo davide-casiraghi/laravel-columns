@@ -1,6 +1,7 @@
 
 
 @if ($columnGroup)
+    
     <div class="row flexColumns">
         
         <h3 style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
@@ -8,12 +9,37 @@
         <div class='wrapper' style='{{$columnGroupParameters['wrapper_style']}}'>
         
             {{-- Columns --}}
-    		@for ($i=0; $i < $columnGroup->column_number; $i++)
-                <aside class='aside-{{$i}}' style=''>
-                    @if ($column->icon)
-                        
+    		@foreach ($columns as $key => $column)
+                
+                <aside class='aside-{{$key}}' style=''>
+                    
+                    {{-- Font awesome icon --}}
+                    @if ($column->fontawesome_icon_class)
+                        <i class='fa {{$column->fontawesome_icon_class}}' aria-hidden='true' style='{{$column->icon_color}}'></i>
                     @endif
-            @endfor	    	
+                    
+                    {{-- Image --}}
+                    @if ($column->image_file_name)
+                        {{--<img style='".$image_style."' class='".$image_class."' src='".JURI::base().$articleImages['image_intro']->image_intro."'/>--}}
+                    @endif
+                    
+                    {{-- Text --}}
+                    <h4 style='".$title_style."'>{{$column->title}}</h4>
+                    <div class='separator' style='".$separator_style."'></div>
+                    
+                    
+                    
+                    <p style='".$description_style."'>{{$column->body}}</p>
+                    
+    
+                    {{-- Button --}}
+					    				
+					    		
+					    		
+                    
+                </aside>    
+                
+            @endforeach	
                         
                         
         {{--

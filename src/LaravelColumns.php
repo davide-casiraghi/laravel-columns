@@ -3,23 +3,54 @@
 namespace DavideCasiraghi\LaravelColumns;
 
 use DavideCasiraghi\LaravelColumns\Models\Column;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 
 class LaravelColumns
 {
     /**************************************************************************/
 
-/**
- *  Provide the column data array (column_title, column_body, column_image).
- *
- *  @param int $columnId
- *  @return  \DavideCasiraghi\LaravelColumns\Models\Column    $ret
- **/
-public static function getColumn($columnId)
-{
-    $ret = Column::where('id', $columnId)->first();
+    /**
+     *  Provide the column data array.
+     *
+     *  @param int $columnId
+     *  @return  \DavideCasiraghi\LaravelColumns\Models\Column    $ret
+     **/
+    public static function getColumn($columnId)
+    {
+        $ret = Column::where('id', $columnId)->first();
 
-    return $ret;
-}
+        return $ret;
+    }
+    
+    /**************************************************************************/
+
+    /**
+     *  Provide the columns of a specfied group.
+     *
+     *  @param int $columnId
+     *  @return  \DavideCasiraghi\LaravelColumns\Models\Column    $ret
+     **/
+    public static function getColumnsByGroup($columnGroupId)
+    {
+        $ret = Column::where('columns_group', $columnGroupId)->get();
+
+        return $ret;
+    }
+
+    /**************************************************************************/
+
+    /**
+     *  Provide the column group data array.
+     *
+     *  @param int $columnGroupId
+     *  @return  \DavideCasiraghi\LaravelColumns\Models\ColumnGroup    $ret
+     **/
+    public static function getColumnGroup($columnGroupId)
+    {
+        $ret = ColumnGroup::where('id', $columnGroupId)->first();
+
+        return $ret;
+    }
 
 /**************************************************************************/
 

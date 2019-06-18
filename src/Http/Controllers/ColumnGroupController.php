@@ -107,12 +107,14 @@ class ColumnGroupController extends Controller
      */
     public function show($columnGroupId = null)
     {
-        //$column = Column::find($columnGroupId);
-        $columnGroup = Laravelcolumns::getColumn($columnGroupId);
+        $columnGroup = Laravelcolumns::getColumnGroup($columnGroupId);
         $columnGroupParameters = ($columnGroup) ? (Laravelcolumns::getParametersArray($columnGroup)) : null;
+        $columns = Laravelcolumns::getColumnsByGroup($columnGroupId);
 
         return view('laravel-columns::columnGroups.show', compact('columnGroup'))
-                ->with('columnGroupParameters', $columnGroupParameters);
+                ->with('columnGroup', $columnGroup)
+                ->with('columnGroupParameters', $columnGroupParameters)
+                ->with('columns', $columns);
     }
 
     /***************************************************************************/

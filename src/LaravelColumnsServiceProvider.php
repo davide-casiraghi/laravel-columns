@@ -50,6 +50,10 @@ class LaravelColumnsServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-columns'),
             ], 'views');
+            
+            $this->publishes([
+                __DIR__.'/../resources/assets/sass' => resource_path('sass/vendor/laravel-columns/'),
+            ], 'sass');
 
             // Publishing assets.
             /*$this->publishes([

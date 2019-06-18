@@ -1,5 +1,4 @@
-
-.flexColumns{
+.flexColumns {
 
 	.wrapper {
 		display: flex;  
@@ -11,7 +10,7 @@
 
 		/*background-image: url("/myJob/movementmeetslife/images/banners/water_contact.jpg");*/
 		
-		&> * {
+		& > * {
 		  padding: 10px;
 		}
 	}
@@ -49,12 +48,5 @@
 		    background-color: inherit;
 		    margin: 0 auto;
 		}
-
 	}
-
-
-	
-
 }
-
-
