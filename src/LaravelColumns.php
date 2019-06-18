@@ -152,28 +152,30 @@ public function showColumnGroup($columnGroup, $columnGroupParameters, $columns)
 
 /**
  * Return an array with the parameters for the column.
- * @param  \DavideCasiraghi\LaravelColumns\Models\Column  $column
+ * @param  \DavideCasiraghi\LaravelColumns\Models\ColumnGroup  $columnGroup
  * @return array
  */
-public static function getParametersArray($column)
+public static function getParametersArray($columnGroup)
 {
+    //dd($columnGroup);
+    
     /* Wrapper style */
-    $wrapper_style = "justify-content:".$column->justify_content."; ";
-	$wrapper_style .= "flex-flow:".$column->flex_flow."; ";
-	$wrapper_style .= "flex-wrap:".$column->flex_wrap."; ";
-	$wrapper_style .= "text-align:".$column->text_alignment."; ";
+    $wrapper_style = "justify-content:".$columnGroup->justify_content."; ";
+	$wrapper_style .= "flex-flow:".$columnGroup->flex_flow."; ";
+	$wrapper_style .= "flex-wrap:".$columnGroup->flex_wrap."; ";
+	$wrapper_style .= "text-align:".$columnGroup->text_alignment."; ";
             
-    if ($column->background_type == 3){
+    if ($columnGroup->background_type == 3){
         $wrapper_style  .= "background-image:".$column->background_image."; ";
         $wrapper_style  .= "background-position:".$column->background_image_position."; ";
     }
     
     /* Title style */
-    $title_style = "color:".$column->group_title_color."; ";
-    $title_style .= "font-size:".$column->group_title_font_size."; ";
+    $title_style = "color:".$columnGroup->group_title_color."; ";
+    $title_style .= "font-size:".$columnGroup->group_title_font_size."; ";
     
     $ret = [
-        'icon_color' => 'color: '.$column->icon_color.';',
+        'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
     ];

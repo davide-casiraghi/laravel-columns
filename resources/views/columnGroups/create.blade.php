@@ -29,6 +29,25 @@
                             'required' => false,
                         ])
                     </div>
+                    
+                    {{-- Text alignment --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::select', [
+                              'title' => "Text alignment",
+                              'name' => 'text_alignment',
+                              'placeholder' => "choose one...", 
+                              'records' => [
+                                 'left' => 'Left',
+                                 'center' => 'Center',
+                                 'right' => 'Right',
+                              ],
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => old('text_alignment'),
+                              'required' => false,
+                              'tooltip' => '',
+                        ])
+                    </div>
                 
                     {{-- ====================================================== --}}
                 
@@ -80,7 +99,7 @@
                             'title' =>  'Group titles font size',
                             'name' => 'group_title_font_size',
                             'tooltip' => 'Group font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'placeholder' => 'eg. 2rem', 
                             'value' => old('group_title_font_size'),
                             'required' => false,
                         ])
@@ -106,7 +125,7 @@
                             'title' =>  'Column titles font size',
                             'name' => 'column_title_font_size',
                             'tooltip' => 'Column font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'placeholder' => 'eg. 2rem', 
                             'value' => old('column_title_font_size'),
                             'required' => false,
                         ])
@@ -118,7 +137,7 @@
                             'title' =>  'Descriptions font size',
                             'name' => 'description_font_size',
                             'tooltip' => 'Description font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'placeholder' => 'eg. 1rem', 
                             'value' => old('description_font_size'),
                             'required' => false,
                         ])

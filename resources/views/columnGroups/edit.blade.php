@@ -28,6 +28,25 @@
                             'required' => false,
                         ])
                     </div>
+                    
+                    {{-- Text alignment --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::select', [
+                              'title' => "Text alignment",
+                              'name' => 'text_alignment',
+                              'placeholder' => "choose one...", 
+                              'records' => [
+                                 'left' => 'Left',
+                                 'center' => 'Center',
+                                 'right' => 'Right',
+                              ],
+                              'liveSearch' => 'false',
+                              'mobileNativeMenu' => true,
+                              'seleted' => $columnGroup->text_alignment,
+                              'required' => false,
+                              'tooltip' => '',
+                        ])
+                    </div>
                 
                     {{-- ====================================================== --}}
                 
