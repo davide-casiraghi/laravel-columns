@@ -13,7 +13,6 @@ class ColumnGroup extends Model
 
     public $translatedAttributes = ['title','description','button_text','image_alt'];
     protected $fillable = [
-        'number_of_columns_shown',
         'bkg_color',
         'group_title_color',
         'group_title_font_size',

@@ -106,17 +106,24 @@ public static function getSnippetParameters($matches)
  **/
 public function replace_column_group_snippets_with_template($text)
 {
+    //aaaaaaa
     $matches = self::getColumnGroupSnippetOccurrences($text);
 
     if ($matches) {
         foreach ($matches as $key => $single_gallery_matches) {
             $snippetParameters = self::getSnippetParameters($single_gallery_matches);
             //dd("aaa");
-            $column = self::getColumn($snippetParameters['column_id']);
+            //$column = self::getColumn($snippetParameters['column_id']);
             //dd($column);
-            $columnParameters = ($column) ? $this->getParametersArray($column) : null;
+            //$columnParameters = ($column) ? $this->getParametersArray($column) : null;
+            
+            $columnGroup = Laravelcolumns::getColumnGroup($columnGroupId);
+            $columnGroupParameters = ($columnGroup) ? (Laravelcolumns::getParametersArray($columnGroup)) : null;
+            $columns = Laravelcolumns::getColumnsByGroup($columnGroupId);
 
-            $columnView = self::showColumnGroup($column, $columnParameters);
+
+
+            $columnView = self::showColumnGroup($columnGroup, $columnGroupParameters, $columns);
             $columnHtml = $columnView->render();
 
             // Substitute the column html to the token that has been found
@@ -132,15 +139,18 @@ public function replace_column_group_snippets_with_template($text)
 /***************************************************************************/
 
 /**
- * Show a Column group.
+ * Show a Column group
  *
  * @param  \DavideCasiraghi\LaravelColumns\Models\ColumnGroup $columnGroup
+ * @param array $columnGroupParameters
+ * @param  \DavideCasiraghi\LaravelColumns\Models\Column $columns
  * @return \Illuminate\Http\Response
  */
-public function showColumnGroup($columnGroup, $columnGroupParameters)
+public function showColumnGroup($columnGroup, $columnGroupParameters, $columns)
 {
     return view('laravel-columns::show-column-group', compact('columnGroup'))
-        ->with('columnGroupParameters', $columnGroupParameters);
+        ->with('columnGroupParameters', $columnGroupParameters)
+        ->with('columns', $columns);
 }
 
 /***************************************************************************/

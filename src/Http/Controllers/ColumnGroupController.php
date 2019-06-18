@@ -195,7 +195,6 @@ class ColumnGroupController extends Controller
         $columnGroup->translateOrNew('en')->button_text = $request->get('button_text');
         $columnGroup->translateOrNew('en')->image_alt = $request->get('image_alt');
 
-        $columnGroup->number_of_columns_shown = $request->get('number_of_columns_shown');
         $columnGroup->bkg_color = $request->get('bkg_color');
         $columnGroup->group_title_color = $request->get('group_title_color');
         $columnGroup->group_title_font_size = $request->get('group_title_font_size');

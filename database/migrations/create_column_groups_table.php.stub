@@ -10,7 +10,6 @@ class CreateColumnGroupsTable extends Migration
     {
         Schema::create('column_groups', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('number_of_columns_shown')->nullable();
             $table->string('bkg_color')->nullable();
             $table->string('group_title_color')->nullable();
             $table->string('group_title_font_size')->nullable();

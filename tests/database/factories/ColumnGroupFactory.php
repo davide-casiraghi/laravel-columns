@@ -18,7 +18,6 @@ $factory->define(DavideCasiraghi\LaravelColumns\Models\ColumnGroup::class, funct
         'description:en' => $faker->paragraph,
         'button_text:en' => $faker->sentence($nbWords = 1, $variableNbWords = true),
         'image_alt:en' => $faker->sentence($nbWords = 5, $variableNbWords = true),
-        'number_of_columns_shown' => 3,
         'bkg_color' => '#AA33BB',
         'group_title_color' => '#BBAABB',
         'group_title_font_size' => '2rem',

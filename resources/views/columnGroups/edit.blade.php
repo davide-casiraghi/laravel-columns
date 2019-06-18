@@ -16,31 +16,7 @@
             <form action="{{ route('columnGroups.update', $columnGroup->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                
-                <div class="row">
-                    {{-- Number of columns shown --}}
-                    <div class="col-12">
-                        @include('laravel-form-partials::select', [
-                              'title' => "Number of columns shown",
-                              'name' => 'number_of_columns_shown',
-                              'placeholder' => "choose one...", 
-                              'records' => [
-                                  '2' => '2 columns',
-                                  '3' => '3 columns',
-                                  '4' => '4 columns',
-                                  '5' => '5 columns',
-                                  '6' => '6 columns',
-                                  '7' => '7 columns',
-                                  '8' => '8 columns',
-                              ],
-                              'liveSearch' => 'false',
-                              'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->number_of_columns_shown,
-                              'required' => false,
-                              'tooltip' => 'The number of columns shown',
-                        ])
-                    </div>
-                
+                    
                     {{-- Background color --}}
                     <div class="col-12">
                         @include('laravel-form-partials::input', [

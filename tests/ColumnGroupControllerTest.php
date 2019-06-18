@@ -53,7 +53,6 @@ class ColumnGroupControllerTest extends TestCase
             'description' => 'test description',
             'button_text' => 'test button text',
             'image_alt' => 'test image alt',
-            'number_of_columns_shown' => 3,
             'bkg_color' => '#2365AA',
             'group_title_color' => '#2365AA',
             'group_title_font_size' => '2rem',
