@@ -53,6 +53,18 @@
                         ])
                     </div>
                     
+                    {{-- Flex  --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Flex',
+                            'name' => 'column_flex',
+                            'placeholder' => '', 
+                            'value' => $column->column_flex,
+                            'required' => true,
+                            'tooltip' => 'The flex property applied to the specific column. Eg. 1 0 320px (grow shrink basis) or 0 1 auto',
+                        ])
+                    </div>
+                    
                     {{-- Image --}}
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Column image',

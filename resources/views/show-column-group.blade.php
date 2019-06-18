@@ -11,7 +11,7 @@
             {{-- Columns --}}
     		@foreach ($columns as $key => $column)
                 
-                <aside class='aside-{{$key}}'>
+                <aside class='aside-{{$key}}' style='flex: {{$columnGroup->columns_flex}}; '>
                     
                     {{-- Font awesome icon --}}
                     @if ($column->fontawesome_icon_class)

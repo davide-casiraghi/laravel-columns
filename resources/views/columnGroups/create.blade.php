@@ -340,9 +340,9 @@
                               'name' => 'flex_wrap',
                               'placeholder' => "choose one...", 
                               'records' => [
-                                 'nowrap' => 'nowrap',
-                                 'wrap' => 'wrap',
-                                 'wrap-reverse' => 'wrap-reverse',
+                                  'wrap' => 'wrap',
+                                  'wrap-reverse' => 'wrap-reverse',
+                                  'nowrap' => 'nowrap',
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
@@ -386,7 +386,7 @@
                             'placeholder' => '', 
                             'value' => old('columns_flex'),
                             'required' => true,
-                            'tooltip' => 'The flex property applied to all columns. Can be overrided by setting the flex property of the single cild. Eg. flex: 1 0 320px (grow shrink basis) or 0 1 auto',
+                            'tooltip' => 'The flex property applied to all columns. Can be overrided by setting the flex property of the single child. Eg. 1 0 320px (grow shrink basis) or 0 1 auto',
                         ])
                     </div>
                     

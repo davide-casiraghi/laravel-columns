@@ -194,6 +194,7 @@ class ColumnController extends Controller
         $column->translateOrNew('en')->image_alt = $request->get('image_alt');
 
         $column->columns_group = $request->get('columns_group');
+        $column->column_flex = $request->get('column_flex');
         $column->image_file_name = $request->get('image_file_name');
         $column->fontawesome_icon_class = $request->get('fontawesome_icon_class');
         $column->icon_color = $request->get('icon_color');
