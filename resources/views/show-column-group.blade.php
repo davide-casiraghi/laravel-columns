@@ -24,7 +24,7 @@
                     @endif
                     
                     {{-- Text --}}
-                    <h4 class="mt-2" style='{{$columnGroupParameters['title_style']}}'>{{$column->title}}</h4>
+                    <h4 style='{{$columnGroupParameters['title_style']}}'>{{$column->title}}</h4>
                     @if ($column->separator_color)
                         <div class='separator' style='background-color: {{$column->separator_color}} ;'></div>
                     @endif
