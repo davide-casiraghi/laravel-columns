@@ -98,8 +98,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Group titles font size',
                             'name' => 'group_title_font_size',
-                            'tooltip' => 'Group font size (rem)',
-                            'placeholder' => 'eg. 2rem', 
+                            'tooltip' => 'Group font size (eg. 3rem)',
+                            'placeholder' => '', 
                             'value' => old('group_title_font_size'),
                             'required' => false,
                         ])
@@ -124,8 +124,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Column titles font size',
                             'name' => 'column_title_font_size',
-                            'tooltip' => 'Column font size (rem)',
-                            'placeholder' => 'eg. 2rem', 
+                            'tooltip' => 'Column font size (eg. 2rem)',
+                            'placeholder' => '', 
                             'value' => old('column_title_font_size'),
                             'required' => false,
                         ])
@@ -136,8 +136,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Descriptions font size',
                             'name' => 'description_font_size',
-                            'tooltip' => 'Description font size (rem)',
-                            'placeholder' => 'eg. 1rem', 
+                            'tooltip' => 'Description font size (eg. 1rem)',
+                            'placeholder' => '', 
                             'value' => old('description_font_size'),
                             'required' => false,
                         ])
@@ -457,7 +457,7 @@
                         @include('laravel-form-partials::input', [
                             'title' => 'Font awesome icon size. ',
                             'name' => 'icons_size',
-                            'placeholder' => '2rem', 
+                            'placeholder' => '', 
                             'value' => old('icons_size'),
                             'required' => true,
                             'tooltip' => 'eg. 2rem',

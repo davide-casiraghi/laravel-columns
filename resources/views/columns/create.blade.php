@@ -64,6 +64,18 @@
                             'tooltip' => 'The flex property applied to the specific column. Eg. 1 0 320px (grow shrink basis) or 0 1 auto',
                         ])
                     </div>
+                    
+                    {{-- Separator color --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Separator color',
+                            'name' => 'separator_color',
+                            'placeholder' => '', 
+                            'value' => old('separator_color'),
+                            'required' => true,
+                            'tooltip' => 'The color of separator between title and text',
+                        ])
+                    </div>
                 
                     {{-- Image --}}
                     @include('laravel-form-partials::upload-image', [
@@ -79,7 +91,7 @@
                             'title' =>  'Icons fontawesome',
                             'name' => 'fontawesome_icon_class',
                             'tooltip' => 'Font awesome icon color.',
-                            'placeholder' => 'user-alt', 
+                            'placeholder' => 'fa-user-alt', 
                             'value' => old('fontawesome_icon_class'),
                             'required' => false,
                         ])

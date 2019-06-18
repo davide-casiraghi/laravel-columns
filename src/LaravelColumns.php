@@ -174,10 +174,14 @@ public static function getParametersArray($columnGroup)
     $title_style = "color:".$columnGroup->group_title_color."; ";
     $title_style .= "font-size:".$columnGroup->group_title_font_size."; ";
     
+    /* Description style */
+    $description_style = "font-size:".$columnGroup->description_font_size."; ";
+    
     $ret = [
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
+        'description_style'  => $description_style,
     ];
     
     

@@ -97,8 +97,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Group titles font size',
                             'name' => 'group_title_font_size',
-                            'tooltip' => 'Group font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'tooltip' => 'Group font size (eg. 3rem)',
+                            'placeholder' => '', 
                             'value' => $columnGroup->group_title_font_size,
                             'required' => false,
                         ])
@@ -123,8 +123,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Column titles font size',
                             'name' => 'column_title_font_size',
-                            'tooltip' => 'Column font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'tooltip' => 'Column font size (eg. 2rem)',
+                            'placeholder' => '', 
                             'value' => $columnGroup->column_title_font_size,
                             'required' => false,
                         ])
@@ -135,8 +135,8 @@
                         @include('laravel-form-partials::input', [
                             'title' =>  'Descriptions font size',
                             'name' => 'description_font_size',
-                            'tooltip' => 'Description font size (rem)',
-                            'placeholder' => '#HEX', 
+                            'tooltip' => 'Description font size (eg. 1rem)',
+                            'placeholder' => '', 
                             'value' => $columnGroup->description_font_size,
                             'required' => false,
                         ])

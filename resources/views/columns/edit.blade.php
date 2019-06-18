@@ -65,6 +65,18 @@
                         ])
                     </div>
                     
+                    {{-- Separator color --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Separator color',
+                            'name' => 'separator_color',
+                            'placeholder' => '', 
+                            'value' => $column->separator_color,
+                            'required' => true,
+                            'tooltip' => 'The color of separator between title and text',
+                        ])
+                    </div>
+                    
                     {{-- Image --}}
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Column image',
@@ -79,7 +91,7 @@
                             'title' =>  'Icons fontawesome',
                             'name' => 'fontawesome_icon_class',
                             'tooltip' => 'Font awesome icon color.',
-                            'placeholder' => '#HEX', 
+                            'placeholder' => 'fa-user-alt', 
                             'value' => $column->fontawesome_icon_class,
                             'required' => false,
                         ])

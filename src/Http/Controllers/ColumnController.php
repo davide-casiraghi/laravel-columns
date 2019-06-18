@@ -195,6 +195,7 @@ class ColumnController extends Controller
 
         $column->columns_group = $request->get('columns_group');
         $column->column_flex = $request->get('column_flex');
+        $column->separator_color = $request->get('separator_color');
         $column->image_file_name = $request->get('image_file_name');
         $column->fontawesome_icon_class = $request->get('fontawesome_icon_class');
         $column->icon_color = $request->get('icon_color');

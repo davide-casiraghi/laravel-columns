@@ -11,7 +11,7 @@
             {{-- Columns --}}
     		@foreach ($columns as $key => $column)
                 
-                <aside class='aside-{{$key}}' style='flex: {{$columnGroup->columns_flex}}; '>
+                <aside class='aside-{{$key}}' style='flex: @if ($column->column_flex) {{$column->column_flex}} @else {{$columnGroup->columns_flex}} @endif; '>
                     
                     {{-- Font awesome icon --}}
                     @if ($column->fontawesome_icon_class)
@@ -24,16 +24,22 @@
                     @endif
                     
                     {{-- Text --}}
-                    <h4 class="mt-2" style='".$title_style."'>{{$column->title}}</h4>
-                    <div class='separator' style='".$separator_style."'></div>
-                    
-                    
-                    
-                    <p style='".$description_style."'>{{$column->body}}</p>
-                    
+                    <h4 class="mt-2" style='{{$columnGroupParameters['title_style']}}'>{{$column->title}}</h4>
+                    @if ($column->separator_color)
+                        <div class='separator' style='background-color: {{$column->separator_color}} ;'></div>
+                    @endif
+                    <p style='{{$columnGroupParameters['description_style']}}'>{{$column->body}}</p>    
     
                     {{-- Button --}}
-					    				
+                    @if ($column->button_url)
+                        <button class='press ' onclick=\"location.href='{{$column->button_url}}'\">
+                            @if ($column->button_text)
+								{{$column->button_text}}
+							@else
+								Insert a button text please
+                            @endif
+                        </button>
+                    @endif	
 					    		
 					    		
                     
