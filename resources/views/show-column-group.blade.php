@@ -32,7 +32,7 @@
     
                     {{-- Button / Link --}}
                     @if ($columnGroup->link_style == 2)
-                        <button class='press {{$columnGroupParameters['button_class']}}' onclick=\"location.href='{{$column->button_url}}'\">
+                        <button class='press {{$columnGroupParameters['button_class']}}' onclick="location.href='{{$column->button_url}}'">
                             @if ($column->button_text)
 								{{$column->button_text}}
 							@else
