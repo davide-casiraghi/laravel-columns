@@ -20,7 +20,7 @@
                     
                     {{-- Image --}}
                     @if ($column->image_file_name)
-                        {{--<img style='".$image_style."' class='".$image_class."' src='".JURI::base().$articleImages['image_intro']->image_intro."'/>--}}
+                        <img style='{{$columnGroupParameters['image_style']}}' class='{{$columnGroupParameters['image_class']}}' src='/storage/images/columns/{{$column->image_file_name}}'/>
                     @endif
                     
                     {{-- Text --}}

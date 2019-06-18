@@ -177,11 +177,24 @@ public static function getParametersArray($columnGroup)
     /* Description style */
     $description_style = "font-size:".$columnGroup->description_font_size."; ";
     
+    
+    // Image style and class
+	$image_style = ""; 
+	$image_style .= "width:".$columnGroup->columns_images_width."; ";
+	if ($columnGroup->columns_round_images)
+		$image_style .= "border-radius: 50%;";
+
+	$image_class = "";
+	if ($columnGroup->columns_images_hide_mobile)
+		$image_class .= "hide-image-mobile";
+        
     $ret = [
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
         'description_style'  => $description_style,
+        'image_style'  => $image_style,
+        'image_class'  => $image_class,
     ];
     
     

@@ -24,6 +24,7 @@
 		img{
 			/*max-width: none;*/
 			max-width: 400px;
+			margin-bottom: 1rem;
 		 	
 			&.hide-image-mobile{
 				@media screen and (max-width: 640px){
