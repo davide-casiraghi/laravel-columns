@@ -67,7 +67,7 @@
                             'title' =>  'Icons fontawesome',
                             'name' => 'fontawesome_icon_class',
                             'tooltip' => 'Font awesome icon color.',
-                            'placeholder' => '#HEX', 
+                            'placeholder' => 'user-alt', 
                             'value' => old('fontawesome_icon_class'),
                             'required' => false,
                         ])

@@ -15,7 +15,7 @@
                     
                     {{-- Font awesome icon --}}
                     @if ($column->fontawesome_icon_class)
-                        <i class='fa {{$column->fontawesome_icon_class}}' aria-hidden='true' style='{{$column->icon_color}}'></i>
+                        <i class='fa fa-{{$column->fontawesome_icon_class}}' style='{{$column->icon_color}}'></i>
                     @endif
                     
                     {{-- Image --}}
