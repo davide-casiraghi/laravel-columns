@@ -73,14 +73,14 @@
                         ])
                     </div>
                     
-                    {{-- Icons color --}}
+                    {{-- Icon color --}}
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
-                            'title' =>  'Icons color',
-                            'name' => 'icons_color',
+                            'title' =>  'Icon color',
+                            'name' => 'icon_color',
                             'tooltip' => 'Font awesome icon color.',
                             'placeholder' => '#HEX', 
-                            'value' => $column->icons_color,
+                            'value' => $column->icon_color,
                             'required' => false,
                         ])
                     </div>

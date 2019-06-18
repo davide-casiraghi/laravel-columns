@@ -298,7 +298,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('background_image_position'),
+                              'seleted' => $columnGroup->background_image_position,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -345,7 +345,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('flex_wrap'),
+                              'seleted' => $columnGroup->flex_wrap,
                               'required' => false,
                               'tooltip' => '- flex-start: all the elements aligned on the left. - flex-end: elements aligned at the end; - center: aligned at the center; - space-around: split all the available space in a way that there is the same space on the left and on the right of each element; - space-between: equal space between the elements, no space in the beginning and in the end.',
                         ])
@@ -364,7 +364,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('flex_flow'),
+                              'seleted' => $columnGroup->flex_flow,
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])
@@ -383,7 +383,7 @@
                             'title' => 'Flex',
                             'name' => 'columns_flex',
                             'placeholder' => '', 
-                            'value' => old('columns_flex'),
+                            'value' => $columnGroup->columns_flex,
                             'required' => true,
                             'tooltip' => 'The flex property applied to all columns. Can be overrided by setting the flex property of the single cild. Eg. flex: 1 0 320px (grow shrink basis) or 0 1 auto',
                         ])
@@ -395,7 +395,7 @@
                             'title' => 'Padding',
                             'name' => 'columns_padding',
                             'placeholder' => '', 
-                            'value' => old('columns_padding'),
+                            'value' => $columnGroup->columns_padding,
                             'required' => true,
                             'tooltip' => 'eg. 10px 30px 10px 30px',
                         ])
@@ -413,7 +413,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('columns_box_sizing'),
+                              'seleted' => $columnGroup->columns_box_sizing,
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])
@@ -424,7 +424,7 @@
                         @include('laravel-form-partials::checkbox', [
                               'name' => 'columns_round_images',
                               'description' => 'Round images',
-                              'value' => old('columns_round_images'),
+                              'value' => $columnGroup->columns_round_images,
                               'required' => false,
                         ])
                     </div>
@@ -435,7 +435,7 @@
                             'title' => 'Images width',
                             'name' => 'columns_images_width',
                             'placeholder' => '', 
-                            'value' => old('columns_images_width'),
+                            'value' => $columnGroup->columns_images_width,
                             'required' => true,
                             'tooltip' => 'eg. 30px',
                         ])
@@ -446,7 +446,7 @@
                         @include('laravel-form-partials::checkbox', [
                               'name' => 'columns_images_hide_mobile',
                               'description' => 'Hide images on mobile',
-                              'value' => old('columns_images_hide_mobile'),
+                              'value' => $columnGroup->columns_images_hide_mobile,
                               'required' => false,
                         ])
                     </div>
@@ -457,7 +457,7 @@
                             'title' => 'Font awesome icon size. ',
                             'name' => 'icons_size',
                             'placeholder' => '2rem', 
-                            'value' => old('icons_size'),
+                            'value' => $columnGroup->icons_size,
                             'required' => true,
                             'tooltip' => 'eg. 2rem',
                         ])
@@ -467,10 +467,10 @@
                     <div class="col-12">
                         @include('laravel-form-partials::input', [
                             'title' =>  'Icons color',
-                            'name' => 'icons_color',
+                            'name' => 'icon_color',
                             'tooltip' => 'Font awesome icon color.',
                             'placeholder' => '#HEX', 
-                            'value' => old('icons_color'),
+                            'value' => $columnGroup->icon_color,
                             'required' => false,
                         ])
                     </div>

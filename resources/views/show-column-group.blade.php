@@ -4,7 +4,7 @@
     
     <div class="flexColumns">
         
-        <h3 style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
+        <h3 class="mb-4" style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
         
         <div class='wrapper' style='{{$columnGroupParameters['wrapper_style']}}'>
         
@@ -15,7 +15,7 @@
                     
                     {{-- Font awesome icon --}}
                     @if ($column->fontawesome_icon_class)
-                        <i class='fa fa-{{$column->fontawesome_icon_class}}' style='{{$column->icon_color}}'></i>
+                        <i class='fa {{$column->fontawesome_icon_class}}' style='color: {{$column->icon_color}}; font-size: {{$columnGroup->icons_size}};'></i>
                     @endif
                     
                     {{-- Image --}}

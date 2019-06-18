@@ -110,7 +110,7 @@ class ColumnGroupController extends Controller
         $columnGroup = Laravelcolumns::getColumnGroup($columnGroupId);
         $columnGroupParameters = ($columnGroup) ? (Laravelcolumns::getParametersArray($columnGroup)) : null;
         $columns = Laravelcolumns::getColumnsByGroup($columnGroupId);
-
+        //dd($columnGroup);
         return view('laravel-columns::columnGroups.show', compact('columnGroup'))
                 ->with('columnGroup', $columnGroup)
                 ->with('columnGroupParameters', $columnGroupParameters)
@@ -219,6 +219,8 @@ class ColumnGroupController extends Controller
         $columnGroup->columns_images_width = $request->get('columns_images_width');
         $columnGroup->columns_images_hide_mobile = $request->get('columns_images_hide_mobile');
         $columnGroup->icons_size = $request->get('icons_size');
+        
+        //dd($columnGroup);
 
         // Column group image upload
         $imageSubdir = 'column_groups';
