@@ -171,11 +171,18 @@ public static function getParametersArray($columnGroup)
     }
     
     /* Title style */
-    $title_style = "color:".$columnGroup->group_title_color."; ";
-    $title_style .= "font-size:".$columnGroup->group_title_font_size."; ";
+        $title_style = "color:".$columnGroup->group_title_color."; ";
+        $title_style .= "font-size:".$columnGroup->group_title_font_size."; ";
     
     /* Description style */
-    $description_style = "font-size:".$columnGroup->description_font_size."; ";
+        $description_style = "font-size:".$columnGroup->description_font_size."; ";
+    
+    /* Button class*/
+        $button_class = $columnGroup->button_color."; ";
+        $button_class .= $columnGroup->button_corners."; ";
+        if ($columnGroup->link_style == 3){
+            $button_class .= "press-ghost; ";
+        }
     
     
     // Image style and class
@@ -195,6 +202,7 @@ public static function getParametersArray($columnGroup)
         'description_style'  => $description_style,
         'image_style'  => $image_style,
         'image_class'  => $image_class,
+        'button_class' => $button_class,
     ];
     
     

@@ -212,9 +212,9 @@
                               'name' => 'button_corners',
                               'placeholder' => "choose one...", 
                               'records' => [
-                                 '1' => 'Square',
-                                 '2' => 'Half Round',
-                                 '3' => 'Round',
+                                  '' => 'Square',
+                                  'press-pill' => 'Pill',
+                                  'press-round' => 'Round',
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,

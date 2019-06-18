@@ -38,6 +38,16 @@
                         ])
                     </div>
                     
+                    {{-- Button text --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Button text',
+                            'name' => 'button_text',
+                            'placeholder' => '', 
+                            'value' => old('button_text'),
+                        ])
+                    </div>
+                    
                     {{-- Columns group --}}
                     <div class="col-12">
                         @include('laravel-form-partials::select', [
@@ -84,6 +94,16 @@
                           'folder' => 'columns',
                           'value' => old('image_file_name'),
                     ]) 
+                    
+                    {{-- Image alt --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Image alt',
+                            'name' => 'image_alt',
+                            'placeholder' => '', 
+                            'value' => old('image_alt'),
+                        ])
+                    </div>
                     
                     {{-- Icons fontawesome --}}
                     <div class="col-12">

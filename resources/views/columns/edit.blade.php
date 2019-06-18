@@ -25,7 +25,7 @@
                             'title' => 'Title',
                             'name' => 'title',
                             'placeholder' => '', 
-                            'value' => $column->title
+                            'value' => $column->title,
                         ])
                     </div>
                     
@@ -34,7 +34,17 @@
                         @include('laravel-form-partials::textarea-plain', [
                             'title' =>  'Body',
                             'name' => 'body',
-                            'value' => $column->body
+                            'value' => $column->body,
+                        ])
+                    </div>
+                    
+                    {{-- Button text --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Button text',
+                            'name' => 'button_text',
+                            'placeholder' => '', 
+                            'value' => $column->button_text,
                         ])
                     </div>
                     
@@ -82,8 +92,18 @@
                           'title' => 'Column image',
                           'name' => 'image_file_name',
                           'folder' => 'columns',
-                          'value' => $column->image_file_name
+                          'value' => $column->image_file_name,
                     ]) 
+                    
+                    {{-- Image alt --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' => 'Image alt',
+                            'name' => 'image_alt',
+                            'placeholder' => '', 
+                            'value' => $column->image_alt,
+                        ])
+                    </div>
                     
                     {{-- Icons fontawesome --}}
                     <div class="col-12">
