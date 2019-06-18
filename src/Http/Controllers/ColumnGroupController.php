@@ -128,7 +128,7 @@ class ColumnGroupController extends Controller
     public function edit($columnGroupId = null)
     {
         $columnGroup = ColumnGroup::find($columnGroupId);
-
+        
         return view('laravel-columns::columnGroups.edit', compact('columnGroup'))
                     ->with('buttonColorArray', $this->getButtonColorArray());
     }

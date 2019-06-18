@@ -24,7 +24,7 @@
                     @endif
                     
                     {{-- Text --}}
-                    <h4 style='".$title_style."'>{{$column->title}}</h4>
+                    <h4 class="mt-2" style='".$title_style."'>{{$column->title}}</h4>
                     <div class='separator' style='".$separator_style."'></div>
                     
                     

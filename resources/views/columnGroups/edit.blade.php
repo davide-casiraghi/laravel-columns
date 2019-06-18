@@ -42,7 +42,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->text_alignment,
+                              'selected' => $columnGroup->text_alignment,
                               'required' => false,
                               'tooltip' => '',
                         ])
@@ -162,7 +162,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->link_style,
+                              'selected' => $columnGroup->link_style,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -199,7 +199,7 @@
                               'records' => $buttonColorArray,
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->button_color,
+                              'selected' => $columnGroup->button_color,
                               'tooltip' => 'Check the press-css.io website for the preview of the color available.',
                               'required' => false,
                         ])
@@ -218,7 +218,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->button_corners,
+                              'selected' => $columnGroup->button_corners,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -245,7 +245,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->background_type,
+                              'selected' => $columnGroup->background_type,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -267,7 +267,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->opacity,
+                              'selected' => $columnGroup->opacity,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -298,7 +298,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->background_image_position,
+                              'selected' => $columnGroup->background_image_position,
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -326,7 +326,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->justify_content,
+                              'selected' => $columnGroup->justify_content,
                               'required' => false,
                               'tooltip' => '- flex-start: all the elements aligned on the left. - flex-end: elements aligned at the end; - center: aligned at the center; - space-around: split all the available space in a way that there is the same space on the left and on the right of each element; - space-between: equal space between the elements, no space in the beginning and in the end.',
                         ])
@@ -345,7 +345,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->flex_wrap,
+                              'selected' => $columnGroup->flex_wrap,
                               'required' => false,
                               'tooltip' => '- flex-start: all the elements aligned on the left. - flex-end: elements aligned at the end; - center: aligned at the center; - space-around: split all the available space in a way that there is the same space on the left and on the right of each element; - space-between: equal space between the elements, no space in the beginning and in the end.',
                         ])
@@ -364,7 +364,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->flex_flow,
+                              'selected' => $columnGroup->flex_flow,
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])
@@ -413,7 +413,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => $columnGroup->columns_box_sizing,
+                              'selected' => $columnGroup->columns_box_sizing,
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])

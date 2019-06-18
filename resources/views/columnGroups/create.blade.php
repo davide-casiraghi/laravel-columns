@@ -43,7 +43,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('text_alignment'),
+                              'selected' => old('text_alignment'),
                               'required' => false,
                               'tooltip' => '',
                         ])
@@ -163,7 +163,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('link_style'),
+                              'selected' => old('link_style'),
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -200,7 +200,7 @@
                               'records' => $buttonColorArray,
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('button_color'),
+                              'selected' => old('button_color'),
                               'tooltip' => 'Check the press-css.io website for the preview of the color available.',
                               'required' => false,
                         ])
@@ -219,7 +219,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('button_corners'),
+                              'selected' => old('button_corners'),
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -246,7 +246,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('background_type'),
+                              'selected' => old('background_type'),
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -268,7 +268,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('opacity'),
+                              'selected' => old('opacity'),
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -299,7 +299,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('background_image_position'),
+                              'selected' => old('background_image_position'),
                               'required' => false,
                               'tooltip' => 'aaa',
                         ])
@@ -327,7 +327,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('justify_content'),
+                              'selected' => old('justify_content'),
                               'required' => false,
                               'tooltip' => '- flex-start: all the elements aligned on the left. - flex-end: elements aligned at the end; - center: aligned at the center; - space-around: split all the available space in a way that there is the same space on the left and on the right of each element; - space-between: equal space between the elements, no space in the beginning and in the end.',
                         ])
@@ -346,7 +346,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('flex_wrap'),
+                              'selected' => old('flex_wrap'),
                               'required' => false,
                               'tooltip' => '- flex-start: all the elements aligned on the left. - flex-end: elements aligned at the end; - center: aligned at the center; - space-around: split all the available space in a way that there is the same space on the left and on the right of each element; - space-between: equal space between the elements, no space in the beginning and in the end.',
                         ])
@@ -365,7 +365,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('flex_flow'),
+                              'selected' => old('flex_flow'),
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])
@@ -414,7 +414,7 @@
                               ],
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('columns_box_sizing'),
+                              'selected' => old('columns_box_sizing'),
                               'required' => false,
                               'tooltip' => '- row-reverse: it will show the element in horizontal way starting from right. - column: switch the main axis from horizontal to vertical showing elements starting from top. - column-reverse: switch the main axis from horizontal to vertical showing elements starting from bottom.',
                         ])

@@ -47,7 +47,7 @@
                               'records' => $columnGroupsArray,
                               'liveSearch' => 'false',
                               'mobileNativeMenu' => true,
-                              'seleted' => old('columns_group'),
+                              'selected' => old('columns_group'),
                               'tooltip' => 'Pick the group to show',
                               'required' => false,
                         ])
