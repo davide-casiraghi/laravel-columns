@@ -2,7 +2,7 @@
 
 @if ($columnGroup)
     
-    <div class="row flexColumns">
+    <div class="flexColumns">
         
         <h3 style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
         
