@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelColumns;
 
-use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Support\ServiceProvider;
 
 class LaravelColumnsServiceProvider extends ServiceProvider
 {
@@ -50,7 +50,7 @@ class LaravelColumnsServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-columns'),
             ], 'views');
-            
+
             $this->publishes([
                 __DIR__.'/../resources/assets/sass' => resource_path('sass/vendor/laravel-columns/'),
             ], 'sass');

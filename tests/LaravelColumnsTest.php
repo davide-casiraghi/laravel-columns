@@ -3,10 +3,7 @@
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnTranslation;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
-
 use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 
 class LaravelColumnsTest extends TestCase
@@ -39,7 +36,7 @@ class LaravelColumnsTest extends TestCase
         $column = factory(Column::class)->create([
             'icon_color' => '#FF00FF',
         ]);
-        
+
         /*$id = Card::insertGetId([
             'image_file_name' => 'test image name',
             'button_url' => 'test button url',
@@ -57,10 +54,10 @@ class LaravelColumnsTest extends TestCase
             'button_text' => 'test button text',
             'locale' => 'en',
         ]);*/
-        
+
         $column = Column::where('id', 1)->first();
         $parameters = LaravelColumns::getParametersArray($column);
-        
+
         //dd($parameters);
 
         $this->assertEquals($parameters['icon_color'], 'color: #FF00FF;');
@@ -84,28 +81,28 @@ class LaravelColumnsTest extends TestCase
     {
         $columnGroup1 = factory(ColumnGroup::class)->create();
         $columnGroup2 = factory(ColumnGroup::class)->create();
-        
+
         $column_1 = factory(Column::class)->create([
             'columns_group' => 1,
         ]);
-        
+
         $column_2 = factory(Column::class)->create([
             'columns_group' => 1,
         ]);
-        
+
         $column_3 = factory(Column::class)->create([
             'columns_group' => 1,
         ]);
-        
+
         $column_4 = factory(Column::class)->create([
             'columns_group' => 2,
         ]);
-        
+
         $column_5 = factory(Column::class)->create([
             'id' => 5,
             'columns_group' => 2,
         ]);
-        
+
         $column_6 = factory(Column::class)->create([
             'columns_group' => 2,
         ]);

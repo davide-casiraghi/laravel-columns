@@ -30,7 +30,7 @@ $factory->define(DavideCasiraghi\LaravelColumns\Models\ColumnGroup::class, funct
         'button_corners' => 2,
         'background_type' => 2,
         'opacity' => '',
-        'background_image' => $faker->sentence($nbWords = 1, $variableNbWords = true).".jpg",
+        'background_image' => $faker->sentence($nbWords = 1, $variableNbWords = true).'.jpg',
         'background_image_position' => '',
         'justify_content' => '',
         'flex_wrap' => '',

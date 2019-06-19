@@ -6,8 +6,8 @@ use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use Intervention\Image\ImageManagerStatic as Image;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
@@ -85,7 +85,7 @@ class ColumnController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $column = new Column();
 
         // Set the default language to edit the quote in English
@@ -141,7 +141,7 @@ class ColumnController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $columnId)
-    {    
+    {
         // Validate form datas
         $validator = Validator::make($request->all(), [
                 'title' => 'required',
@@ -149,7 +149,7 @@ class ColumnController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $column = Column::find($columnId);
 
         // Set the default language to update the quote in English
@@ -213,7 +213,7 @@ class ColumnController extends Controller
     /***************************************************************************/
 
     /**
-     * Return and array with the column groups
+     * Return and array with the column groups.
      *
      * @return array
      */

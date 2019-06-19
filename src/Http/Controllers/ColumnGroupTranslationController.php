@@ -93,9 +93,9 @@ class ColumnGroupTranslationController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $columnGroupTranslation = ColumnGroupTranslation::find($request->get('column_group_translation_id'));
-        
+
         //dd($columnGroupTranslation);
         $this->saveOnDb($request, $columnGroupTranslation, 'update');
 
@@ -139,7 +139,6 @@ class ColumnGroupTranslationController extends Controller
      */
     public function destroy($columnGroupTranslationId)
     {
-        
         $columnGroupTranslation = ColumnGroupTranslation::find($columnGroupTranslationId);
         $columnGroupTranslation->delete();
 

@@ -4,7 +4,6 @@ namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnTranslation;
 
 class ColumnControllerTest extends TestCase
 {
@@ -23,7 +22,7 @@ class ColumnControllerTest extends TestCase
                                 'title' => 'test title',
                 ]);
     }
-    
+
     /** @test */
     public function it_displays_the_columns_index_page()
     {
@@ -42,7 +41,7 @@ class ColumnControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columns.create')
             ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_stores_a_valid_column()
     {
@@ -65,7 +64,7 @@ class ColumnControllerTest extends TestCase
         $this->assertDatabaseHas('columns', ['image_file_name' => 'image_test_1.jpg']);
         $response->assertViewIs('laravel-columns::columns.index');
     }
-    
+
     /** @test */
     public function it_does_not_store_invalid_column()
     {
@@ -74,7 +73,7 @@ class ColumnControllerTest extends TestCase
         $response->assertSessionHasErrors();
         $this->assertNull(Column::first());
     }
-    
+
     /** @test */
     public function it_displays_the_column_show_page()
     {
@@ -85,7 +84,7 @@ class ColumnControllerTest extends TestCase
         $response->assertViewIs('laravel-columns::columns.show')
                  ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_displays_the_column_edit_page()
     {
@@ -113,7 +112,7 @@ class ColumnControllerTest extends TestCase
         $response->assertViewIs('laravel-columns::columns.index')
                  ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_does_not_update_invalid_column()
     {

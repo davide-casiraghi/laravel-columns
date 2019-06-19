@@ -11,7 +11,7 @@ class Column extends Model
 
     use Translatable;
 
-    public $translatedAttributes = ['title','body','button_text','image_alt'];
+    public $translatedAttributes = ['title', 'body', 'button_text', 'image_alt'];
     protected $fillable = [
         'columns_group',
         'column_flex',

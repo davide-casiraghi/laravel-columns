@@ -11,7 +11,7 @@ class ColumnGroup extends Model
 
     use Translatable;
 
-    public $translatedAttributes = ['title','description','button_text','image_alt'];
+    public $translatedAttributes = ['title', 'description', 'button_text', 'image_alt'];
     protected $fillable = [
         'bkg_color',
         'text_alignment',

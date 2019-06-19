@@ -19,7 +19,7 @@ $factory->define(DavideCasiraghi\LaravelColumns\Models\Column::class, function (
         'button_text:en' => $faker->sentence($nbWords = 1, $variableNbWords = true),
         'image_alt:en' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'columns_group' => 1,
-        'image_file_name' => $faker->sentence($nbWords = 1, $variableNbWords = true).".jpg",
+        'image_file_name' => $faker->sentence($nbWords = 1, $variableNbWords = true).'.jpg',
         'fontawesome_icon_class' => '',
         'icon_color' => '#AA33BB',
         'button_url' => 'https://www.google.it',

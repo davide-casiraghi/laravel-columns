@@ -15,7 +15,7 @@ class CreateColumnsTable extends Migration
             $table->string('fontawesome_icon_class')->nullable();
             $table->string('icon_color')->nullable();
             $table->string('button_url')->nullable();
-            
+
             $table->timestamps();
         });
     }

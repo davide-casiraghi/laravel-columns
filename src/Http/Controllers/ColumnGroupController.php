@@ -6,8 +6,8 @@ use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use Intervention\Image\ImageManagerStatic as Image;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
 use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
@@ -85,7 +85,7 @@ class ColumnGroupController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $columnGroup = new ColumnGroup();
 
         // Set the default language to edit the quote in English
@@ -128,7 +128,7 @@ class ColumnGroupController extends Controller
     public function edit($columnGroupId = null)
     {
         $columnGroup = ColumnGroup::find($columnGroupId);
-        
+
         return view('laravel-columns::columnGroups.edit', compact('columnGroup'))
                     ->with('buttonColorArray', $this->getButtonColorArray());
     }
@@ -143,7 +143,7 @@ class ColumnGroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $columnGroupId)
-    {    
+    {
         // Validate form datas
         $validator = Validator::make($request->all(), [
                 'title' => 'required',
@@ -151,7 +151,7 @@ class ColumnGroupController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $columnGroup = ColumnGroup::find($columnGroupId);
 
         // Set the default language to update the quote in English
@@ -219,7 +219,7 @@ class ColumnGroupController extends Controller
         $columnGroup->columns_images_width = $request->get('columns_images_width');
         $columnGroup->columns_images_hide_mobile = $request->get('columns_images_hide_mobile');
         $columnGroup->icons_size = $request->get('icons_size');
-        
+
         //dd($columnGroup);
 
         // Column group image upload
@@ -230,7 +230,7 @@ class ColumnGroupController extends Controller
 
         $columnGroup->save();
     }
-    
+
     /***************************************************************************/
 
     /**

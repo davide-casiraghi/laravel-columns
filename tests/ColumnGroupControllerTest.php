@@ -4,7 +4,6 @@ namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
 
 class ColumnGroupControllerTest extends TestCase
 {
@@ -23,7 +22,7 @@ class ColumnGroupControllerTest extends TestCase
                                 'title' => 'test title',
                 ]);
     }
-    
+
     /** @test */
     public function it_displays_the_column_groups_index_page()
     {
@@ -42,7 +41,7 @@ class ColumnGroupControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columnGroups.create')
             ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_stores_a_valid_column_group()
     {
@@ -86,7 +85,7 @@ class ColumnGroupControllerTest extends TestCase
         $this->assertDatabaseHas('column_groups', ['background_image' => 'test_bkg_image.jpg']);
         $response->assertViewIs('laravel-columns::columnGroups.index');
     }
-    
+
     /** @test */
     public function it_does_not_store_invalid_column_group()
     {
@@ -95,7 +94,7 @@ class ColumnGroupControllerTest extends TestCase
         $response->assertSessionHasErrors();
         $this->assertNull(ColumnGroup::first());
     }
-    
+
     /** @test */
     /*public function it_displays_the_column_group_show_page()
     {
@@ -106,7 +105,7 @@ class ColumnGroupControllerTest extends TestCase
         $response->assertViewIs('laravel-columns::columnGroups.show')
                  ->assertStatus(200);
     }*/
-    
+
     /** @test */
     public function it_displays_the_column_group_edit_page()
     {
@@ -134,7 +133,7 @@ class ColumnGroupControllerTest extends TestCase
         $response->assertViewIs('laravel-columns::columnGroups.index')
                  ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_does_not_update_invalid_column_group()
     {

@@ -4,9 +4,8 @@ namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\Column;
-use DavideCasiraghi\LaravelColumns\Models\ColumnTranslation;
 
-class ColumnGroupTranslationControllerTest extends TestCase
+class ColumnTranslationControllerTest extends TestCase
 {
     use WithFaker;
 
@@ -22,12 +21,12 @@ class ColumnGroupTranslationControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columnsTranslations.create')
             ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_stores_a_valid_column_translation()
     {
         $this->authenticateAsAdmin();
-        
+
         $column = factory(Column::class)->create();
 
         $data = [
@@ -39,11 +38,11 @@ class ColumnGroupTranslationControllerTest extends TestCase
         $response = $this
             ->followingRedirects()
             ->post('/columnTranslations/store', $data);
-        
+
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title']);
         $response->assertViewIs('laravel-columns::columns.index');
     }
-    
+
     /** @test */
     public function it_does_not_store_invalid_column_translation()
     {
@@ -81,13 +80,13 @@ class ColumnGroupTranslationControllerTest extends TestCase
         $column = factory(Column::class)->create([
                             'title' => 'Column 1',
                         ]);
-        
+
         $data = [
             'column_id' => $column->id,
             'language_code' => 'es',
             'title' => 'Spanish column title',
         ];
-        
+
         $this->post('/columnTranslations/store', $data);
 
         // Update the translation
@@ -102,7 +101,7 @@ class ColumnGroupTranslationControllerTest extends TestCase
                  ->assertStatus(200);
         $this->assertDatabaseHas('column_translations', ['locale' => 'es', 'title' => 'Spanish column title updated']);
     }
-    
+
     /** @test */
     public function it_does_not_update_invalid_column_translation()
     {
@@ -127,7 +126,7 @@ class ColumnGroupTranslationControllerTest extends TestCase
                          ->put('/columnTranslations/update', $attributes);
         $response->assertSessionHasErrors();
     }
-    
+
     /** @test */
     public function it_deletes_column_translation()
     {
@@ -139,7 +138,7 @@ class ColumnGroupTranslationControllerTest extends TestCase
             'language_code' => 'es',
             'title' => 'Spanish column title',
         ];
-        
+
         $this->post('/columnTranslations/store', $data);
 
         $response = $this->delete('/columnTranslations/destroy/2');

@@ -21,5 +21,4 @@
         Route::post('/columnTranslations/store', 'ColumnTranslationController@store')->name('columnTranslations.store');
         Route::put('/columnTranslations/update', 'ColumnTranslationController@update')->name('columnTranslations.update');
         Route::delete('/columnTranslations/destroy/{columnTranslationId}', 'ColumnTranslationController@destroy')->name('columnTranslations.destroy');
-
     });

@@ -4,9 +4,8 @@ namespace DavideCasiraghi\LaravelColumns\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
 
-class ColumnTranslationControllerTest extends TestCase
+class ColumnGroupTranslationControllerTest extends TestCase
 {
     use WithFaker;
 
@@ -22,12 +21,12 @@ class ColumnTranslationControllerTest extends TestCase
             ->assertViewIs('laravel-columns::columnGroupTranslations.create')
             ->assertStatus(200);
     }
-    
+
     /** @test */
     public function it_stores_a_valid_column_group_translation()
     {
         $this->authenticateAsAdmin();
-        
+
         $columnGroup = factory(ColumnGroup::class)->create();
 
         $data = [
@@ -39,11 +38,11 @@ class ColumnTranslationControllerTest extends TestCase
         $response = $this
             ->followingRedirects()
             ->post('/columnGroupTranslations/store', $data);
-        
+
         $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column group title']);
         $response->assertViewIs('laravel-columns::columnGroups.index');
     }
-    
+
     /** @test */
     public function it_does_not_store_invalid_column_group_translation()
     {
@@ -81,13 +80,13 @@ class ColumnTranslationControllerTest extends TestCase
         $columnGroup = factory(ColumnGroup::class)->create([
                             'title' => 'Column 1',
                         ]);
-        
+
         $data = [
             'column_group_id' => $columnGroup->id,
             'language_code' => 'es',
             'title' => 'Spanish column group title',
         ];
-        
+
         $this->post('/columnGroupTranslations/store', $data);
 
         // Update the translation
@@ -102,7 +101,7 @@ class ColumnTranslationControllerTest extends TestCase
                  ->assertStatus(200);
         $this->assertDatabaseHas('column_group_translations', ['locale' => 'es', 'title' => 'Spanish column group title updated']);
     }
-    
+
     /** @test */
     public function it_does_not_update_invalid_column_translation()
     {
@@ -114,7 +113,7 @@ class ColumnTranslationControllerTest extends TestCase
             'language_code' => 'es',
             'title' => 'Spanish column group title',
         ];
-        
+
         $this->post('/columnGroupTranslations/store', $data);
 
         // Update the translation
@@ -127,7 +126,7 @@ class ColumnTranslationControllerTest extends TestCase
                          ->put('/columnGroupTranslations/update', $attributes);
         $response->assertSessionHasErrors();
     }
-    
+
     /** @test */
     public function it_deletes_column_translation()
     {
@@ -139,7 +138,7 @@ class ColumnTranslationControllerTest extends TestCase
             'language_code' => 'es',
             'title' => 'Spanish column group title',
         ];
-        
+
         $this->post('/columnGroupTranslations/store', $data);
 
         $response = $this->delete('/columnGroupTranslations/destroy/2');

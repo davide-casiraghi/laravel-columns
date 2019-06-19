@@ -93,12 +93,12 @@ class ColumnTranslationController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $columnTranslation = ColumnTranslation::find($request->get('column_translation_id'));
-        
+
         //dd($columnTranslation);
         //$eventCategoryTranslation = EventCategoryTranslation::where('id', $request->get('event_category_translation_id'));
-        
+
         //dd($columnTranslation);
         $this->saveOnDb($request, $columnTranslation, 'update');
 
