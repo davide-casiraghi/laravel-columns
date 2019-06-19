@@ -4,6 +4,8 @@
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-columns/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-columns)
 [![StyleCI](https://styleci.io/repos/192567464/shield?style=flat-square)](https://styleci.io/repos/192567464)
 [![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-columns.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-columns)
+<a href="https://codeclimate.com/github/davide-casiraghi/laravel-columns/maintainability"><img src="https://api.codeclimate.com/v1/badges/35d8c46b1641cd2b6bec/maintainability" /></a>
+[![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-columns.svg)](https://github.com/davide-casiraghi/laravel-columns) 
 
 
 A Laravel library to generate responsive columns with multi language contents.
