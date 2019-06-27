@@ -44,7 +44,7 @@ abstract class TestCase extends BaseTestCase
         return [
             LaravelColumnsServiceProvider::class,
             \Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-            \Dimsav\Translatable\TranslatableServiceProvider::class,
+            \Astrotomic\Translatable\TranslatableServiceProvider::class,
             \DavideCasiraghi\LaravelFormPartials\LaravelFormPartialsServiceProvider::class,
         ];
     }
