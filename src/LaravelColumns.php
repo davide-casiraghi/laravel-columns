@@ -107,7 +107,8 @@ class LaravelColumns
     public function replace_column_group_snippets_with_template($text)
     {
         $matches = self::getColumnGroupSnippetOccurrences($text);
-
+        // aaaaaa
+        
         if ($matches) {
             foreach ($matches as $key => $single_gallery_matches) {
                 $snippetParameters = self::getSnippetParameters($single_gallery_matches);
