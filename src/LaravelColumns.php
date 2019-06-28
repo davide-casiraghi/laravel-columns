@@ -164,8 +164,9 @@ class LaravelColumns
         $group_title_style = 'color:'.$columnGroup->group_title_color.'; ';
         $group_title_style .= 'font-size:'.$columnGroup->group_title_font_size.'; ';
         
-        $group_title_description_style = 'text-align:'.$columnGroup->text_alignment.'; ';
-
+        $group_description_style = 'text-align:'.$columnGroup->text_alignment.'; ';
+        $group_button_style = 'text-align:'.$columnGroup->text_alignment.'; ';
+        
         /* Wrapper style */
         $wrapper_style = 'justify-content:'.$columnGroup->justify_content.'; ';
         $wrapper_style .= 'flex-flow:'.$columnGroup->flex_flow.'; ';
@@ -207,7 +208,8 @@ class LaravelColumns
         'container_style' => $container_style,
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'group_title_style' => $group_title_style,
-        'group_title_description_style' => $group_title_description_style,
+        'group_description_style' => $group_description_style,
+        'group_button_style' => $group_button_style,
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
         'description_style'  => $description_style,

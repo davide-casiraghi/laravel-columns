@@ -4,14 +4,35 @@
     
     <div class='flexColumns py-4 px-2' style='{{$columnGroupParameters['container_style']}}'>
         
-        <div class='group_title'>
+        <div class='group'>
             <h3 class='mb-4' style='{{$columnGroupParameters['group_title_style']}}'>{{$columnGroup['title']}}</h3>
             
             @if(!empty($columnGroup['description']))
-                <div class="mb-3" style="{{$columnGroupParameters['group_title_description_style']}}">
+                <div class="mb-3" style="{{$columnGroupParameters['group_description_style']}}">
                     {!!$columnGroup['description']!!}
                 </div>
             @endif
+            
+            {{-- Button / Link --}}
+            @if ($columnGroup->link_style == 2 && !empty($columnGroup->button_url))
+                <div class="button mb-3" style="{{$columnGroupParameters['group_button_style']}}">
+                    <button class='press {{$columnGroupParameters['button_class']}}' onclick='location.href="{{$columnGroup->button_url}}"'>
+                        @if ($columnGroup->button_text)
+                            {{$columnGroup->button_text}}
+                        @else
+                            Insert a button text please
+                        @endif
+                    </button>
+                @elseif($columnGroup->link_style == 1)
+                    <a href='{{$columnGroup->button_url}}'>
+                        @if ($columnGroup->button_text)
+                            {{$columnGroup->button_text}}
+                        @else
+                            Insert a button text please
+                        @endif
+                    </a>
+                @endif	
+            </div>
         </div>
         
         <div class='wrapper' style='{{$columnGroupParameters['wrapper_style']}}'>
@@ -57,8 +78,6 @@
                         </a>
                     @endif	
 					    		
-					    		
-                    
                 </aside>    
                 
             @endforeach	
