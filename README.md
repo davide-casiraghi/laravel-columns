@@ -11,6 +11,13 @@
 
 A Laravel library to generate responsive columns with multi language contents.
 
+The library replace all the occurances of this snippet
+```
+{# card column_group=[1] #}
+```
+With the some HTML code of the relative column group.
+This code uses bootstrap 4.
+
 ## Installation
 
 You can install the package via composer:
