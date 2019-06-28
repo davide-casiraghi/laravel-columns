@@ -206,7 +206,6 @@ class LaravelColumns
 
         $ret = [
         'container_style' => $container_style,
-        'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'group_title_style' => $group_title_style,
         'group_description_style' => $group_description_style,
         'group_button_style' => $group_button_style,
