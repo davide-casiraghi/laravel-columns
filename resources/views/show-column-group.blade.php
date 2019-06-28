@@ -2,7 +2,7 @@
 
 @if ($columnGroup)
     
-    <div class='flexColumns my-4' style='{{$columnGroupParameters['container_style']}}'>
+    <div class='flexColumns py-4 px-2' style='{{$columnGroupParameters['container_style']}}'>
         
         <div class='group_title'>
             <h3 class='mb-4' style='{{$columnGroupParameters['group_title_style']}}'>{{$columnGroup['title']}}</h3>
@@ -62,7 +62,7 @@
                 </aside>    
                 
             @endforeach	
-                        
+        </div>                
                         
         {{--
         
