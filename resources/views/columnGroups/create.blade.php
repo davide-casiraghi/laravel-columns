@@ -17,18 +17,6 @@
                 @csrf
                 
                 <div class="row">
-                        
-                    {{-- Background color --}}
-                    <div class="col-12">
-                        @include('laravel-form-partials::input', [
-                            'title' =>  'Background color',
-                            'name' => 'bkg_color',
-                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
-                            'placeholder' => '#HEX', 
-                            'value' => old('bkg_color'),
-                            'required' => false,
-                        ])
-                    </div>
                     
                     {{-- Text alignment --}}
                     <div class="col-12">
@@ -249,6 +237,18 @@
                               'selected' => old('background_type'),
                               'required' => false,
                               'tooltip' => 'aaa',
+                        ])
+                    </div>
+                    
+                    {{-- Background color --}}
+                    <div class="col-12">
+                        @include('laravel-form-partials::input', [
+                            'title' =>  'Background color',
+                            'name' => 'bkg_color',
+                            'tooltip' => 'Exadecimal value for the background color. Active if a value is specified.',
+                            'placeholder' => '#HEX', 
+                            'value' => old('bkg_color'),
+                            'required' => false,
                         ])
                     </div>
                 
