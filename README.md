@@ -48,6 +48,16 @@ After the package is published this new routes will be available:
 
 Accessing to this routes you can manage new column groups and columns.
 
+### Replace the snippet occurrances
+
+Then to replace all the occurrance of the column group snippets:
+
+``` php
+use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;  
+
+$text = LaravelColumns::replace_column_group_snippets_with_template($text);
+```
+
 ### Testing
 
 ``` bash
