@@ -160,6 +160,10 @@ class LaravelColumns
     {
         //dd($columnGroup);
         $group_title_style = 'text-align:'.$columnGroup->text_alignment.'; ';
+        $group_title_style = 'color:'.$columnGroup->group_title_color.'; ';
+        $group_title_style .= 'font-size:'.$columnGroup->group_title_font_size.'; ';
+        
+        $group_title_description_style = 'text-align:'.$columnGroup->text_alignment.'; ';
 
         /* Wrapper style */
         $wrapper_style = 'justify-content:'.$columnGroup->justify_content.'; ';
@@ -173,8 +177,8 @@ class LaravelColumns
         }
 
         /* Title style */
-        $title_style = 'color:'.$columnGroup->group_title_color.'; ';
-        $title_style .= 'font-size:'.$columnGroup->group_title_font_size.'; ';
+        $title_style = 'color:'.$columnGroup->column_title_color.'; ';
+        $title_style .= 'font-size:'.$columnGroup->column_title_font_size.'; ';
 
         /* Description style */
         $description_style = 'font-size:'.$columnGroup->description_font_size.'; ';
@@ -201,6 +205,7 @@ class LaravelColumns
         $ret = [
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'group_title_style' => $group_title_style,
+        'group_title_description_style' => $group_title_description_style,
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
         'description_style'  => $description_style,

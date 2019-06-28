@@ -4,11 +4,11 @@
     
     <div class='flexColumns my-4'>
         
-        <div class='group_title' style='{{$columnGroupParameters['group_title_style']}}'>
-            <h3 class='mb-4' style='{{$columnGroupParameters['title_style']}}'>{{$columnGroup['title']}}</h3>
+        <div class='group_title'>
+            <h3 class='mb-4' style='{{$columnGroupParameters['group_title_style']}}'>{{$columnGroup['title']}}</h3>
             
             @if(!empty($columnGroup['description']))
-                <div class="mb-3">
+                <div class="mb-3" style="{{$columnGroupParameters['group_title_description_style']}}">
                     {!!$columnGroup['description']!!}
                 </div>
             @endif
