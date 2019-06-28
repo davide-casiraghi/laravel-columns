@@ -158,7 +158,8 @@ class LaravelColumns
      */
     public static function getParametersArray($columnGroup)
     {
-        //dd($columnGroup);
+        $container_style = 'background-color: '.$columnGroup->bkg_color.';';
+        
         $group_title_style = 'text-align:'.$columnGroup->text_alignment.'; ';
         $group_title_style = 'color:'.$columnGroup->group_title_color.'; ';
         $group_title_style .= 'font-size:'.$columnGroup->group_title_font_size.'; ';
@@ -203,6 +204,7 @@ class LaravelColumns
         }
 
         $ret = [
+        'container_style' => $container_style,
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
         'group_title_style' => $group_title_style,
         'group_title_description_style' => $group_title_description_style,
