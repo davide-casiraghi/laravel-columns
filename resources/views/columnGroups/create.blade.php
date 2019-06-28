@@ -278,7 +278,7 @@
                     @include('laravel-form-partials::upload-image', [
                           'title' => 'Background Image', 
                           'name' => 'background_image',
-                          'folder' => 'column_groups_background_images',
+                          'folder' => 'column_groups',
                           'value' => '',
                           'required' => false,
                     ])
