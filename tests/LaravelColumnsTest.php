@@ -105,6 +105,7 @@ class LaravelColumnsTest extends TestCase
 
         $column_6 = factory(Column::class)->create([
             'columns_group' => 2,
+            'body' => 'body test column 6'
         ]);
 
         $text = 'Lorem ipsum {# column_group column_group_id=['.$columnGroup1->id.'] #} sid amet.
@@ -114,8 +115,8 @@ class LaravelColumnsTest extends TestCase
         $text = LaravelColumns::replace_column_group_snippets_with_template($text);
         $text = trim(preg_replace('/\s+/', ' ', $text));
 
-        $this->assertContains('<div class="row laravel-card" style="background-color: #FF00FF; color: #2365AA;"> <div class="text col-md-9 my-auto px-4 order-md-1"> <h2 class="laravel-card-heading mt-5">test title</h2> <div class="lead mb-4">test body</div> </div> <div class="image d-none d-md-block col-md-3 order-md-2" style="background-image: url(/storage/images/cards/image_test_1.jpg);"> </div> <div class="image col-12 d-md-none order-md-2"> <img class="laravel-card-image img-fluid mx-auto" src="/storage/images/cards/image_test_1.jpg" alt=""> </div> </div>', $text);
-        $this->assertContains('<div class="row laravel-card" style="background-color: #FF00FF; color: #2365AA;"> <div class="text col-md-9 my-auto px-4 order-md-2"> <h2 class="laravel-card-heading mt-5">test title</h2> <div class="lead mb-4">test body</div> </div> <div class="image d-none d-md-block col-md-3 order-md-1" style="background-image: url(/storage/images/cards/image_test_2.jpg);"> </div> <div class="image col-12 d-md-none order-md-1"> <img class="laravel-card-image img-fluid mx-auto" src="/storage/images/cards/image_test_2.jpg" alt=""> </div> </div>', $text);
+        
+        $this->assertContains("body test column 6", $text);
     }
 
     /** @test */
@@ -126,6 +127,6 @@ class LaravelColumnsTest extends TestCase
         $text = LaravelColumns::replace_column_group_snippets_with_template($text);
         $text = trim(preg_replace('/\s+/', ' ', $text));
 
-        $this->assertContains('<div class="alert alert-warning" role="alert">The column group with the specified id has not been found.</div>', $text);
+        $this->assertContains("<div class='alert alert-warning' role='alert'>The column group with the specified id has not been found.</div>", $text);
     }
 }
