@@ -105,7 +105,7 @@ class LaravelColumnsTest extends TestCase
 
         $column_6 = factory(Column::class)->create([
             'columns_group' => 2,
-            'body' => 'body test column 6'
+            'body' => 'body test column 6',
         ]);
 
         $text = 'Lorem ipsum {# column_group column_group_id=['.$columnGroup1->id.'] #} sid amet.
@@ -115,8 +115,7 @@ class LaravelColumnsTest extends TestCase
         $text = LaravelColumns::replace_column_group_snippets_with_template($text);
         $text = trim(preg_replace('/\s+/', ' ', $text));
 
-        
-        $this->assertContains("body test column 6", $text);
+        $this->assertContains('body test column 6', $text);
     }
 
     /** @test */

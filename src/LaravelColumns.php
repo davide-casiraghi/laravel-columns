@@ -108,7 +108,7 @@ class LaravelColumns
     {
         $matches = self::getColumnGroupSnippetOccurrences($text);
         // aaaaaa
-        
+
         if ($matches) {
             foreach ($matches as $key => $single_gallery_matches) {
                 $snippetParameters = self::getSnippetParameters($single_gallery_matches);
