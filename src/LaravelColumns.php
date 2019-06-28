@@ -159,6 +159,7 @@ class LaravelColumns
     public static function getParametersArray($columnGroup)
     {
         //dd($columnGroup);
+        $group_title_style = 'text-align:'.$columnGroup->text_alignment.'; ';
 
         /* Wrapper style */
         $wrapper_style = 'justify-content:'.$columnGroup->justify_content.'; ';
@@ -199,6 +200,7 @@ class LaravelColumns
 
         $ret = [
         'icon_color' => 'color: '.$columnGroup->icon_color.';',
+        'group_title_style' => $group_title_style,
         'wrapper_style' => $wrapper_style,
         'title_style' => $title_style,
         'description_style'  => $description_style,
