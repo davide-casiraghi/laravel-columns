@@ -159,14 +159,14 @@ class LaravelColumns
     public static function getParametersArray($columnGroup)
     {
         $container_style = 'background-color: '.$columnGroup->bkg_color.';';
-        
+
         $group_title_style = 'text-align:'.$columnGroup->text_alignment.'; ';
         $group_title_style = 'color:'.$columnGroup->group_title_color.'; ';
         $group_title_style .= 'font-size:'.$columnGroup->group_title_font_size.'; ';
-        
+
         $group_description_style = 'text-align:'.$columnGroup->text_alignment.'; ';
         $group_button_style = 'text-align:'.$columnGroup->text_alignment.'; ';
-        
+
         /* Wrapper style */
         $wrapper_style = 'justify-content:'.$columnGroup->justify_content.'; ';
         $wrapper_style .= 'flex-flow:'.$columnGroup->flex_flow.'; ';
