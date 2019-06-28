@@ -26,9 +26,20 @@ composer require davide-casiraghi/laravel-columns
 
 ## Usage
 
-``` php
-// Usage description here
-```
+### Authorization
+> To work the package aspect that in your user model and table you have a field called **group** that can have this possible values:
+- null: Registered user 
+- 1: Super Admin
+- 2: Admin
+
+> Just the users that have **Admin** and **Super admin** privileges can access to the routes that allow to create, edit and delete the blogs, categories and posts. Otherwise you get redirected to the homepage.
+
+### Access to the package
+After the package is published this new routes will be available:
+- /columnGroups
+- /columns
+
+Accessing to this routes you can manage new column groups and columns.
 
 ### Testing
 
