@@ -158,7 +158,7 @@ class LaravelColumns
      */
     public static function getParametersArray($columnGroup)
     {
-        $container_style = 'background-color: '.$columnGroup->bkg_color.';';
+        $container_style = '';
 
         $group_title_style = 'text-align:'.$columnGroup->text_alignment.'; ';
         $group_title_style = 'color:'.$columnGroup->group_title_color.'; ';
@@ -173,9 +173,20 @@ class LaravelColumns
         $wrapper_style .= 'flex-wrap:'.$columnGroup->flex_wrap.'; ';
         $wrapper_style .= 'text-align:'.$columnGroup->text_alignment.'; ';
 
-        if ($columnGroup->background_type == 3) {
-            $wrapper_style .= 'background-image:'.$column->background_image.'; ';
-            $wrapper_style .= 'background-position:'.$column->background_image_position.'; ';
+        switch ($columnGroup->background_type) {
+            case 1:
+                $container_style .= 'background-color: '.$columnGroup->bkg_color.';';
+            break;
+            case 2:
+                // gradient
+            break;
+            case 3:
+                $wrapper_style .= 'background-image:url(/storage/images/column_groups/'.$columnGroup->background_image.');';
+                $wrapper_style .= 'background-position:'.$columnGroup->background_image_position.'; ';
+            break;
+            default:
+                // code...
+            break;
         }
 
         /* Title style */
