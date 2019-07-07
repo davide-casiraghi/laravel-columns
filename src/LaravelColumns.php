@@ -188,8 +188,8 @@ class LaravelColumns
                 // code...
             break;
         }
-        
-        $bg_overlay_style = "opacity: ".$columnGroup->opacity;
+
+        $bg_overlay_style = 'opacity: '.$columnGroup->opacity;
 
         /* Title style */
         $title_style = 'color:'.$columnGroup->column_title_color.'; ';
