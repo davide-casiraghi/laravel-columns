@@ -188,6 +188,8 @@ class LaravelColumns
                 // code...
             break;
         }
+        
+        $bg_overlay_style = "opacity: ".$columnGroup->opacity;
 
         /* Title style */
         $title_style = 'color:'.$columnGroup->column_title_color.'; ';
@@ -216,17 +218,18 @@ class LaravelColumns
         }
 
         $ret = [
-        'container_style' => $container_style,
-        'group_title_style' => $group_title_style,
-        'group_description_style' => $group_description_style,
-        'group_button_style' => $group_button_style,
-        'wrapper_style' => $wrapper_style,
-        'title_style' => $title_style,
-        'description_style'  => $description_style,
-        'image_style'  => $image_style,
-        'image_class'  => $image_class,
-        'button_class' => $button_class,
-    ];
+            'container_style' => $container_style,
+            'group_title_style' => $group_title_style,
+            'group_description_style' => $group_description_style,
+            'group_button_style' => $group_button_style,
+            'wrapper_style' => $wrapper_style,
+            'title_style' => $title_style,
+            'description_style'  => $description_style,
+            'image_style'  => $image_style,
+            'image_class'  => $image_class,
+            'button_class' => $button_class,
+            'bg_overlay_style' => $bg_overlay_style,
+        ];
 
         /*$ret = [
              'img_col_size_class' => 'col-md-'.$column->img_col_size,

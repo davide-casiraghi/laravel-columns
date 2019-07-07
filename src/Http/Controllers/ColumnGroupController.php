@@ -209,6 +209,7 @@ class ColumnGroupController extends Controller
         $columnGroup->background_type = $request->get('background_type');
         $columnGroup->background_image = $request->get('background_image');
         $columnGroup->background_image_position = $request->get('background_image_position');
+        $columnGroup->opacity = $request->get('opacity');
         $columnGroup->justify_content = $request->get('justify_content');
         $columnGroup->flex_wrap = $request->get('flex_wrap');
         $columnGroup->flex_flow = $request->get('flex_flow');

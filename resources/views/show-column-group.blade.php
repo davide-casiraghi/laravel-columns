@@ -81,7 +81,9 @@
                 </aside>    
                 
             @endforeach	
-        </div>                
+            
+            <div class='bg-overlay' style='{{$columnGroupParameters['bg_overlay_style']}}'></div>
+        </div>              
                         
         {{--
         

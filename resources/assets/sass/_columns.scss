@@ -7,6 +7,7 @@
 	.wrapper {
 		display: flex;  
 		width: 100%;
+		position: relative;
 
 		/*background-position: center center;*/
 		background-repeat: no-repeat;
@@ -17,6 +18,18 @@
 		& > * {
 		  padding: 10px;
 		}
+		
+		.bg-overlay{
+	        background:#282c37; 
+	        opacity:0.5;
+
+	        width: 100%;
+	        position: absolute;
+	        left: 0;
+	        top: 0;
+	        height: 100%;
+	        z-index: 3;
+    	}
 	}
 
 	aside{
