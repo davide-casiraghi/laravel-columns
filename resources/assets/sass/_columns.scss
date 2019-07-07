@@ -33,7 +33,9 @@
 	}
 
 	aside{
-		/*text-align: center;*/
+		position: relative;
+    	z-index: 2;
+		
 		img{
 			/*max-width: none;*/
 			max-width: 400px;
