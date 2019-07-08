@@ -199,10 +199,10 @@ class LaravelColumns
         $description_style = 'font-size:'.$columnGroup->description_font_size.'; ';
 
         /* Button class*/
-        $button_class = $columnGroup->button_color.'; ';
-        $button_class .= $columnGroup->button_corners.'; ';
+        $button_class = $columnGroup->button_color.' ';
+        $button_class .= $columnGroup->button_corners.' ';
         if ($columnGroup->link_style == 3) {
-            $button_class .= 'press-ghost; ';
+            $button_class .= 'press-ghost ';
         }
 
         // Image style and class
