@@ -35,6 +35,14 @@ composer require davide-casiraghi/laravel-columns
 ```npm install press-css```   
 https://github.com/codyogden/press-css
 
+### Import the scss files
+Add this lines to your **resources/sass/app.scss** file:   
+```@import "~press-css/scss/press";```   
+```@import 'vendor/laravel-columns/columns';```   
+
+and then run in console:  
+```npm run dev```  
+
 
 ## Usage
 
