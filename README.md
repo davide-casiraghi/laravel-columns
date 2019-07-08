@@ -31,6 +31,11 @@ composer require davide-casiraghi/laravel-columns
 ### Run the database migrations
 ```php artisan migrate```
 
+### Insall Press.css for the buttons style
+```npm install press-css```
+https://github.com/codyogden/press-css
+
+
 ## Usage
 
 ### Authorization
