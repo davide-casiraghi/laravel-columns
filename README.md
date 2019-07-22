@@ -74,7 +74,7 @@ $text = LaravelColumns::replace_column_group_snippets_with_template($text);
 ### Testing
 
 ``` bash
-composer test
+./vendor/bin/phpunit --coverage-html=html
 ```
 
 ### Changelog
