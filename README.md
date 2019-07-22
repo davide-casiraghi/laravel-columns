@@ -37,8 +37,10 @@ https://github.com/codyogden/press-css
 
 ### Import the scss files
 Add this lines to your **resources/sass/app.scss** file:   
-```@import "~press-css/css/press.css";```   
-```@import 'vendor/laravel-columns/columns';```   
+```
+@import "~press-css/css/press.css";
+@import 'vendor/laravel-columns/columns';
+```   
 
 and then run in console:  
 ```npm run dev```  
