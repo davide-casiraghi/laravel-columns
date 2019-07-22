@@ -33,32 +33,24 @@ class LaravelColumnsTest extends TestCase
     /** @test */
     public function it_gets_the_column_parameter_array()
     {
+        $columnGroup = factory(ColumnGroup::class)->create([
+            'button_color' => 'orange',
+            'text_alignment' => 'right',
+            'opacity' => '.5',
+        ]);
+        
         $column = factory(Column::class)->create([
             'icon_color' => '#FF00FF',
         ]);
 
-        /*$id = Card::insertGetId([
-            'image_file_name' => 'test image name',
-            'button_url' => 'test button url',
-            'img_col_size'  => '3',
-            'bkg_color'  => '#FF00FF',
-            'text_color'  => '#2365AA',
-            'container_wrap'  => '1',
-        ]);
-
-        CardTranslation::insert([
-            'card_id' => $id,
-            'heading' => 'test heading',
-            'title' => 'test title',
-            'body' => 'test body',
-            'button_text' => 'test button text',
-            'locale' => 'en',
-        ]);*/
-
+        
+        
         $column = Column::where('id', 1)->first();
+        
+        dd($column);
         $parameters = LaravelColumns::getParametersArray($column);
 
-        //dd($parameters);
+        dd($parameters);
 
         $this->assertEquals($parameters['icon_color'], 'color: #FF00FF;');
         //$this->assertEquals($parameters['img_col_size_class'], 'col-md-3');
