@@ -2,15 +2,15 @@
 
 namespace DavideCasiraghi\LaravelColumns\Http\Controllers;
 
-use Validator;
+use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
+use DavideCasiraghi\LaravelColumns\Models\Column;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
+use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use DavideCasiraghi\LaravelColumns\Models\Column;
 use Intervention\Image\ImageManagerStatic as Image;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
+use Validator;
 
 class ColumnGroupController extends Controller
 {
@@ -80,8 +80,8 @@ class ColumnGroupController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -146,8 +146,8 @@ class ColumnGroupController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -242,27 +242,27 @@ class ColumnGroupController extends Controller
     public static function getButtonColorArray()
     {
         $ret = [
-             'press-red' => 'Red',
-             'press-pink' => 'Pink',
-             'press-purple' => 'Purple',
-             'press-deeppurple' => 'Deep purple',
-             'press-indigo' => 'Indigo',
-             'press-blue' => 'Blue',
-             'press-lightblue' => 'Light blue',
-             'press-cyan' => 'Cyan',
-             'press-teal' => 'Teal',
-             'press-green' => 'Green',
-             'press-lightgreen' => 'Light green',
-             'press-lime' => 'Lime',
-             'press-yellow' => 'Yellow',
-             'press-amber' => 'Amber',
-             'press-orange' => 'Orange',
-             'press-deeporange' => 'Deeporange',
-             'press-brown' => 'Brown',
-             'press-grey' => 'Grey',
-             'press-bluegrey' => 'Blue grey',
-             'press-black' => 'Black',
-         ];
+            'press-red' => 'Red',
+            'press-pink' => 'Pink',
+            'press-purple' => 'Purple',
+            'press-deeppurple' => 'Deep purple',
+            'press-indigo' => 'Indigo',
+            'press-blue' => 'Blue',
+            'press-lightblue' => 'Light blue',
+            'press-cyan' => 'Cyan',
+            'press-teal' => 'Teal',
+            'press-green' => 'Green',
+            'press-lightgreen' => 'Light green',
+            'press-lime' => 'Lime',
+            'press-yellow' => 'Yellow',
+            'press-amber' => 'Amber',
+            'press-orange' => 'Orange',
+            'press-deeporange' => 'Deeporange',
+            'press-brown' => 'Brown',
+            'press-grey' => 'Grey',
+            'press-bluegrey' => 'Blue grey',
+            'press-black' => 'Black',
+        ];
 
         return $ret;
     }

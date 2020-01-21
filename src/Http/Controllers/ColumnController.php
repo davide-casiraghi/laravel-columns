@@ -2,15 +2,15 @@
 
 namespace DavideCasiraghi\LaravelColumns\Http\Controllers;
 
-use Validator;
+use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
+use DavideCasiraghi\LaravelColumns\Models\Column;
+use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
+use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use DavideCasiraghi\LaravelColumns\Models\Column;
 use Intervention\Image\ImageManagerStatic as Image;
-use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
+use Validator;
 
 class ColumnController extends Controller
 {
@@ -80,8 +80,8 @@ class ColumnController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -144,8 +144,8 @@ class ColumnController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }

@@ -2,9 +2,9 @@
 
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
+use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 use DavideCasiraghi\LaravelColumns\Models\Column;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
-use DavideCasiraghi\LaravelColumns\Facades\LaravelColumns;
 
 class LaravelColumnsTest extends TestCase
 {
@@ -38,15 +38,13 @@ class LaravelColumnsTest extends TestCase
             'text_alignment' => 'right',
             'opacity' => '.5',
         ]);
-        
+
         $column = factory(Column::class)->create([
             'icon_color' => '#FF00FF',
         ]);
 
-        
-        
         $column = Column::where('id', 1)->first();
-        
+
         dd($column);
         $parameters = LaravelColumns::getParametersArray($column);
 
