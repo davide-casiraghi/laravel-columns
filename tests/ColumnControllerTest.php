@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
-use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\Column;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class ColumnControllerTest extends TestCase
 {
@@ -15,12 +15,12 @@ class ColumnControllerTest extends TestCase
     public function it_runs_the_test_column_factory()
     {
         $column = factory(Column::class)->create([
-                            'title' => 'test title',
-                        ]);
+            'title' => 'test title',
+        ]);
         $this->assertDatabaseHas('column_translations', [
-                                'locale' => 'en',
-                                'title' => 'test title',
-                ]);
+            'locale' => 'en',
+            'title' => 'test title',
+        ]);
     }
 
     /** @test */
@@ -105,7 +105,7 @@ class ColumnControllerTest extends TestCase
         $attributes = ([
             'title' => 'test title updated',
             'body' => 'test body updated',
-          ]);
+        ]);
 
         $response = $this->followingRedirects()
                          ->put('/columns/'.$column->id, $attributes);

@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelColumns\Tests;
 
-use Illuminate\Foundation\Testing\WithFaker;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroup;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class ColumnGroupTranslationControllerTest extends TestCase
 {
@@ -78,8 +78,8 @@ class ColumnGroupTranslationControllerTest extends TestCase
     {
         $this->authenticateAsAdmin();
         $columnGroup = factory(ColumnGroup::class)->create([
-                            'title' => 'Column 1',
-                        ]);
+            'title' => 'Column 1',
+        ]);
 
         $data = [
             'column_group_id' => $columnGroup->id,
@@ -94,7 +94,7 @@ class ColumnGroupTranslationControllerTest extends TestCase
             'column_group_translation_id' => 2,
             'language_code' => 'es',
             'title' => 'Spanish column group title updated',
-          ]);
+        ]);
         $response = $this->followingRedirects()
                          ->put('/columnGroupTranslations/update', $attributes);
         $response->assertViewIs('laravel-columns::columnGroups.index')
@@ -121,7 +121,7 @@ class ColumnGroupTranslationControllerTest extends TestCase
             'column_group_translation_id' => 2,
             'language_code' => 'es',
             'title' => '',
-          ]);
+        ]);
         $response = $this->followingRedirects()
                          ->put('/columnGroupTranslations/update', $attributes);
         $response->assertSessionHasErrors();

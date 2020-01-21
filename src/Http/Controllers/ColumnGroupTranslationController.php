@@ -2,9 +2,9 @@
 
 namespace DavideCasiraghi\LaravelColumns\Http\Controllers;
 
-use Validator;
-use Illuminate\Http\Request;
 use DavideCasiraghi\LaravelColumns\Models\ColumnGroupTranslation;
+use Illuminate\Http\Request;
+use Validator;
 
 class ColumnGroupTranslationController extends Controller
 {
@@ -61,8 +61,8 @@ class ColumnGroupTranslationController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -88,8 +88,8 @@ class ColumnGroupTranslationController extends Controller
     {
         // Validate form datas
         $validator = Validator::make($request->all(), [
-                'title' => 'required',
-            ]);
+            'title' => 'required',
+        ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
